@@ -306,8 +306,11 @@
 <h3 id="apply">Apply</h3>
 <p><strong><font color="red">apply<font color="green">,operators</font> [ infile1 infile2 ... ]</font></strong></p>
 <ul>
-<li><p><strong>描述</strong><br>
-对每个输入文件运行给定的操作 <strong><font color="green">operators</font></strong> ，输入的文件必须用方括号括起来 <strong>[ infile1 infile2 ... ]</strong> ，参数 <strong><font color="green">operators</font></strong> 是一个<strong>以空格为间隔的 CDO 操作列表</strong>，每一个操作都只能有一个输入和一个输出</p></li>
+<li><strong>描述</strong><br>
+对每个输入文件运行给定的操作 <strong><font color="green">operators</font></strong> ，输入的文件必须用方括号括起来 <strong>[ infile1 infile2 ... ]</strong> ，参数 <strong><font color="green">operators</font></strong> 是一个<strong>以空格为间隔的 CDO 操作列表</strong>，每一个操作都只能有一个输入和一个输出</li>
+</ul>
+<span id="more"></span>
+<ul>
 <li><p><strong>参数</strong><br>
 <strong><font color="green">operators</font></strong> ，STRING，以空格为间隔的 CDO 操作列表</p></li>
 <li><p><strong>例子</strong><br>
