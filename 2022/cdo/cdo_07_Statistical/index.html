@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"buujun.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Statistical values 统计 mean 和 average 的区别：计算 mean 时，只考虑非缺失值计入计算的样本；计算 average 时，缺失值当做 0 处理进行计算； Statistical values over all variables &lt;operator&gt; infile outfile">
+    <meta name="description" content="本篇博客将介绍 CDO 进行空间统计及时间统计的相关操作，包括计算 min, max, range, sum, mean, avg, std, var 等统计量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CDO - Statistical Operators">
+<meta property="og:title" content="CDO - 统计计算的操作">
 <meta property="og:url" content="http://buujun.github.io/2022/cdo/cdo_07_Statistical/index.html">
 <meta property="og:site_name" content="BUUJUN&#39;s Notes">
-<meta property="og:description" content="Statistical values 统计 mean 和 average 的区别：计算 mean 时，只考虑非缺失值计入计算的样本；计算 average 时，缺失值当做 0 处理进行计算； Statistical values over all variables &lt;operator&gt; infile outfile">
+<meta property="og:description" content="本篇博客将介绍 CDO 进行空间统计及时间统计的相关操作，包括计算 min, max, range, sum, mean, avg, std, var 等统计量">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-21T13:43:54.000Z">
-<meta property="article:modified_time" content="2022-07-22T14:20:02.883Z">
+<meta property="article:published_time" content="2022-07-26T13:43:54.000Z">
+<meta property="article:modified_time" content="2022-07-27T02:35:36.500Z">
 <meta property="article:author" content="BUUJUN WANG">
 <meta property="article:tag" content="CDO">
 <meta property="article:tag" content="Linux">
@@ -38,10 +38,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://buujun.github.io/2022/cdo/cdo_07_Statistical/","path":"2022/cdo/cdo_07_Statistical/","title":"CDO - Statistical Operators"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://buujun.github.io/2022/cdo/cdo_07_Statistical/","path":"2022/cdo/cdo_07_Statistical/","title":"CDO - 统计计算的操作"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CDO - Statistical Operators | BUUJUN's Notes</title>
+<title>CDO - 统计计算的操作 | BUUJUN's Notes</title>
   
 
 
@@ -256,7 +256,7 @@ mjx-container[display="true"] + br {
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#statistical-values-%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.</span> <span class="nav-text">Statistical values 统计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-all-variables"><span class="nav-number">1.1.</span> <span class="nav-text">Statistical values over all variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zonal-statistical-values-%E7%BA%AC%E5%90%91%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.2.</span> <span class="nav-text">Zonal statistical values 纬向统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meridional-statistical-values-%E7%BB%8F%E5%90%91%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.3.</span> <span class="nav-text">Meridional statistical values 经向统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vertical-statistical-values-%E5%9E%82%E7%9B%B4%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.4.</span> <span class="nav-text">Vertical statistical values 垂直统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-a-field-%E5%8C%BA%E5%9F%9F%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.5.</span> <span class="nav-text">Statistical values over a field 区域统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-grid-boxes"><span class="nav-number">1.6.</span> <span class="nav-text">Statistical values over grid boxes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-all-timesteps"><span class="nav-number">1.7.</span> <span class="nav-text">Statistical values over all timesteps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-range-statistical-values"><span class="nav-number">1.8.</span> <span class="nav-text">Time range statistical values</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#running-statistical-values-%E6%BB%91%E5%8A%A8%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.9.</span> <span class="nav-text">Running statistical values 滑动统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hourly-statistical-values-%E9%80%90%E5%B0%8F%E6%97%B6%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.10.</span> <span class="nav-text">Hourly statistical values 逐小时统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#daily-statistical-values-%E9%80%90%E5%A4%A9%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.11.</span> <span class="nav-text">Daily statistical values 逐天统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#monthly-statistical-values-%E9%80%90%E6%9C%88%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.12.</span> <span class="nav-text">Monthly statistical values 逐月统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yearly-statistical-values-%E9%80%90%E5%B9%B4%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.13.</span> <span class="nav-text">Yearly statistical values 逐年统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yearly-mean-from-monthly-data-%E6%8C%89%E6%9C%88%E8%AE%A1%E7%AE%97%E5%B9%B4%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="nav-number">1.14.</span> <span class="nav-text">Yearly mean from monthly data 按月计算年平均值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#seasonal-statistical-values-%E9%80%90%E5%AD%A3%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.15.</span> <span class="nav-text">Seasonal statistical values 逐季统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-hourly-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E5%B0%8F%E6%97%B6%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.16.</span> <span class="nav-text">Multi-year hourly statistical values 多年的每小时的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-day-hourly-statistical-values-%E4%B8%8D%E5%90%8C%E5%A4%A9%E7%9A%84%E6%AF%8F%E5%B0%8F%E6%97%B6%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.17.</span> <span class="nav-text">Multi-day hourly statistical values 不同天的每小时的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-daily-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E5%A4%A9%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.18.</span> <span class="nav-text">Multi-year daily statistical values 多年的每天的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-monthly-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E6%9C%88%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.19.</span> <span class="nav-text">Multi-year monthly statistical values 多年的每月的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-seasonal-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E5%AD%A3%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.20.</span> <span class="nav-text">Multi-year seasonal statistical values 多年的每季的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-daily-running-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E9%80%90%E6%97%A5%E7%9A%84%E6%BB%91%E5%8A%A8%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.21.</span> <span class="nav-text">Multi-year daily running statistical values 多年的逐日的滑动统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-an-ensemble"><span class="nav-number">1.22.</span> <span class="nav-text">Statistical values over an ensemble</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E8%AE%A1%E7%AE%97-statistical-values"><span class="nav-number">1.</span> <span class="nav-text">统计计算 Statistical Values</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-all-variables"><span class="nav-number">1.1.</span> <span class="nav-text">Statistical values over all variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zonal-statistical-values-%E7%BA%AC%E5%90%91%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.2.</span> <span class="nav-text">Zonal statistical values 纬向统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meridional-statistical-values-%E7%BB%8F%E5%90%91%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.3.</span> <span class="nav-text">Meridional statistical values 经向统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vertical-statistical-values-%E5%9E%82%E7%9B%B4%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.4.</span> <span class="nav-text">Vertical statistical values 垂直统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-a-field-%E5%8C%BA%E5%9F%9F%E7%BB%9F%E8%AE%A1"><span class="nav-number">1.5.</span> <span class="nav-text">Statistical values over a field 区域统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-grid-boxes"><span class="nav-number">1.6.</span> <span class="nav-text">Statistical values over grid boxes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-all-timesteps"><span class="nav-number">1.7.</span> <span class="nav-text">Statistical values over all timesteps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-range-statistical-values"><span class="nav-number">1.8.</span> <span class="nav-text">Time range statistical values</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#running-statistical-values-%E6%BB%91%E5%8A%A8%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.9.</span> <span class="nav-text">Running statistical values 滑动统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hourly-statistical-values-%E9%80%90%E5%B0%8F%E6%97%B6%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.10.</span> <span class="nav-text">Hourly statistical values 逐小时统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#daily-statistical-values-%E9%80%90%E5%A4%A9%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.11.</span> <span class="nav-text">Daily statistical values 逐天统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#monthly-statistical-values-%E9%80%90%E6%9C%88%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.12.</span> <span class="nav-text">Monthly statistical values 逐月统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yearly-statistical-values-%E9%80%90%E5%B9%B4%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.13.</span> <span class="nav-text">Yearly statistical values 逐年统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yearly-mean-from-monthly-data-%E6%8C%89%E6%9C%88%E8%AE%A1%E7%AE%97%E5%B9%B4%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="nav-number">1.14.</span> <span class="nav-text">Yearly mean from monthly data 按月计算年平均值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#seasonal-statistical-values-%E9%80%90%E5%AD%A3%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.15.</span> <span class="nav-text">Seasonal statistical values 逐季统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-hourly-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E5%B0%8F%E6%97%B6%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.16.</span> <span class="nav-text">Multi-year hourly statistical values 多年的每小时的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-day-hourly-statistical-values-%E4%B8%8D%E5%90%8C%E5%A4%A9%E7%9A%84%E6%AF%8F%E5%B0%8F%E6%97%B6%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.17.</span> <span class="nav-text">Multi-day hourly statistical values 不同天的每小时的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-daily-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E5%A4%A9%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.18.</span> <span class="nav-text">Multi-year daily statistical values 多年的每天的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-monthly-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E6%9C%88%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.19.</span> <span class="nav-text">Multi-year monthly statistical values 多年的每月的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-seasonal-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E6%AF%8F%E5%AD%A3%E7%9A%84%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.20.</span> <span class="nav-text">Multi-year seasonal statistical values 多年的每季的统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-year-daily-running-statistical-values-%E5%A4%9A%E5%B9%B4%E7%9A%84%E9%80%90%E6%97%A5%E7%9A%84%E6%BB%91%E5%8A%A8%E7%BB%9F%E8%AE%A1%E5%80%BC"><span class="nav-number">1.21.</span> <span class="nav-text">Multi-year daily running statistical values 多年的逐日的滑动统计值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#statistical-values-over-an-ensemble"><span class="nav-number">1.22.</span> <span class="nav-text">Statistical values over an ensemble</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -300,8 +300,8 @@ mjx-container[display="true"] + br {
 
       <iframe frameborder="no" border="0" 
         marginwidth="0" marginheight="0" 
-	width=360 height=86 
-	src="//music.163.com/outchain/player?type=2&id=1413863166&auto=0&height=128">
+	      width=360 height=86 
+      	src="//music.163.com/outchain/player?type=2&id=1413863166&auto=0&height=66">
       </iframe><br/>
 
 
@@ -316,19 +316,19 @@ mjx-container[display="true"] + br {
 -
 +
           <li>
-            <a href="/2022/hello-world/" title="Welcome to BUUJUN's Blog!" target="_blank">Welcome to BUUJUN's Blog!</a>
+            <a href="/2022/cdo/cdo_11_Miscellaneous/" title="CDO - 其他操作" target="_blank">CDO - 其他操作</a>
           </li>
           <li>
-            <a href="/2022/cdo/cdo_01_Information/" title="CDO - Information Operators" target="_blank">CDO - Information Operators</a>
+            <a href="/2022/cdo/cdo_10_Transformation/" title="CDO - 转换相关的操作" target="_blank">CDO - 转换相关的操作</a>
           </li>
           <li>
-            <a href="/2022/cdo/cdo_02_File/" title="CDO - File Operators" target="_blank">CDO - File Operators</a>
+            <a href="/2022/cdo/cdo_09_Interpolation/" title="CDO - 插值操作" target="_blank">CDO - 插值操作</a>
           </li>
           <li>
-            <a href="/2022/cdo/cdo_03_Selection/" title="CDO - Selection Operators" target="_blank">CDO - Selection Operators</a>
+            <a href="/2022/cdo/cdo_08_Correlation_%20and_Regression/" title="CDO - 相关系数和回归系数的计算" target="_blank">CDO - 相关系数和回归系数的计算</a>
           </li>
           <li>
-            <a href="/2022/cdo/cdo_04_Comparison/" title="CDO - Comparison Operators" target="_blank">CDO - Comparison Operators</a>
+            <a href="/2022/cdo/cdo_07_Statistical/" title="CDO - 统计计算的操作" target="_blank">CDO - 统计计算的操作</a>
           </li>
       </ul>
     </div>
@@ -378,12 +378,12 @@ mjx-container[display="true"] + br {
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="CDO - Statistical Operators | BUUJUN's Notes">
+      <meta itemprop="name" content="CDO - 统计计算的操作 | BUUJUN's Notes">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CDO - Statistical Operators
+          CDO - 统计计算的操作
         </h1>
 
         <div class="post-meta-container">
@@ -397,14 +397,14 @@ mjx-container[display="true"] + br {
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-07-21 13:43:54" itemprop="dateCreated datePublished" datetime="2022-07-21T13:43:54Z">2022-07-21</time>
+      <time title="创建时间：2022-07-26 13:43:54" itemprop="dateCreated datePublished" datetime="2022-07-26T13:43:54Z">2022-07-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-22 14:20:02" itemprop="dateModified" datetime="2022-07-22T14:20:02Z">2022-07-22</time>
+      <time title="修改时间：2022-07-27 02:35:36" itemprop="dateModified" datetime="2022-07-27T02:35:36Z">2022-07-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -434,7 +434,9 @@ mjx-container[display="true"] + br {
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="statistical-values-统计">Statistical values 统计</h2>
+        <p>本篇博客将介绍 CDO 进行空间统计及时间统计的相关操作，包括计算 min, max, range, sum, mean, avg, std, var 等统计量</p>
+<span id="more"></span>
+<h2 id="统计计算-statistical-values">统计计算 Statistical Values</h2>
 <p><strong>mean</strong> 和 <strong>average</strong> 的区别：计算 <strong>mean</strong> 时，只考虑非缺失值计入计算的样本；计算 <strong>average</strong> 时，缺失值当做 0 处理进行计算；</p>
 <h3 id="statistical-values-over-all-variables">Statistical values over all variables</h3>
 <p><strong><font color="red">&lt;operator&gt; infile outfile</font></strong></p>
@@ -1214,7 +1216,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://buujun.github.io/2022/cdo/cdo_07_Statistical/" title="CDO - Statistical Operators">http://buujun.github.io/2022/cdo/cdo_07_Statistical/</a>
+      <a href="http://buujun.github.io/2022/cdo/cdo_07_Statistical/" title="CDO - 统计计算的操作">http://buujun.github.io/2022/cdo/cdo_07_Statistical/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -1231,13 +1233,13 @@ mjx-container[display="true"] + br {
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/cdo/cdo_08_Correlation_%20and_Regression/" rel="prev" title="CDO - Correlation and Regression Operators">
-                  <i class="fa fa-chevron-left"></i> CDO - Correlation and Regression Operators
+                <a href="/2022/cdo/cdo_06_Arithmetic/" rel="prev" title="CDO - 算术运算的操作">
+                  <i class="fa fa-chevron-left"></i> CDO - 算术运算的操作
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/cdo/cdo_06_Arithmetic/" rel="next" title="CDO - Arithmetic Operators">
-                  CDO - Arithmetic Operators <i class="fa fa-chevron-right"></i>
+                <a href="/2022/cdo/cdo_08_Correlation_%20and_Regression/" rel="next" title="CDO - 相关系数和回归系数的计算">
+                  CDO - 相关系数和回归系数的计算 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
