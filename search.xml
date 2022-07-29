@@ -2,15 +2,15 @@
 <search>
   <entry>
     <title>Welcome to BUUJUN&#39;s Blog!</title>
-    <url>/2022/hello-word/hello-world/</url>
+    <url>/2022/hello-world/</url>
     <content><![CDATA[<p>大家好呀，欢迎来到我的博客！我是大气科学（Atmosphere Science）领域的一名在读研究生，目前所做的工作主要涉及 <strong>人工智能</strong> 和 <strong>气候预测</strong> ，所以我的博客内容也将围绕气象数据处理（ CDO 和 Python）、统计计算和动力方程诊断（Python）、图形绘制（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、模式模拟（ WRF 和 CESM）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
 <p><img src="/.io//Haiqin2-dark.jpg" alt="image"></p>
 ]]></content>
       <tags>
-        <tag>Linux</tag>
         <tag>Python</tag>
         <tag>Machine Learning</tag>
         <tag>Deep Learning</tag>
+        <tag>Linux</tag>
         <tag>PyToch</tag>
         <tag>Numpy</tag>
         <tag>Pandas</tag>
@@ -266,8 +266,8 @@
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -443,8 +443,8 @@
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -802,8 +802,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -919,8 +919,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -1676,8 +1676,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -2546,8 +2546,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -2921,8 +2921,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -2969,8 +2969,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -3420,8 +3420,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -3818,8 +3818,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -4116,8 +4116,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>Command</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>Linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
 </search>
