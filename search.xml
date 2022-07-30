@@ -3,8 +3,7 @@
   <entry>
     <title>Welcome to BUUJUN&#39;s Blog!</title>
     <url>/2022/hello-world/</url>
-    <content><![CDATA[<p>大家好呀，欢迎来到我的博客！我是大气科学（Atmosphere Science）领域的一名在读研究生，目前所做的工作主要涉及 <strong>人工智能</strong> 和 <strong>气候预测</strong> ，所以我的博客内容也将围绕气象数据处理（ CDO 和 Python）、统计计算和动力方程诊断（Python）、图形绘制（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、模式模拟（ WRF 和 CESM）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
-<p><img src="/2022/hello-world/Haiqin2-dark.jpg" alt="image"></p>
+    <content><![CDATA[<p>大家好呀，欢迎来到我的博客！我是大气科学（Atmosphere Science）专业的一名在读研究生，目前所做的工作主要涉及 <strong>人工智能</strong> 和 <strong>气候预测</strong> ，所以我的博客内容也将围绕气象数据处理（ CDO 和 Python）、统计计算和动力方程诊断（Python）、图形绘制（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、模式模拟（ WRF 和 CESM）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
 ]]></content>
       <tags>
         <tag>Python</tag>
