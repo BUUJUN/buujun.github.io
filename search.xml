@@ -17,6 +17,16 @@
       </tags>
   </entry>
   <entry>
+    <title>数据分析-Python</title>
+    <url>/2022/panda/pandas/</url>
+    <content><![CDATA[<p>这篇博客主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的 IO</p>
+<span id="more"></span>
+<h2 id="列表推导式">列表推导式</h2>
+<!-- <font size=4><font color=orange>result</font><font color=ff8888> = </font>[ <font color=skyblue>expr</font> <font color=ff8888>for</font> <font color=orange>val</font> <font color=ff8888>in</font> <font color=orange>collection</font> <font color=ff8888>if</font> <font color=skyblue>condition</font> ]</font>   -->
+<p><img src="/2022/panda/pandas/Haiqin2-dark.jpg" alt="a"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>CDO - 其他操作</title>
     <url>/2022/cdo/cdo_11_Miscellaneous/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 的其他功能，如：滤波、平滑、统计等功能</p>
