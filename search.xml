@@ -11522,6 +11522,29 @@ NEW
 </tbody>
 </table>
 </div>
+<h2 id="数据划分">数据划分</h2>
+<h3 id="pdqcut-x-q-labels---根据分位数划分面元-quantile-binning-"><strong><em>pd.qcut( x, q, labels )</em></strong> : 根据分位数划分面元（ quantile binning ）</h3>
+<blockquote>
+<p><strong><em>x</em></strong> : <em>The input array to be binned; must be 1-D</em><br>
+<strong><em>q</em></strong> : <em>Number of quantiles,</em> 分位数<br>
+<strong><em>labels</em></strong> : 设置面元的名称</p>
+</blockquote>
+<h4 id="q--n--根据样本的-分位数-对数据进行面元划分"><strong><em>q = n</em></strong> : 根据样本的 <strong>分位数</strong> 对数据进行面元划分</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.random.randint(<span class="number">0</span>, <span class="number">101</span>, (<span class="number">1000</span>))</span><br><span class="line">cats = pd.qcut(data, <span class="number">4</span>)</span><br><span class="line">cats</span><br></pre></td></tr></table></figure>
+<p>[(50.5, 76.0], (26.0, 50.5], (-0.001, 26.0], (50.5, 76.0], (26.0, 50.5], ..., (-0.001, 26.0], (26.0, 50.5], (76.0, 100.0], (26.0, 50.5], (26.0, 50.5]]<br>
+Length: 1000<br>
+Categories (4, interval[float64, right]): [(-0.001, 26.0] &lt; (26.0, 50.5] &lt; (50.5, 76.0] &lt; (76.0, 100.0]]</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.value_counts(cats)</span><br></pre></td></tr></table></figure>
+<p>(50.5, 76.0] 260<br>
+(-0.001, 26.0] 255<br>
+(26.0, 50.5] 245<br>
+(76.0, 100.0] 240<br>
+dtype: int64</p>
+<h4 id="q--list--传递自定义的分位数0到1之间的数值-包含端点"><strong><em>q = list</em></strong> : 传递自定义的分位数（0到1之间的数值, 包含端点）</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.qcut(data, [<span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0.5</span>, <span class="number">0.9</span>, <span class="number">1.</span>])</span><br></pre></td></tr></table></figure>
+<p>[(50.5, 91.0], (11.0, 50.5], (11.0, 50.5], (50.5, 91.0], (11.0, 50.5], ..., (11.0, 50.5], (11.0, 50.5], (50.5, 91.0], (11.0, 50.5], (11.0, 50.5]]<br>
+Length: 1000<br>
+Categories (4, interval[float64, right]): [(-0.001, 11.0] &lt; (11.0, 50.5] &lt; (50.5, 91.0] &lt; (91.0, 100.0]]</p>
 ]]></content>
       <categories>
         <category>python</category>
