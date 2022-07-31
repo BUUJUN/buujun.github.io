@@ -22,7 +22,10 @@
     <content><![CDATA[<p>这篇博客主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的 IO</p>
 <span id="more"></span>
 <h2 id="列表推导式">列表推导式</h2>
-]]></content>
+<p><strong><em></em></strong></p>]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>CDO - 其他操作</title>
@@ -270,7 +273,7 @@
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -447,7 +450,7 @@
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -806,7 +809,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -923,7 +926,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -1680,7 +1683,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -2550,7 +2553,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -2925,7 +2928,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -2973,7 +2976,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -3424,7 +3427,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -3822,7 +3825,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -4120,7 +4123,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>Command</category>
+        <category>气象数据处理</category>
       </categories>
       <tags>
         <tag>Linux</tag>
