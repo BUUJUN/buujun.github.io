@@ -10272,7 +10272,376 @@ dtype: object</p>
   <entry>
     <title>数据分析-05  Pandas-缺失处理 Pt.2</title>
     <url>/2022/data_analysis/05-pandas-data_cleaning_02/</url>
-    <content><![CDATA[
+    <content><![CDATA[<span id="more"></span>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h2 id="处理重复数据">处理重复数据</h2>
+<h3 id="objduplicated-columns-keep--objdrop_duplicates-columns-keep---移除重复数据"><strong><em>obj.duplicated( columns, keep ), obj.drop_duplicates( columns, keep )</em></strong> : 移除重复数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = pd.DataFrame({<span class="string">'k1'</span>: [<span class="string">'one'</span>, <span class="string">'two'</span>] * <span class="number">3</span> + [<span class="string">'two'</span>], </span><br><span class="line">                     <span class="string">'k2'</span>: [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]})</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+k1
+</th>
+<th>
+k2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+one
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+two
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+one
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+two
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+one
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+two
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+two
+</td>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.duplicated()</span><br></pre></td></tr></table></figure>
+<p>0 False<br>
+1 False<br>
+2 False<br>
+3 False<br>
+4 False<br>
+5 False<br>
+6 True<br>
+dtype: bool</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.drop_duplicates()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+k1
+</th>
+<th>
+k2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+one
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+two
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+one
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+two
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+one
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+two
+</td>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="columns--指定部分列进行重复项判断过滤"><strong><em>columns</em></strong> : 指定部分列进行重复项判断/过滤</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.duplicated([<span class="string">'k1'</span>])</span><br></pre></td></tr></table></figure>
+<p>0 False<br>
+1 False<br>
+2 True<br>
+3 True<br>
+4 True<br>
+5 True<br>
+6 True<br>
+dtype: bool</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.drop_duplicates([<span class="string">'k2'</span>])</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+k1
+</th>
+<th>
+k2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+one
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+one
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+one
+</td>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="keep--keep--first--keep--last--保留项"><strong><em>keep</em></strong> : keep = 'first' / keep = 'last' ， 保留项</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.duplicated([<span class="string">'k1'</span>], keep=<span class="string">'last'</span>)</span><br></pre></td></tr></table></figure>
+<p>0 True<br>
+1 True<br>
+2 True<br>
+3 True<br>
+4 False<br>
+5 True<br>
+6 False<br>
+dtype: bool</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.drop_duplicates([<span class="string">'k2'</span>], keep=<span class="string">'last'</span>)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+k1
+</th>
+<th>
+k2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+1
+</th>
+<td>
+two
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+two
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+two
+</td>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 ]]></content>
       <categories>
         <category>python</category>
