@@ -17,7 +17,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Xarray - 进阶语法</title>
+    <title>Xarray - 计算</title>
     <url>/2022/xarray/ch2-calculate/</url>
     <content><![CDATA[<p>这篇博客主要介绍 Xarray 的进阶操作，包括计算、分组、重采样、滑动和线性回归等应用<br>
 <span id="more"></span></p>
@@ -15516,7 +15516,7 @@ float64
       </tags>
   </entry>
   <entry>
-    <title>Xarray - 基础语法 Pt.1</title>
+    <title>Xarray - 数据创建与读写</title>
     <url>/2022/xarray/ch1-basics/</url>
     <content><![CDATA[<p>这篇博客主要介绍 Xarray 基础语法，包括 创建 Xarray 对象（ DataArray 和 DataSet ）、数据读取与转换、数据索引与切片 以及 插值与广播 等内容<br>
 <span id="more"></span></p>
