@@ -17,6 +17,1422 @@
       </tags>
   </entry>
   <entry>
+    <title>数据分析-09-Pandas and Time Series</title>
+    <url>/2022/cdo/09-pandas-time_series/</url>
+    <content><![CDATA[<span id="more"></span>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> dateutil.parser <span class="keyword">import</span> parse</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h2 id="日期和时间数据的类型">日期和时间数据的类型</h2>
+<h3 id="datetime-类型"><strong><em>datetime</em></strong> 类型</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">now = datetime.now()</span><br><span class="line">now</span><br></pre></td></tr></table></figure>
+<pre><code>datetime.datetime(2021, 10, 9, 21, 38, 2, 642419)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">now.year, now.month, now.day, now.hour, now.minute, now.second</span><br></pre></td></tr></table></figure>
+<pre><code>(2021, 10, 9, 21, 38, 2)</code></pre>
+<h3 id="timedelta-类型"><strong><em>timedelta</em></strong> 类型</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">delta = datetime(<span class="number">2021</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">8</span>, <span class="number">40</span>) - datetime(<span class="number">2019</span>, <span class="number">5</span>, <span class="number">1</span>)</span><br><span class="line">delta</span><br></pre></td></tr></table></figure>
+<pre><code>datetime.timedelta(days=731, seconds=520)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">start = datetime(<span class="number">2019</span>, <span class="number">5</span>, <span class="number">1</span>)</span><br><span class="line">start + timedelta(<span class="number">20</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>datetime.datetime(2019, 5, 21, 0, 0, 20)</code></pre>
+<h2 id="datetime-与-string-的转换">datetime 与 string 的转换</h2>
+<h3 id="pdto_datetime-list---datetime--string"><strong><em>pd.to_datetime( list )</em></strong> : datetime → string</h3>
+<p>to_datetime 方法可以解析多种不同的日期表示形式</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">datestrs = [<span class="string">'2019/5/1/00:00:00'</span>, <span class="string">'2021-5-1 00:00:00'</span>]</span><br><span class="line">pd.to_datetime(datestrs)</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex(['2019-05-01', '2021-05-01'], dtype='datetime64[ns]', freq=None)</code></pre>
+<h3 id="strdatetime-datetimestrftimey-m-d--datetime--string"><strong><em>str(datetime), datetime.strftime('%Y-%m-%d')</em></strong> : datetime → string</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">now = datetime.now()</span><br><span class="line">now, <span class="built_in">str</span>(now), now.strftime(<span class="string">'%Y-%m-%d'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>(datetime.datetime(2021, 10, 9, 21, 38, 2, 880786),
+ '2021-10-09 21:38:02.880786',
+ '2021-10-09')</code></pre>
+<p><strong><em>datetime</em></strong> 格式定义</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>代码</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>%Y, %y</td>
+<td>4 位数的年, 2 位数的年</td>
+</tr>
+<tr class="even">
+<td>%m , %h</td>
+<td>2 位数的月 [01, 12], 英文缩写表示的月 [Jan, Feb, ..., Dec]</td>
+</tr>
+<tr class="odd">
+<td>%d</td>
+<td>2 位数的日 [01, 31]</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>%H , %l</td>
+<td>24 小时制的时 [00, 23], 12 小时制的时 [01, 12]</td>
+</tr>
+<tr class="even">
+<td>%M, %S</td>
+<td>2 位数的分 [00, 59], 2 位数的秒 [00, 59]</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>%w</td>
+<td>整数表示的星期几 [0, 6]</td>
+</tr>
+<tr class="odd">
+<td>%W</td>
+<td>2 位数的每年的第几周 [00， 53], 以星期一为每周的开始</td>
+</tr>
+<tr class="even">
+<td>%U</td>
+<td>2 位数的每年的第几周 [00， 53], 以星期日为每周的开始</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>%F</td>
+<td>%Y-%m-%d</td>
+</tr>
+<tr class="odd">
+<td>%D</td>
+<td>%m/%d/%y</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datetimestrptimestring-y-m-d--string--datetime"><strong><em>datetime.strptime(string, '%Y-%m-%d')</em></strong> : string → datetime</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">value = <span class="string">'2019-05-01'</span></span><br><span class="line">datetime.strptime(value, <span class="string">'%Y-%m-%d'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>datetime.datetime(2019, 5, 1, 0, 0)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">datestrs = [<span class="string">'7/25/1998'</span>, <span class="string">'11/24/1997'</span>]</span><br><span class="line">[datetime.strptime(x, <span class="string">'%m/%d/%Y'</span>) <span class="keyword">for</span> x <span class="keyword">in</span> datestrs]</span><br></pre></td></tr></table></figure>
+<pre><code>[datetime.datetime(1998, 7, 25, 0, 0), datetime.datetime(1997, 11, 24, 0, 0)]</code></pre>
+<h3 id="dateutilparserparse-string-dayfirst---string--datetime"><strong><em>dateutil.parser.parse( string, dayfirst )</em></strong> : string → datetime</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">parse(<span class="string">'2019-05-01'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>datetime.datetime(2019, 5, 1, 0, 0)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">parse(<span class="string">'May 1, 2019 10:45 PM'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>datetime.datetime(2019, 5, 1, 22, 45)</code></pre>
+<p>在国际通用的格式中, 日出现在月的前面很普遍, 传入 dayfirst=True 即可解决这个问题</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">parse(<span class="string">'1/5/2019'</span>), parse(<span class="string">'1/5/2019'</span>, dayfirst=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>(datetime.datetime(2019, 1, 5, 0, 0), datetime.datetime(2019, 5, 1, 0, 0))</code></pre>
+<h2 id="时间序列的索引">时间序列的索引</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dates = [datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">2</span>), datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">5</span>),</span><br><span class="line">         datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">7</span>), datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">8</span>),</span><br><span class="line">         datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">10</span>), datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">12</span>)]</span><br><span class="line">ts = pd.Series(np.random.randn(<span class="number">6</span>), index=dates)</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+<pre><code>2011-01-02   -1.248703
+2011-01-05   -0.072871
+2011-01-07    1.672176
+2011-01-08   -0.761810
+2011-01-10   -0.044322
+2011-01-12   -0.701274
+dtype: float64</code></pre>
+<p>可以传入一个可以被解释为日期的字符串进行切片</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts = pd.Series(np.arange(<span class="number">1000</span>),</span><br><span class="line">                      index=pd.date_range(<span class="string">'1/1/2000'</span>, periods=<span class="number">1000</span>))</span><br><span class="line">ts.head()</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-01    0
+2000-01-02    1
+2000-01-03    2
+2000-01-04    3
+2000-01-05    4
+Freq: D, dtype: int32</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts[<span class="string">'2000-1-1'</span>:<span class="string">'2000-1-3'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-01    0
+2000-01-02    1
+2000-01-03    2
+Freq: D, dtype: int32</code></pre>
+<p>对于较长的时间序列, 只需传入“年”或“年月”即可轻松选取数据的切片</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts[<span class="string">'2001'</span>].head()</span><br></pre></td></tr></table></figure>
+<pre><code>2001-01-01    366
+2001-01-02    367
+2001-01-03    368
+2001-01-04    369
+2001-01-05    370
+Freq: D, dtype: int32</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts[<span class="string">'2001-2'</span>].head()</span><br></pre></td></tr></table></figure>
+<pre><code>2001-02-01    397
+2001-02-02    398
+2001-02-03    399
+2001-02-04    400
+2001-02-05    401
+Freq: D, dtype: int32</code></pre>
+<p>传入 datetime 对象也可以进行切片</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts[datetime(<span class="number">2001</span>,<span class="number">1</span>,<span class="number">7</span>):datetime(<span class="number">2001</span>,<span class="number">1</span>,<span class="number">8</span>)]</span><br></pre></td></tr></table></figure>
+<pre><code>2001-01-07    372
+2001-01-08    373
+Freq: D, dtype: int32</code></pre>
+<h3 id="tstruncate-before-after-"><strong><em>ts.truncate( before, after )</em></strong></h3>
+<p>before : 向后切片</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.truncate(before=<span class="string">'2001-9'</span>).head()</span><br></pre></td></tr></table></figure>
+<pre><code>2001-09-01    609
+2001-09-02    610
+2001-09-03    611
+2001-09-04    612
+2001-09-05    613
+Freq: D, dtype: int32</code></pre>
+<p>after : 向前切片</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.truncate(after=<span class="string">'2000-2-4'</span>).head()</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-01    0
+2000-01-02    1
+2000-01-03    2
+2000-01-04    3
+2000-01-05    4
+Freq: D, dtype: int32</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.truncate(before = <span class="string">'2000-1-1'</span>, after=<span class="string">'2000-1-4'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-01    0
+2000-01-02    1
+2000-01-03    2
+2000-01-04    3
+Freq: D, dtype: int32</code></pre>
+<h2 id="时间的范围频率和位移">时间的范围、频率和位移</h2>
+<h3 id="pddate_range-start-end-periods-freq-"><strong><em>pd.date_range( start, end, periods, freq )</em></strong></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.date_range(<span class="string">'2019-05-01'</span>, <span class="string">'2021-05-01'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex(['2019-05-01', '2019-05-02', '2019-05-03', '2019-05-04',
+               '2019-05-05', '2019-05-06', '2019-05-07', '2019-05-08',
+               '2019-05-09', '2019-05-10',
+               ...
+               '2021-04-22', '2021-04-23', '2021-04-24', '2021-04-25',
+               '2021-04-26', '2021-04-27', '2021-04-28', '2021-04-29',
+               '2021-04-30', '2021-05-01'],
+              dtype='datetime64[ns]', length=732, freq='D')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.date_range(<span class="string">'2019-05-01'</span>, periods=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex(['2019-05-01', '2019-05-02', '2019-05-03'], dtype='datetime64[ns]', freq='D')</code></pre>
+<p><strong><em>freq = 'BM'</em></strong> : 'business end of month' 每月最后一个工作日</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong><em>时间的频率表示</em></strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>H, T/min, S, L/ms, U</td>
+<td>每小时, 每分钟, 每秒, 每毫秒, 每微秒</td>
+</tr>
+<tr class="even">
+<td>D, M, MS</td>
+<td>每日历日, 每月的最后一个日历日, 每月的第一个日历日</td>
+</tr>
+<tr class="odd">
+<td>B, BM, BMS</td>
+<td>每工作日, 每月的最后一个工作日, 每月的第一个工作日</td>
+</tr>
+<tr class="even">
+<td>W-MON, W-TUE, ..., W-SUN</td>
+<td>每周, 从指定的星期几开始算起</td>
+</tr>
+<tr class="odd">
+<td>WOM-1MON, WOM-2MON, ..., WOM-4SUN</td>
+<td>每月, 从指定的第几周的星期几开始算起</td>
+</tr>
+<tr class="even">
+<td>Q-JAN, Q-FEB, ..., Q-DEC</td>
+<td>每季, 从指定的月份的最后一个日历日开始算起</td>
+</tr>
+<tr class="odd">
+<td>QS-JAN, QS-FEB, ..., QS-DEC</td>
+<td>每季, 从指定的月份的第一个日历日开始算起</td>
+</tr>
+<tr class="even">
+<td>BQ-JAN, BQ-FEB, ..., BQ-DEC</td>
+<td>每季, 从指定的月份的最后一个工作日开始算起</td>
+</tr>
+<tr class="odd">
+<td>BQS-JAN, BQS-FEB, ..., BQS-DEC</td>
+<td>每季, 从指定的月份的第一个工作日开始算起</td>
+</tr>
+<tr class="even">
+<td>A-JAN, A-FEB, ..., A-DEC</td>
+<td>每年, 从指定的月份的最后一个日历日开始算起</td>
+</tr>
+<tr class="odd">
+<td>AS-JAN, AS-FEB, ..., AS-DEC</td>
+<td>每年, 从指定的月份的第一个日历日开始算起</td>
+</tr>
+<tr class="even">
+<td>BA-JAN, BA-FEB, ..., BA-DEC</td>
+<td>每年, 从指定的月份的最后一个工作日开始算起</td>
+</tr>
+<tr class="odd">
+<td>BAS-JAN, BAS-FEB, ..., BAS-DEC</td>
+<td>每年, 从指定的月份的第一个工作日开始算起</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.date_range(<span class="string">'2020-01-01'</span>, <span class="string">'2021-01-01'</span>, freq=<span class="string">'M'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex(['2020-01-31', '2020-02-29', '2020-03-31', '2020-04-30',
+               '2020-05-31', '2020-06-30', '2020-07-31', '2020-08-31',
+               '2020-09-30', '2020-10-31', '2020-11-30', '2020-12-31'],
+              dtype='datetime64[ns]', freq='M')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.date_range(<span class="string">'2020-01-01'</span>, <span class="string">'2021-01-01'</span>, freq=<span class="string">'4M'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex(['2020-01-31', '2020-05-31', '2020-09-30'], dtype='datetime64[ns]', freq='4M')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.date_range(<span class="string">'2020-01-01'</span>, <span class="string">'2020-01-02'</span>, freq=<span class="string">'2h30min'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>DatetimeIndex(['2020-01-01 00:00:00', '2020-01-01 02:30:00',
+               '2020-01-01 05:00:00', '2020-01-01 07:30:00',
+               '2020-01-01 10:00:00', '2020-01-01 12:30:00',
+               '2020-01-01 15:00:00', '2020-01-01 17:30:00',
+               '2020-01-01 20:00:00', '2020-01-01 22:30:00'],
+              dtype='datetime64[ns]', freq='150T')</code></pre>
+<h3 id="tsshift-periods-freq---时间序列的平移"><strong><em>ts.shift( periods, freq )</em></strong> : 时间序列的平移</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts = pd.Series(np.arange(<span class="number">1</span>, <span class="number">5</span>),</span><br><span class="line">               index=pd.date_range(<span class="string">'1/1/2000'</span>, periods=<span class="number">4</span>, freq=<span class="string">'D'</span>))</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-01    1
+2000-01-02    2
+2000-01-03    3
+2000-01-04    4
+Freq: D, dtype: int32</code></pre>
+<p>Series 和 DataFrame 都有一个 shift 方法用于执行单纯的前移或后移操作, 保持索引不变</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.shift(-<span class="number">1</span>), ts / ts.shift(<span class="number">1</span>) -<span class="number">1</span> <span class="comment">#计算随时间的变化</span></span><br></pre></td></tr></table></figure>
+<pre><code>(2000-01-01    2.0
+ 2000-01-02    3.0
+ 2000-01-03    4.0
+ 2000-01-04    NaN
+ Freq: D, dtype: float64,
+ 2000-01-01         NaN
+ 2000-01-02    1.000000
+ 2000-01-03    0.500000
+ 2000-01-04    0.333333
+ Freq: D, dtype: float64)</code></pre>
+<p><strong><em>ts.shift(-1) vs ts.shfit(-1, freq='D')</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.shift(-<span class="number">1</span>, freq=<span class="string">'D'</span>) <span class="comment"># 时间序列向后平移3个 'D'</span></span><br></pre></td></tr></table></figure>
+<pre><code>1999-12-31    1
+2000-01-01    2
+2000-01-02    3
+2000-01-03    4
+Freq: D, dtype: int32</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.shift(<span class="number">1</span>, freq=<span class="string">'3D'</span>) <span class="comment"># 时间序列向后平移3个 'D'</span></span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-04    1
+2000-01-05    2
+2000-01-06    3
+2000-01-07    4
+Freq: D, dtype: int32</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.shift(<span class="number">1</span>, freq=<span class="string">'90T'</span>) <span class="comment"># 时间序列向后平移90个 'min'</span></span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-01 01:30:00    1
+2000-01-02 01:30:00    2
+2000-01-03 01:30:00    3
+2000-01-04 01:30:00    4
+Freq: D, dtype: int32</code></pre>
+<h3 id="hour-minute-day-monthend--通过偏移量对日期进行平移"><strong><em>Hour(), Minute(), Day(), MonthEnd()</em></strong> : 通过偏移量对日期进行平移</h3>
+<blockquote>
+<p><strong><em>Hour(), Minute(), Day(), MonthEnd(), ...</em></strong> : 日期偏移量（ date offset ）对象</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas.tseries.offsets <span class="keyword">import</span> Day, MonthEnd</span><br><span class="line">now = datetime.now()</span><br><span class="line">now</span><br></pre></td></tr></table></figure>
+<pre><code>datetime.datetime(2021, 10, 9, 21, 38, 3, 837907)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">now + <span class="number">3</span> * Day(), now + Day(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>(Timestamp('2021-10-12 21:38:03.837907'),
+ Timestamp('2021-10-12 21:38:03.837907'))</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">now + <span class="number">1</span> * MonthEnd()</span><br></pre></td></tr></table></figure>
+<pre><code>Timestamp('2021-10-31 21:38:03.837907')</code></pre>
+<h4 id="offsetrollforward-datetime--offsetrollback-datetime---控制将日期向前或向后滚动"><strong><em>offset.rollforward( datetime ), offset.rollback( datetime )</em></strong> : 控制将日期向前或向后“滚动”</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">offset = MonthEnd()</span><br><span class="line">offset.rollforward(now), offset.rollback(now)</span><br></pre></td></tr></table></figure>
+<pre><code>(Timestamp('2021-10-31 21:38:03.837907'),
+ Timestamp('2021-09-30 21:38:03.837907'))</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts = pd.Series(np.ones(<span class="number">20</span>), index=pd.date_range(<span class="string">'1/15/2000'</span>, periods=<span class="number">20</span>, freq=<span class="string">'4d'</span>))</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-15    1.0
+2000-01-19    1.0
+2000-01-23    1.0
+2000-01-27    1.0
+2000-01-31    1.0
+2000-02-04    1.0
+2000-02-08    1.0
+2000-02-12    1.0
+2000-02-16    1.0
+2000-02-20    1.0
+2000-02-24    1.0
+2000-02-28    1.0
+2000-03-03    1.0
+2000-03-07    1.0
+2000-03-11    1.0
+2000-03-15    1.0
+2000-03-19    1.0
+2000-03-23    1.0
+2000-03-27    1.0
+2000-03-31    1.0
+Freq: 4D, dtype: float64</code></pre>
+<p><strong><em>ts.groupby( offset.rollforward )</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">offset = MonthEnd()</span><br><span class="line">ts.groupby(MonthEnd().rollforward).<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-31    5.0
+2000-02-29    7.0
+2000-03-31    8.0
+dtype: float64</code></pre>
+<p><strong><em>ts.resample( freq )</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.resample(<span class="string">'M'</span>).mean()</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01-31    1.0
+2000-02-29    1.0
+2000-03-31    1.0
+Freq: M, dtype: float64</code></pre>
+<h2 id="时期-period-及其计算">时期 (period) 及其计算</h2>
+<h3 id="pdperiod-value-freq---时期的创建"><strong><em>pd.Period( value, freq )</em></strong> : 时期的创建</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p = pd.Period(<span class="number">2021</span>, freq=<span class="string">'A-MAY'</span>)</span><br><span class="line">p</span><br></pre></td></tr></table></figure>
+<pre><code>Period('2021', 'A-MAY')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p + <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<pre><code>Period('2024', 'A-MAY')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p - pd.Period(<span class="number">2019</span>, freq=<span class="string">'A-MAY'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;2 * YearEnds: month=5&gt;</code></pre>
+<h3 id="pdperiod_range-start-end-freq---时期范围的创建"><strong><em>pd.period_range( start, end, freq )</em></strong> : 时期范围的创建</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng = pd.period_range(<span class="string">'2000-01-01'</span>, <span class="string">'2000-06-30'</span>, freq=<span class="string">'M'</span>)</span><br><span class="line">rng</span><br></pre></td></tr></table></figure>
+<pre><code>PeriodIndex(['2000-01', '2000-02', '2000-03', '2000-04', '2000-05', '2000-06'], dtype='period[M]')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.Series(np.arange(<span class="number">6</span>), index=rng)</span><br></pre></td></tr></table></figure>
+<pre><code>2000-01    0
+2000-02    1
+2000-03    2
+2000-04    3
+2000-05    4
+2000-06    5
+Freq: M, dtype: int32</code></pre>
+<h3 id="pdperiodindex-values-freq-year-quarter---季度时期范围的创建"><strong><em>pd.PeriodIndex( values, freq, year, quarter )</em></strong> : 季度时期范围的创建</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">values = [<span class="string">'2001Q3'</span>, <span class="string">'2002Q2'</span>, <span class="string">'2003Q1'</span>]</span><br><span class="line">pd.PeriodIndex(values, freq=<span class="string">'Q-DEC'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>PeriodIndex(['2001Q3', '2002Q2', '2003Q1'], dtype='period[Q-DEC]')</code></pre>
+<p>通过数组创建 PeriodIndex</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = pd.read_csv(<span class="string">'pydata-book-2nd-edition/examples/macrodata.csv'</span>)</span><br><span class="line">data.year, data.quarter</span><br></pre></td></tr></table></figure>
+<pre><code>(0      1959.0
+ 1      1959.0
+ 2      1959.0
+ 3      1959.0
+ 4      1960.0
+         ...  
+ 198    2008.0
+ 199    2008.0
+ 200    2009.0
+ 201    2009.0
+ 202    2009.0
+ Name: year, Length: 203, dtype: float64,
+ 0      1.0
+ 1      2.0
+ 2      3.0
+ 3      4.0
+ 4      1.0
+       ... 
+ 198    3.0
+ 199    4.0
+ 200    1.0
+ 201    2.0
+ 202    3.0
+ Name: quarter, Length: 203, dtype: float64)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = pd.PeriodIndex(year=data.year, quarter=data.quarter,</span><br><span class="line">                       freq=<span class="string">'Q-DEC'</span>)</span><br><span class="line">index</span><br></pre></td></tr></table></figure>
+<pre><code>PeriodIndex(['1959Q1', '1959Q2', '1959Q3', '1959Q4', '1960Q1', '1960Q2',
+             '1960Q3', '1960Q4', '1961Q1', '1961Q2',
+             ...
+             '2007Q2', '2007Q3', '2007Q4', '2008Q1', '2008Q2', '2008Q3',
+             '2008Q4', '2009Q1', '2009Q2', '2009Q3'],
+            dtype='period[Q-DEC]', length=203)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.index = index</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+year
+</th>
+<th>
+quarter
+</th>
+<th>
+realgdp
+</th>
+<th>
+realcons
+</th>
+<th>
+realinv
+</th>
+<th>
+realgovt
+</th>
+<th>
+realdpi
+</th>
+<th>
+cpi
+</th>
+<th>
+m1
+</th>
+<th>
+tbilrate
+</th>
+<th>
+unemp
+</th>
+<th>
+pop
+</th>
+<th>
+infl
+</th>
+<th>
+realint
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+1959Q1
+</th>
+<td>
+1959.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2710.349
+</td>
+<td>
+1707.4
+</td>
+<td>
+286.898
+</td>
+<td>
+470.045
+</td>
+<td>
+1886.9
+</td>
+<td>
+28.980
+</td>
+<td>
+139.7
+</td>
+<td>
+2.82
+</td>
+<td>
+5.8
+</td>
+<td>
+177.146
+</td>
+<td>
+0.00
+</td>
+<td>
+0.00
+</td>
+</tr>
+<tr>
+<th>
+1959Q2
+</th>
+<td>
+1959.0
+</td>
+<td>
+2.0
+</td>
+<td>
+2778.801
+</td>
+<td>
+1733.7
+</td>
+<td>
+310.859
+</td>
+<td>
+481.301
+</td>
+<td>
+1919.7
+</td>
+<td>
+29.150
+</td>
+<td>
+141.7
+</td>
+<td>
+3.08
+</td>
+<td>
+5.1
+</td>
+<td>
+177.830
+</td>
+<td>
+2.34
+</td>
+<td>
+0.74
+</td>
+</tr>
+<tr>
+<th>
+1959Q3
+</th>
+<td>
+1959.0
+</td>
+<td>
+3.0
+</td>
+<td>
+2775.488
+</td>
+<td>
+1751.8
+</td>
+<td>
+289.226
+</td>
+<td>
+491.260
+</td>
+<td>
+1916.4
+</td>
+<td>
+29.350
+</td>
+<td>
+140.5
+</td>
+<td>
+3.82
+</td>
+<td>
+5.3
+</td>
+<td>
+178.657
+</td>
+<td>
+2.74
+</td>
+<td>
+1.09
+</td>
+</tr>
+<tr>
+<th>
+1959Q4
+</th>
+<td>
+1959.0
+</td>
+<td>
+4.0
+</td>
+<td>
+2785.204
+</td>
+<td>
+1753.7
+</td>
+<td>
+299.356
+</td>
+<td>
+484.052
+</td>
+<td>
+1931.3
+</td>
+<td>
+29.370
+</td>
+<td>
+140.0
+</td>
+<td>
+4.33
+</td>
+<td>
+5.6
+</td>
+<td>
+179.386
+</td>
+<td>
+0.27
+</td>
+<td>
+4.06
+</td>
+</tr>
+<tr>
+<th>
+1960Q1
+</th>
+<td>
+1960.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2847.699
+</td>
+<td>
+1770.5
+</td>
+<td>
+331.722
+</td>
+<td>
+462.199
+</td>
+<td>
+1955.5
+</td>
+<td>
+29.540
+</td>
+<td>
+139.6
+</td>
+<td>
+3.50
+</td>
+<td>
+5.2
+</td>
+<td>
+180.007
+</td>
+<td>
+2.31
+</td>
+<td>
+1.19
+</td>
+</tr>
+<tr>
+<th>
+...
+</th>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+<td>
+...
+</td>
+</tr>
+<tr>
+<th>
+2008Q3
+</th>
+<td>
+2008.0
+</td>
+<td>
+3.0
+</td>
+<td>
+13324.600
+</td>
+<td>
+9267.7
+</td>
+<td>
+1990.693
+</td>
+<td>
+991.551
+</td>
+<td>
+9838.3
+</td>
+<td>
+216.889
+</td>
+<td>
+1474.7
+</td>
+<td>
+1.17
+</td>
+<td>
+6.0
+</td>
+<td>
+305.270
+</td>
+<td>
+-3.16
+</td>
+<td>
+4.33
+</td>
+</tr>
+<tr>
+<th>
+2008Q4
+</th>
+<td>
+2008.0
+</td>
+<td>
+4.0
+</td>
+<td>
+13141.920
+</td>
+<td>
+9195.3
+</td>
+<td>
+1857.661
+</td>
+<td>
+1007.273
+</td>
+<td>
+9920.4
+</td>
+<td>
+212.174
+</td>
+<td>
+1576.5
+</td>
+<td>
+0.12
+</td>
+<td>
+6.9
+</td>
+<td>
+305.952
+</td>
+<td>
+-8.79
+</td>
+<td>
+8.91
+</td>
+</tr>
+<tr>
+<th>
+2009Q1
+</th>
+<td>
+2009.0
+</td>
+<td>
+1.0
+</td>
+<td>
+12925.410
+</td>
+<td>
+9209.2
+</td>
+<td>
+1558.494
+</td>
+<td>
+996.287
+</td>
+<td>
+9926.4
+</td>
+<td>
+212.671
+</td>
+<td>
+1592.8
+</td>
+<td>
+0.22
+</td>
+<td>
+8.1
+</td>
+<td>
+306.547
+</td>
+<td>
+0.94
+</td>
+<td>
+-0.71
+</td>
+</tr>
+<tr>
+<th>
+2009Q2
+</th>
+<td>
+2009.0
+</td>
+<td>
+2.0
+</td>
+<td>
+12901.504
+</td>
+<td>
+9189.0
+</td>
+<td>
+1456.678
+</td>
+<td>
+1023.528
+</td>
+<td>
+10077.5
+</td>
+<td>
+214.469
+</td>
+<td>
+1653.6
+</td>
+<td>
+0.18
+</td>
+<td>
+9.2
+</td>
+<td>
+307.226
+</td>
+<td>
+3.37
+</td>
+<td>
+-3.19
+</td>
+</tr>
+<tr>
+<th>
+2009Q3
+</th>
+<td>
+2009.0
+</td>
+<td>
+3.0
+</td>
+<td>
+12990.341
+</td>
+<td>
+9256.0
+</td>
+<td>
+1486.398
+</td>
+<td>
+1044.088
+</td>
+<td>
+10040.6
+</td>
+<td>
+216.385
+</td>
+<td>
+1673.9
+</td>
+<td>
+0.12
+</td>
+<td>
+9.6
+</td>
+<td>
+308.013
+</td>
+<td>
+3.56
+</td>
+<td>
+-3.44
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+203 rows × 14 columns
+</p>
+</div>
+<h3 id="periodasfreq-freq-how---时期的频率转换"><strong><em>period.asfreq( freq, how )</em></strong> : 时期的频率转换</h3>
+<h4 id="年--月">年 → 月</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p = pd.Period(<span class="string">'2021'</span>, freq=<span class="string">'A-MAY'</span>)</span><br><span class="line">p, p.asfreq(<span class="string">'M'</span>, how=<span class="string">'start'</span>), p.asfreq(<span class="string">'M'</span>, how=<span class="string">'end'</span>)  <span class="comment"># 2020.6 开始  # 2021.5 结束</span></span><br></pre></td></tr></table></figure>
+<p>(Period('2021', 'A-MAY'), Period('2020-06', 'M'), Period('2021-05', 'M'))</p>
+<h4 id="月--年">月 → 年</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p = pd.Period(<span class="string">'May-2021'</span>, <span class="string">'M'</span>)</span><br><span class="line">p, p.asfreq(<span class="string">'A-DEC'</span>)</span><br></pre></td></tr></table></figure>
+<p>(Period('2021-05', 'M'), Period('2021', 'A-DEC'))</p>
+<h4 id="年--日">年 → 日</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng = pd.period_range(<span class="string">'2006'</span>, <span class="string">'2009'</span>, freq=<span class="string">'A-DEC'</span>)</span><br><span class="line">ts = pd.Series(np.random.randn(<span class="built_in">len</span>(rng)), index=rng)</span><br><span class="line">ts, ts.asfreq(<span class="string">'M'</span>, how=<span class="string">'start'</span>),  ts.asfreq(<span class="string">'D'</span>, how=<span class="string">'start'</span>)</span><br></pre></td></tr></table></figure>
+<p>(2006 -0.954789<br>
+2007 2.045184<br>
+2008 -0.367045<br>
+2009 -0.672529<br>
+Freq: A-DEC, dtype: float64,<br>
+2006-01 -0.954789<br>
+2007-01 2.045184<br>
+2008-01 -0.367045<br>
+2009-01 -0.672529<br>
+Freq: M, dtype: float64,<br>
+2006-01-01 -0.954789<br>
+2007-01-01 2.045184<br>
+2008-01-01 -0.367045<br>
+2009-01-01 -0.672529<br>
+Freq: D, dtype: float64)</p>
+<h4 id="按季度计算的时期">按季度计算的时期</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p = pd.Period(<span class="string">'2021Q1'</span>, freq=<span class="string">'Q-DEC'</span>) <span class="comment"># 季度以DEC为一年的分界, 2021第一季度为2021.1-2021.3</span></span><br><span class="line">p, p.asfreq(<span class="string">'D'</span>, <span class="string">'start'</span>), p.asfreq(<span class="string">'D'</span>, <span class="string">'end'</span>)</span><br></pre></td></tr></table></figure>
+<p>(Period('2021Q1', 'Q-DEC'),<br>
+Period('2021-01-01', 'D'),<br>
+Period('2021-03-31', 'D'))</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p = pd.Period(<span class="string">'2021Q1'</span>, freq=<span class="string">'Q-JUN'</span>) <span class="comment"># 季度以JUN为一年的分界, 2021第一季度为2020.7-2020.9</span></span><br><span class="line">p, p.asfreq(<span class="string">'D'</span>, <span class="string">'start'</span>), p.asfreq(<span class="string">'D'</span>, <span class="string">'end'</span>)</span><br></pre></td></tr></table></figure>
+<p>(Period('2021Q1', 'Q-JUN'),<br>
+Period('2020-07-01', 'D'),<br>
+Period('2020-09-30', 'D'))</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">p = pd.Period(<span class="string">'2021Q4'</span>, freq=<span class="string">'Q-JUN'</span>) <span class="comment"># 季度以JUN为一年的分界, 2021第四季度为2021.4-2021.6</span></span><br><span class="line">p, p.asfreq(<span class="string">'D'</span>, <span class="string">'start'</span>), p.asfreq(<span class="string">'D'</span>, <span class="string">'end'</span>)</span><br></pre></td></tr></table></figure>
+<p>(Period('2021Q4', 'Q-JUN'),<br>
+Period('2021-04-01', 'D'),<br>
+Period('2021-06-30', 'D'))</p>
+<p>获取该季度倒数第二个工作日下午4点的时间戳 :</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas.tseries.offsets <span class="keyword">import</span> Hour</span><br><span class="line">p4pm = (p.asfreq(<span class="string">'B'</span>, <span class="string">'end'</span>) - <span class="number">1</span>).asfreq(<span class="string">'T'</span>, <span class="string">'start'</span>) + Hour(<span class="number">16</span>)</span><br><span class="line">p4pm, p4pm.to_timestamp()</span><br></pre></td></tr></table></figure>
+<p>(Period('2021-06-29 16:00', 'T'), Timestamp('2021-06-29 16:00:00'))</p>
+<p>季度型范围的算术运算</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng = pd.period_range(<span class="string">'2019Q3'</span>, <span class="string">'2021Q4'</span>, freq=<span class="string">'Q-DEC'</span>)</span><br><span class="line">ts = pd.Series(np.arange(<span class="built_in">len</span>(rng)), index=rng)</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+<p>2019Q3 0<br>
+2019Q4 1<br>
+2020Q1 2<br>
+2020Q2 3<br>
+2020Q3 4<br>
+2020Q4 5<br>
+2021Q1 6<br>
+2021Q2 7<br>
+2021Q3 8<br>
+2021Q4 9<br>
+Freq: Q-DEC, dtype: int32</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">new_rng = rng.asfreq(<span class="string">'D'</span>, <span class="string">'end'</span>).asfreq(<span class="string">'T'</span>, <span class="string">'start'</span>) + <span class="number">16</span> * <span class="number">60</span></span><br><span class="line">ts.index = new_rng.to_timestamp()</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+<p>2019-09-30 16:00:00 0<br>
+2019-12-31 16:00:00 1<br>
+2020-03-31 16:00:00 2<br>
+2020-06-30 16:00:00 3<br>
+2020-09-30 16:00:00 4<br>
+2020-12-31 16:00:00 5<br>
+2021-03-31 16:00:00 6<br>
+2021-06-30 16:00:00 7<br>
+2021-09-30 16:00:00 8<br>
+2021-12-31 16:00:00 9<br>
+Freq: Q-DEC, dtype: int32</p>
+<h3 id="tsto_period-freq-copy---时间戳--时期"><strong><em>ts.to_period( freq, copy )</em></strong> : 时间戳 → 时期</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng = pd.date_range(<span class="string">'2021-01-01'</span>, periods=<span class="number">3</span>, freq=<span class="string">'M'</span>)</span><br><span class="line">ts = pd.Series(np.random.randn(<span class="number">3</span>), index=rng)</span><br><span class="line">ts, ts.to_period()</span><br></pre></td></tr></table></figure>
+<p>(2021-01-31 0.799601<br>
+2021-02-28 -0.747543<br>
+2021-03-31 -0.333042<br>
+Freq: M, dtype: float64,<br>
+2021-01 0.799601<br>
+2021-02 -0.747543<br>
+2021-03 -0.333042<br>
+Freq: M, dtype: float64)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng = pd.date_range(<span class="string">'1/29/2021'</span>, periods=<span class="number">6</span>, freq=<span class="string">'D'</span>)</span><br><span class="line">ts2 = pd.Series(np.random.randn(<span class="number">6</span>), index=rng)</span><br><span class="line">ts2, ts2.to_period(<span class="string">'M'</span>)</span><br></pre></td></tr></table></figure>
+<p>(2021-01-29 -0.917420<br>
+2021-01-30 -1.667312<br>
+2021-01-31 0.370422<br>
+2021-02-01 -1.841920<br>
+2021-02-02 0.067595<br>
+2021-02-03 0.539212<br>
+Freq: D, dtype: float64,<br>
+2021-01 -0.917420<br>
+2021-01 -1.667312<br>
+2021-01 0.370422<br>
+2021-02 -1.841920<br>
+2021-02 0.067595<br>
+2021-02 0.539212<br>
+Freq: M, dtype: float64)</p>
+<h3 id="tsto_timestamp-freq-how-copy---时期--时间戳"><strong><em>ts.to_timestamp( freq, how, copy )</em></strong> : 时期 → 时间戳</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng = pd.period_range(<span class="string">'1/29/2021'</span>, periods=<span class="number">2</span>, freq=<span class="string">'M'</span>)</span><br><span class="line">ts3 = pd.Series(np.random.randn(<span class="number">2</span>), index=rng)</span><br><span class="line">ts3, ts3.to_timestamp()</span><br></pre></td></tr></table></figure>
+<p>(2021-01 -2.029517<br>
+2021-02 -0.154121<br>
+Freq: M, dtype: float64,<br>
+2021-01-01 -2.029517<br>
+2021-02-01 -0.154121<br>
+dtype: float64)</p>
+<h2 id="重采样和频率转换">重采样和频率转换</h2>
+<h3 id="tsresample-freq-axis-closed-label-kind-fill_method-limit-convention-"><strong><em>ts.resample( freq, axis, closed, label, kind, fill_method, limit, convention )</em></strong></h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng = pd.date_range(<span class="string">'2000-01-01'</span>, periods=<span class="number">100</span>, freq=<span class="string">'D'</span>)</span><br><span class="line">ts = pd.Series(np.ones(<span class="built_in">len</span>(rng)), index=rng)</span><br><span class="line">ts</span><br></pre></td></tr></table></figure>
+<p>2000-01-01 1.0<br>
+2000-01-02 1.0<br>
+2000-01-03 1.0<br>
+2000-01-04 1.0<br>
+2000-01-05 1.0<br>
+...<br>
+2000-04-05 1.0<br>
+2000-04-06 1.0<br>
+2000-04-07 1.0<br>
+2000-04-08 1.0<br>
+2000-04-09 1.0<br>
+Freq: D, Length: 100, dtype: float64</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.resample(<span class="string">'M'</span>).<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+<p>2000-01-31 31.0<br>
+2000-02-29 29.0<br>
+2000-03-31 31.0<br>
+2000-04-30 9.0<br>
+Freq: M, dtype: float64</p>
+<p><strong><em>kind</em></strong> : 聚合到周期 ( 'period' ) 或 时间戳 ( 'timestamp' )</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts.resample(<span class="string">'M'</span>, kind=<span class="string">'period'</span>).<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+<p>2000-01 31.0<br>
+2000-02 29.0<br>
+2000-03 31.0<br>
+2000-04 9.0<br>
+Freq: M, dtype: float64</p>
+<p><strong><em>closed</em></strong> : 降采样中, 设置时间闭合的一端, 'right' (start, end] 或 'left' [start, end)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rng2 = pd.date_range(<span class="string">'2000-01-01'</span>, periods=<span class="number">7</span>, freq=<span class="string">'T'</span>)</span><br><span class="line">ts2 = pd.Series(np.arange(<span class="number">7</span>), index=rng2)</span><br><span class="line">ts2</span><br></pre></td></tr></table></figure>
+<p>2000-01-01 00:00:00 0<br>
+2000-01-01 00:01:00 1<br>
+2000-01-01 00:02:00 2<br>
+2000-01-01 00:03:00 3<br>
+2000-01-01 00:04:00 4<br>
+2000-01-01 00:05:00 5<br>
+2000-01-01 00:06:00 6<br>
+Freq: T, dtype: int32</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts2.resample(<span class="string">'5T'</span>, closed=<span class="string">'right'</span>).<span class="built_in">sum</span>() <span class="comment"># ( , ]</span></span><br></pre></td></tr></table></figure>
+<p>1999-12-31 23:55:00 0<br>
+2000-01-01 00:00:00 15<br>
+2000-01-01 00:05:00 6<br>
+Freq: 5T, dtype: int32</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts2.resample(<span class="string">'5T'</span>, closed=<span class="string">'left'</span>).<span class="built_in">sum</span>() <span class="comment"># [ , )</span></span><br></pre></td></tr></table></figure>
+<p>2000-01-01 00:00:00 10<br>
+2000-01-01 00:05:00 11<br>
+Freq: 5T, dtype: int32</p>
+<p><strong><em>label</em></strong> : 降采样中, 设置聚合值的标签, 'right' 或 'left'</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ts2.resample(<span class="string">'5T'</span>, closed=<span class="string">'right'</span>, label=<span class="string">'right'</span>).<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+<p>2000-01-01 00:00:00 0<br>
+2000-01-01 00:05:00 15<br>
+2000-01-01 00:10:00 6<br>
+Freq: 5T, dtype: int32</p>
+<p><strong><em>convention</em></strong> : 升采样中, 设置低频周期对应的高频时间戳, 'start' 或 'end'</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">frame = pd.DataFrame(np.random.randn(<span class="number">2</span>, <span class="number">4</span>),</span><br><span class="line">                     index=pd.date_range(<span class="string">'1/1/2000'</span>, periods=<span class="number">2</span>,</span><br><span class="line">                                         freq=<span class="string">'M'</span>),</span><br><span class="line">                     columns=[<span class="string">'Colorado'</span>, <span class="string">'Texas'</span>, <span class="string">'New York'</span>, <span class="string">'Ohio'</span>])</span><br><span class="line">frame</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Colorado
+</th>
+<th>
+Texas
+</th>
+<th>
+New York
+</th>
+<th>
+Ohio
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2000-01-31
+</th>
+<td>
+1.025930
+</td>
+<td>
+-0.974227
+</td>
+<td>
+0.842722
+</td>
+<td>
+1.017311
+</td>
+</tr>
+<tr>
+<th>
+2000-02-29
+</th>
+<td>
+1.171868
+</td>
+<td>
+-1.525096
+</td>
+<td>
+-0.159692
+</td>
+<td>
+0.148648
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_month = frame.resample(<span class="string">'M'</span>, kind=<span class="string">'period'</span>).<span class="built_in">sum</span>()</span><br><span class="line">df_month</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Colorado
+</th>
+<th>
+Texas
+</th>
+<th>
+New York
+</th>
+<th>
+Ohio
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2000-01
+</th>
+<td>
+1.025930
+</td>
+<td>
+-0.974227
+</td>
+<td>
+0.842722
+</td>
+<td>
+1.017311
+</td>
+</tr>
+<tr>
+<th>
+2000-02
+</th>
+<td>
+1.171868
+</td>
+<td>
+-1.525096
+</td>
+<td>
+-0.159692
+</td>
+<td>
+0.148648
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_daily = df_month.resample(<span class="string">'D'</span>, convention=<span class="string">'start'</span>).asfreq()</span><br><span class="line">df_daily.head()</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+Colorado
+</th>
+<th>
+Texas
+</th>
+<th>
+New York
+</th>
+<th>
+Ohio
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+2000-01-01
+</th>
+<td>
+1.02593
+</td>
+<td>
+-0.974227
+</td>
+<td>
+0.842722
+</td>
+<td>
+1.017311
+</td>
+</tr>
+<tr>
+<th>
+2000-01-02
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+2000-01-03
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+2000-01-04
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+2000-01-05
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
+        <tag>datetime</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据分析-08-Pandas and Seaborn</title>
     <url>/2022/cdo/08-pandas_and_seaborn/</url>
     <content><![CDATA[<span id="more"></span>
