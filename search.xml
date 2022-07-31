@@ -10642,6 +10642,886 @@ two
 </tbody>
 </table>
 </div>
+<h2 id="数据映射与替换">数据映射与替换</h2>
+<h3 id="seriesmap-arg---利用函数或字典进行数据映射"><strong><em>series.map( arg )</em></strong> : 利用函数或字典进行数据映射</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = pd.DataFrame({<span class="string">'food'</span>: [<span class="string">'Bacon'</span>, <span class="string">'pulled pork'</span>, <span class="string">'bacon'</span>,</span><br><span class="line">                              <span class="string">'Pastrami'</span>, <span class="string">'corned beef'</span>, <span class="string">'Bacon'</span>,</span><br><span class="line">                              <span class="string">'pastrami'</span>, <span class="string">'honey ham'</span>,<span class="string">'nova lox'</span>],</span><br><span class="line">                     <span class="string">'ounces'</span>: [<span class="number">4</span>, <span class="number">3</span>, <span class="number">12</span>, <span class="number">6</span>, <span class="number">7.5</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>]})</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+food
+</th>
+<th>
+ounces
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Bacon
+</td>
+<td>
+4.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+pulled pork
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+bacon
+</td>
+<td>
+12.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+Pastrami
+</td>
+<td>
+6.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+corned beef
+</td>
+<td>
+7.5
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+Bacon
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+pastrami
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+honey ham
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+nova lox
+</td>
+<td>
+6.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>映射数据</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">meat_to_animal = {<span class="string">'bacon'</span>: <span class="string">'pig'</span>,</span><br><span class="line">                  <span class="string">'pulled pork'</span>: <span class="string">'pig'</span>,</span><br><span class="line">                  <span class="string">'pastrami'</span>: <span class="string">'cow'</span>,</span><br><span class="line">                  <span class="string">'corned beef'</span>: <span class="string">'cow'</span>,</span><br><span class="line">                  <span class="string">'honey ham'</span>: <span class="string">'pig'</span>,</span><br><span class="line">                  <span class="string">'nova lox'</span>: <span class="string">'salmon'</span>}</span><br><span class="line">meat_to_animal</span><br></pre></td></tr></table></figure>
+<p>{'bacon': 'pig',<br>
+'pulled pork': 'pig',<br>
+'pastrami': 'cow',<br>
+'corned beef': 'cow',<br>
+'honey ham': 'pig',<br>
+'nova lox': 'salmon'}</p>
+<h4 id="seriesmap-dict-"><strong><em>series.map( dict )</em></strong></h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data[<span class="string">'animal1'</span>] = data[<span class="string">'food'</span>].<span class="built_in">str</span>.lower().<span class="built_in">map</span>(meat_to_animal)</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+food
+</th>
+<th>
+ounces
+</th>
+<th>
+animal1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Bacon
+</td>
+<td>
+4.0
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+pulled pork
+</td>
+<td>
+3.0
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+bacon
+</td>
+<td>
+12.0
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+Pastrami
+</td>
+<td>
+6.0
+</td>
+<td>
+cow
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+corned beef
+</td>
+<td>
+7.5
+</td>
+<td>
+cow
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+Bacon
+</td>
+<td>
+8.0
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+pastrami
+</td>
+<td>
+3.0
+</td>
+<td>
+cow
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+honey ham
+</td>
+<td>
+5.0
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+nova lox
+</td>
+<td>
+6.0
+</td>
+<td>
+salmon
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="seriesmap-func-"><strong><em>series.map( func )</em></strong></h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data[<span class="string">'animal2'</span>] = data[<span class="string">'food'</span>].<span class="built_in">map</span>( <span class="keyword">lambda</span> x: meat_to_animal[x.lower()] )</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+food
+</th>
+<th>
+ounces
+</th>
+<th>
+animal1
+</th>
+<th>
+animal2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+Bacon
+</td>
+<td>
+4.0
+</td>
+<td>
+pig
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+pulled pork
+</td>
+<td>
+3.0
+</td>
+<td>
+pig
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+bacon
+</td>
+<td>
+12.0
+</td>
+<td>
+pig
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+Pastrami
+</td>
+<td>
+6.0
+</td>
+<td>
+cow
+</td>
+<td>
+cow
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+corned beef
+</td>
+<td>
+7.5
+</td>
+<td>
+cow
+</td>
+<td>
+cow
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+Bacon
+</td>
+<td>
+8.0
+</td>
+<td>
+pig
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+pastrami
+</td>
+<td>
+3.0
+</td>
+<td>
+cow
+</td>
+<td>
+cow
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+honey ham
+</td>
+<td>
+5.0
+</td>
+<td>
+pig
+</td>
+<td>
+pig
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+nova lox
+</td>
+<td>
+6.0
+</td>
+<td>
+salmon
+</td>
+<td>
+salmon
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="objreplace-to_replace-value---数据替换"><strong><em>obj.replace( to_replace, value )</em></strong> : 数据替换</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = pd.Series([<span class="number">1.</span>, -<span class="number">999.</span>, <span class="number">2.</span>, -<span class="number">999.</span>, -<span class="number">1000.</span>, <span class="number">3.</span>])</span><br><span class="line">data.replace([-<span class="number">999</span>, -<span class="number">1000</span>], np.nan)</span><br></pre></td></tr></table></figure>
+<p>0 1.0<br>
+1 NaN<br>
+2 2.0<br>
+3 NaN<br>
+4 NaN<br>
+5 3.0<br>
+dtype: float64</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.replace([-<span class="number">999</span>, -<span class="number">1000</span>], [np.nan, <span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<p>0 1.0<br>
+1 NaN<br>
+2 2.0<br>
+3 NaN<br>
+4 0.0<br>
+5 3.0<br>
+dtype: float64</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.replace({-<span class="number">999</span>: np.nan, -<span class="number">1000</span>: <span class="number">0</span>})</span><br></pre></td></tr></table></figure>
+<p>0 1.0<br>
+1 NaN<br>
+2 2.0<br>
+3 NaN<br>
+4 0.0<br>
+5 3.0<br>
+dtype: float64</p>
+<h3 id="objrename-index-columns-inplace---索引重命名"><strong><em>obj.rename( index, columns, inplace )</em></strong> : 索引重命名</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = pd.DataFrame(np.arange(<span class="number">12</span>).reshape((<span class="number">3</span>, <span class="number">4</span>)),</span><br><span class="line">                    index=[<span class="string">'Ohio'</span>, <span class="string">'Colorado'</span>, <span class="string">'New York'</span>],</span><br><span class="line">                    columns=[<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>, <span class="string">'four'</span>])</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+one
+</th>
+<th>
+two
+</th>
+<th>
+three
+</th>
+<th>
+four
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+Ohio
+</th>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+Colorado
+</th>
+<td>
+4
+</td>
+<td>
+5
+</td>
+<td>
+6
+</td>
+<td>
+7
+</td>
+</tr>
+<tr>
+<th>
+New York
+</th>
+<td>
+8
+</td>
+<td>
+9
+</td>
+<td>
+10
+</td>
+<td>
+11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="seriesmap-func---map-方法"><strong><em>series.map( func )</em></strong> : map 方法</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.index = data.index.<span class="built_in">map</span>( <span class="keyword">lambda</span> x: x[:<span class="number">4</span>].upper() )</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+one
+</th>
+<th>
+two
+</th>
+<th>
+three
+</th>
+<th>
+four
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+OHIO
+</th>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+COLO
+</th>
+<td>
+4
+</td>
+<td>
+5
+</td>
+<td>
+6
+</td>
+<td>
+7
+</td>
+</tr>
+<tr>
+<th>
+NEW
+</th>
+<td>
+8
+</td>
+<td>
+9
+</td>
+<td>
+10
+</td>
+<td>
+11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="seriesrename-index-columns---rename-方法"><strong><em>series.rename( index, columns )</em></strong> : rename 方法</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.rename(index=<span class="built_in">str</span>.title, columns=<span class="built_in">str</span>.upper)</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ONE
+</th>
+<th>
+TWO
+</th>
+<th>
+THREE
+</th>
+<th>
+FOUR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+Ohio
+</th>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+Colo
+</th>
+<td>
+4
+</td>
+<td>
+5
+</td>
+<td>
+6
+</td>
+<td>
+7
+</td>
+</tr>
+<tr>
+<th>
+New
+</th>
+<td>
+8
+</td>
+<td>
+9
+</td>
+<td>
+10
+</td>
+<td>
+11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>rename 可以结合字典型对象实现对部分轴标签的更新</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.rename(index={<span class="string">'OHIO'</span>: <span class="string">'INDIANA'</span>}, columns={<span class="string">'three'</span>: <span class="string">'peekaboo'</span>})</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+one
+</th>
+<th>
+two
+</th>
+<th>
+peekaboo
+</th>
+<th>
+four
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+INDIANA
+</th>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+COLO
+</th>
+<td>
+4
+</td>
+<td>
+5
+</td>
+<td>
+6
+</td>
+<td>
+7
+</td>
+</tr>
+<tr>
+<th>
+NEW
+</th>
+<td>
+8
+</td>
+<td>
+9
+</td>
+<td>
+10
+</td>
+<td>
+11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 ]]></content>
       <categories>
         <category>python</category>
