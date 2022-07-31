@@ -17,25 +17,120 @@
       </tags>
   </entry>
   <entry>
-    <title>数据分析-Python</title>
-    <url>/2022/pandas_learning/pandas_01_python/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的 IO</p>
+    <title>数据分析-01-Python</title>
+    <url>/2022/cdo/01-python/</url>
+    <content><![CDATA[<p>这篇博客主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的读写</p>
 <span id="more"></span>
 <h2 id="列表推导式">列表推导式</h2>
 <p><strong><em>result = [ expr for val in collection if condition ]</em></strong></p>
 <h3 id="普通推导式">普通推导式</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strings = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'as'</span>, <span class="string">'bat'</span>, <span class="string">'car'</span>, <span class="string">'dove'</span>, <span class="string">'python'</span>, <span class="string">'love'</span>, <span class="string">'pythove'</span>]</span><br><span class="line">l = [val <span class="keyword">for</span> val <span class="keyword">in</span> strings <span class="keyword">if</span> <span class="string">'ove'</span> <span class="keyword">in</span> val]</span><br><span class="line">d = {key:val <span class="keyword">for</span> val, key <span class="keyword">in</span> <span class="built_in">enumerate</span>(strings) <span class="keyword">if</span> <span class="string">'ove'</span> <span class="keyword">in</span> key}</span><br><span class="line">s = {val <span class="keyword">for</span> val <span class="keyword">in</span> strings <span class="keyword">if</span> <span class="string">'ove'</span> <span class="keyword">in</span> val}</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'list is {0} \ndict is {1} \nset  is {2}'</span>.<span class="built_in">format</span>(l, d, s))</span><br></pre></td></tr></table></figure>
-<p>list is ['dove', 'love', 'pythove']<br>
-dict is {'dove': 6, 'love': 8, 'pythove': 9}<br>
-set is {'pythove', 'dove', 'love'}</p>
+<pre><code>list is \['dove', 'love', 'pythove']  
+dict is \{'dove': 6, 'love': 8, 'pythove': 9}  
+set  is \{'pythove', 'dove', 'love'}  </code></pre>
 <h3 id="嵌套推导式">嵌套推导式</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tuples = [(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>),(<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)]</span><br><span class="line">[val2 <span class="keyword">for</span> val1 <span class="keyword">in</span> tuples <span class="keyword">for</span> val2 <span class="keyword">in</span> val1]</span><br></pre></td></tr></table></figure>
-<p>[1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+<pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9]  </code></pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[[val2 <span class="keyword">for</span> val2 <span class="keyword">in</span> val1] <span class="keyword">for</span> val1 <span class="keyword">in</span> tuples ]</span><br></pre></td></tr></table></figure>
-<p>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</p>
+<pre><code>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]  </code></pre>
+<h2 id="函数">函数</h2>
+<p><strong><em>def function( vars ) : ... return expr</em></strong> : 一般函数<br>
+<strong><em>function = lambda vars : expr</em></strong> ： <strong><em>lambda</em></strong> 函数</p>
+<h3 id="一般函数">一般函数</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x, y, z=<span class="number">2</span></span>):</span><br><span class="line">    <span class="keyword">if</span> z &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> z*(x+y)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> z*(x-y)</span><br><span class="line">f(<span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>), f(<span class="number">5</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>(1, 18)</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>():</span><br><span class="line">    a = <span class="number">5</span></span><br><span class="line">    b = <span class="number">6</span></span><br><span class="line">    c = <span class="number">7</span></span><br><span class="line">    <span class="keyword">return</span> a, b, c</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
+<pre><code>(5, 6, 7)</code></pre>
+<h3 id="嵌套函数">嵌套函数</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment">#常规函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">clean_strings_v1</span>(<span class="params">strings</span>):</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> string <span class="keyword">in</span> strings:</span><br><span class="line">        string = string.strip()       <span class="comment"># 等价于string = str.strip(string)</span></span><br><span class="line">        string = re.sub(<span class="string">'[!#?]'</span>, <span class="string">''</span>, string)</span><br><span class="line">        string = string.title()</span><br><span class="line">        result.append(string)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数嵌套调用</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remove_marks</span>(<span class="params">string</span>):              <span class="comment"># 正则化函数</span></span><br><span class="line">    <span class="keyword">return</span> re.sub(<span class="string">'[!#?]'</span>, <span class="string">''</span>, string) <span class="comment"># 正则表达式</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">clean_strings_v2</span>(<span class="params">strings, opts</span>):  <span class="comment"># 清理操作函数，strings:操作对象， opts:操作函数</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> string <span class="keyword">in</span> strings:</span><br><span class="line">        <span class="keyword">for</span> function <span class="keyword">in</span> opts:          <span class="comment"># 遍历opts中的函数依次使用</span></span><br><span class="line">            string = function(string)  <span class="comment"># 调用函数function，function的使用等价于function所指代的函数</span></span><br><span class="line">        result.append(string)          <span class="comment"># function可以是现成的，也可以是自己定义的</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 主函数</span></span><br><span class="line">strings = [<span class="string">' A???laba#ma '</span>, <span class="string">'Geo#r?gia!'</span>, <span class="string">'Geor?#gia'</span>, <span class="string">'georgia'</span>, </span><br><span class="line">           <span class="string">'FlOrIda'</span>, <span class="string">'south      carolina##'</span>, <span class="string">'West    virginia?'</span>]</span><br><span class="line">clearn_opts = [<span class="built_in">str</span>.strip, remove_marks, <span class="built_in">str</span>.title]  <span class="comment"># 函数指令依次是：去除空白符， 正则化处理， 正确的大小写</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(clean_strings_v1(strings=strings))</span><br><span class="line"><span class="built_in">print</span>(clean_strings_v2(strings=strings, opts=clearn_opts))</span><br></pre></td></tr></table></figure>
+<pre><code>['Alabama', 'Georgia', 'Georgia', 'Georgia', 'Florida', 'South      Carolina', 'West    Virginia']
+['Alabama', 'Georgia', 'Georgia', 'Georgia', 'Florida', 'South      Carolina', 'West    Virginia']</code></pre>
+<h3 id="lambda-函数"><strong><em>lambda</em></strong> 函数</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">remove_marks = <span class="keyword">lambda</span> string: re.sub(<span class="string">'[!#?]'</span>, <span class="string">''</span>, string)</span><br><span class="line"><span class="built_in">print</span>(clean_strings_v2(strings, opts = [remove_marks]))</span><br></pre></td></tr></table></figure>
+<pre><code>[' Alabama ', 'Georgia', 'Georgia', 'georgia', 'FlOrIda', 'south      carolina', 'West    virginia']</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strings = [<span class="string">'foo'</span>, <span class="string">'card'</span>, <span class="string">'app'</span>, <span class="string">'zzzzz'</span>, <span class="string">'abab'</span>]</span><br><span class="line">strings.sort(key = <span class="keyword">lambda</span> x: <span class="built_in">len</span>(<span class="built_in">set</span>(x))) <span class="comment"># 根据各字符串不同字母数量进行排序</span></span><br><span class="line">strings</span><br><span class="line"><span class="comment"># 在排序之前, strings里的所有元素都会执行key的函数, 这里指的就是lambda函数</span></span><br><span class="line"><span class="comment"># 计算出值之后, 赋值给key, 然后sort()是根据key值进行排序</span></span><br></pre></td></tr></table></figure>
+<pre><code>['zzzzz', 'foo', 'app', 'abab', 'card']</code></pre>
+<h2 id="生成器及生成器表达式">生成器及生成器表达式</h2>
+<p><strong><em>def generator( vars ) : for ... : yield expr</em></strong><br>
+<strong><em>gen = ( expr for val in collection if condition )</em></strong></p>
+<h3 id="生成器">生成器</h3>
+<p>构造一种可迭代的对象，从而可对其进行迭代，迭代的过程才是函数被执行的过程</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">generator</span>(<span class="params">var=<span class="number">10</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'Generating squares from 1 to {0}'</span>.<span class="built_in">format</span>(var ** <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, var+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">yield</span> i ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">gen = generator(var=<span class="number">3</span>) <span class="comment">#生成可迭代的对象——生成器gen</span></span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> gen: <span class="comment"># 迭代生成器时，才开始执行程序</span></span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure>
+<pre><code>Generating squares from 1 to 9
+1
+4
+9</code></pre>
+<h3 id="生成器表达式">生成器表达式</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gen = (x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">3</span>+<span class="number">1</span>))</span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> gen:</span><br><span class="line">    <span class="built_in">print</span>(e)</span><br></pre></td></tr></table></figure>
+<pre><code>1
+4
+9</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sum</span>(i**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>328350</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dict</span>((i, i**<span class="number">2</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}</code></pre>
+<h2 id="异常处理">异常处理</h2>
+<p><strong><em>try ... except ...</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">attempt_float</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">float</span>(x)</span><br><span class="line">    <span class="keyword">except</span>(ValueError):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'ValueError!'</span></span><br><span class="line">    <span class="keyword">except</span>(TypeError):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'TypeError!'</span></span><br><span class="line">attempt_float(<span class="string">'something'</span>), attempt_float((<span class="number">1</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>('ValueError!', 'TypeError!')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">attempt_float</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">float</span>(x)</span><br><span class="line">    <span class="keyword">except</span>(ValueError, TypeError):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Error!'</span></span><br><span class="line">attempt_float(<span class="string">'something'</span>), attempt_float((<span class="number">1</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>('Error!', 'Error!')</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">'try.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f.writelines(x <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>])</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'Failed'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'Succeeded'</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<pre><code>Succeeded</code></pre>
+<h2 id="文件">文件</h2>
+<h3 id="文件打开---1">文件打开 - 1</h3>
+<p><strong><em>f = open( path, mode, encoding ) ... f.close()</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">path = os.getcwd()+<span class="string">'\\file.txt'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(path)</span><br><span class="line"><span class="built_in">print</span>([line <span class="keyword">for</span> line <span class="keyword">in</span> f]) </span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<pre><code>['致橡树：\n', '我如果爱你——\n', '绝不像攀援的凌霄花，\n', '借你的高枝炫耀自己；\n', '我如果爱你——\n', '绝不学痴情的鸟儿，\n', '为绿荫重复单调的歌曲；\n', '也不止像泉源，\n', '常年送来清凉的慰藉；\n', '也不止像险峰，\n', '增加你的高度，衬托你的威仪。\n', '甚至日光，\n', '甚至春雨。']</code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(path)</span><br><span class="line"><span class="built_in">print</span>([line.rstrip() <span class="keyword">for</span> line <span class="keyword">in</span> f]) <span class="comment"># rstrip删除字符串末尾的指定字符</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<pre><code>['致橡树：', '我如果爱你——', '绝不像攀援的凌霄花，', '借你的高枝炫耀自己；', '我如果爱你——', '绝不学痴情的鸟儿，', '为绿荫重复单调的歌曲；', '也不止像泉源，', '常年送来清凉的慰藉；', '也不止像险峰，', '增加你的高度，衬托你的威仪。', '甚至日光，', '甚至春雨。']</code></pre>
+<h3 id="文件打开---2">文件打开 - 2</h3>
+<p><strong><em>with open( path ) as f :</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>([line.rstrip() <span class="keyword">for</span> line <span class="keyword">in</span> f])</span><br></pre></td></tr></table></figure>
+<pre><code>['致橡树：', '我如果爱你——', '绝不像攀援的凌霄花，', '借你的高枝炫耀自己；', '我如果爱你——', '绝不学痴情的鸟儿，', '为绿荫重复单调的歌曲；', '也不止像泉源，', '常年送来清凉的慰藉；', '也不止像险峰，', '增加你的高度，衬托你的威仪。', '甚至日光，', '甚至春雨。']</code></pre>
+<h4 id="打开模式">打开模式</h4>
+<p><img src="/2022/cdo/01-python/1.jpg" alt="文件打开模式"></p>
+<h3 id="文件读写">文件读写</h3>
+<p><img src="/2022/cdo/01-python/2.jpg" alt="文件读写"></p>
+<h4 id="读取及定位">读取及定位</h4>
+<p><strong><em>f.tell( ), f.seek( position ), f.read( size ), f.readlines( hint )</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>(f.tell()) <span class="comment"># 从0开始</span></span><br><span class="line">    l = f.read(<span class="number">9</span>) <span class="comment"># 从当前位置向前读取9个字符</span></span><br><span class="line">    <span class="built_in">print</span>(f.tell()) <span class="comment">#读取的字节数</span></span><br><span class="line">    f.seek(<span class="number">8</span>)  <span class="comment">#定位文件中的位置，单位：字节</span></span><br><span class="line">    <span class="built_in">print</span>(f.tell())</span><br><span class="line">    <span class="built_in">print</span>(f.read(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>0
+18
+8
+
+我如果爱</code></pre>
+<h4 id="写入">写入</h4>
+<p><strong><em>f.write( text ), f.writelines( lines )</em></strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path_out = os.getcwd() + <span class="string">'\\out.txt'</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path_out, mode=<span class="string">'w'</span>) <span class="keyword">as</span> f_out:</span><br><span class="line">    f_in = <span class="built_in">open</span>(path)</span><br><span class="line">    f_out.write(<span class="string">'ZHI XIANG SHU\n'</span>)</span><br><span class="line">    f_out.writelines(x <span class="keyword">for</span> x <span class="keyword">in</span> f_in)</span><br><span class="line">    f_in.close()</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path_out) <span class="keyword">as</span> f:</span><br><span class="line">    lines = f.readlines(<span class="number">14</span>) <span class="comment"># 从当前位置向前读到第14个字符所在的行</span></span><br><span class="line">    <span class="built_in">print</span>(lines)</span><br></pre></td></tr></table></figure>
+<pre><code>['ZHI XIANG SHU\n', '致橡树：\n']</code></pre>
+<h3 id="字符模式与字节模式">字符模式与字节模式</h3>
+<blockquote>
+<p>字符模式（unicode）：' ...... '<br>
+字节模式（encode）：<strong><em>b</em></strong>' ...... '</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path) <span class="keyword">as</span> f_str:</span><br><span class="line">    data_str = f_str.read(<span class="number">10</span>)  <span class="comment">##向前读10个字符</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path, <span class="string">'rb'</span>) <span class="keyword">as</span> f_gbk:</span><br><span class="line">    data_gbk = f_gbk.read(<span class="number">10</span>)  <span class="comment">##向前读10个字节</span></span><br><span class="line"><span class="built_in">print</span>(data_str)</span><br><span class="line"><span class="built_in">print</span>(data_str.encode(<span class="string">'gbk'</span>))</span><br><span class="line"><span class="built_in">print</span>(data_gbk)</span><br><span class="line"></span><br><span class="line">path_out = os.getcwd() + <span class="string">'\\out_utf8.txt'</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path_out, mode=<span class="string">'w'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f_out:</span><br><span class="line">    f_in = <span class="built_in">open</span>(path)</span><br><span class="line">    f_out.writelines(x <span class="keyword">for</span> x <span class="keyword">in</span> f_in)</span><br><span class="line">    f_in.close()</span><br></pre></td></tr></table></figure>
+<pre><code>致橡树：
+我如果爱你
+b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\n\xce\xd2\xc8\xe7\xb9\xfb\xb0\xae\xc4\xe3'
+b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
+<blockquote>
+<p>注意 : 文件是什么编码写的，就应该用对应编码格式读</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path_gbk = os.getcwd() + <span class="string">'\\file.txt'</span></span><br><span class="line">path_utf8 = os.getcwd() + <span class="string">'\\out_utf8.txt'</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path_utf8, <span class="string">'r+'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f_utf_utf:</span><br><span class="line">    data_utf_utf = f_utf_utf.read(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path_utf8, <span class="string">'r+'</span>, encoding=<span class="string">'gbk'</span>, errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f_utf_gbk:</span><br><span class="line">    data_utf_gbk = f_utf_gbk.read(<span class="number">3</span>) </span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path_gbk, <span class="string">'r+'</span>, encoding=<span class="string">'utf8'</span>, errors=<span class="string">'ignore'</span>) <span class="keyword">as</span> f_gbk_utf:</span><br><span class="line">    data_gbk_utf= f_gbk_utf.read(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path_gbk, <span class="string">'r+'</span>, encoding=<span class="string">'gbk'</span>) <span class="keyword">as</span> f_gbk_gbk:</span><br><span class="line">    data_gbk_gbk = f_gbk_gbk.read(<span class="number">3</span>) </span><br><span class="line"><span class="built_in">print</span>(data_utf_utf)</span><br><span class="line"><span class="built_in">print</span>(data_utf_gbk)</span><br><span class="line"><span class="built_in">print</span>(data_gbk_utf)</span><br><span class="line"><span class="built_in">print</span>(data_gbk_gbk)</span><br></pre></td></tr></table></figure>
+<pre><code>致橡树
+鑷存℃
+
+㡪
+
+致橡树</code></pre>
 ]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
       <tags>
-        <tag>Python</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -284,7 +379,7 @@ set is {'pythove', 'dove', 'love'}</p>
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -461,7 +556,7 @@ set is {'pythove', 'dove', 'love'}</p>
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -820,7 +915,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -937,7 +1032,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -1694,7 +1789,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -2564,7 +2659,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -2939,7 +3034,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -2987,7 +3082,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -3438,7 +3533,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -3836,7 +3931,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -4134,7 +4229,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>气象数据处理</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
