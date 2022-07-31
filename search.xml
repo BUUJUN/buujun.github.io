@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Welcome to BUUJUN&#39;s Blog!</title>
-    <url>/2022/hello-world/</url>
+    <url>/hello-world/</url>
     <content><![CDATA[<p>大家好呀，欢迎来到我的博客！我是大气科学（Atmosphere Science）专业的一名在读研究生，目前所做的工作主要涉及 <strong>人工智能</strong> 和 <strong>气候预测</strong> ，所以我的博客内容也将围绕气象数据处理（ CDO 和 Python）、统计计算和动力方程诊断（Python）、图形绘制（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、模式模拟（ WRF 和 CESM）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
 ]]></content>
       <tags>
@@ -18,7 +18,7 @@
   </entry>
   <entry>
     <title>Xarray - 计算</title>
-    <url>/2022/xarray/ch2-calculate/</url>
+    <url>/xarray/ch2-calculate/</url>
     <content><![CDATA[<p>本文主要介绍 Xarray 相关的计算，包括：基础计算、分组计算、重采样计算、滑动计算以及多项式回归</p>
 <span id="more"></span>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"><span class="comment"># 给一个随机数种子，使得每次运行得到的随机数是相同的</span></span><br><span class="line">rng = np.random.default_rng(seed=<span class="number">0</span>)  </span><br><span class="line"><span class="comment"># 数据导入</span></span><br><span class="line">path = <span class="string">".data/sst.mnmean.nc"</span></span><br><span class="line"><span class="comment"># 丢弃一个不必要导入的变量:time_bnds</span></span><br><span class="line">ds = xr.open_dataset(path, drop_variables=[<span class="string">"time_bnds"</span>])</span><br><span class="line"><span class="comment"># 下述代码需几分钟导入数据</span></span><br><span class="line">ds = ds.sel(time=<span class="built_in">slice</span>(<span class="string">"1960"</span>, <span class="string">"2018"</span>)).load()</span><br></pre></td></tr></table></figure>
@@ -268,7 +268,7 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
   </entry>
   <entry>
     <title>Xarray - 数据对象</title>
-    <url>/2022/xarray/ch1-basics/</url>
+    <url>/xarray/ch1-basics/</url>
     <content><![CDATA[<p>本文主要介绍 Xarray 的数据对象（ DataArray 和 DataSet ）相关的内容，包括数据对象的创建、读写、索引和插值等操作<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">rng = np.random.default_rng(seed=<span class="number">0</span>)   <span class="comment"># 给一个随机数种子，使得每次运行得到的随机数是相同的</span></span><br></pre></td></tr></table></figure>
@@ -592,7 +592,7 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
   </entry>
   <entry>
     <title>Pandas + Datetime - 时间序列</title>
-    <url>/2022/data_analysis/09-pandas-time_series/</url>
+    <url>/data_analysis/09-pandas-time_series/</url>
     <content><![CDATA[<p>这篇博客主要介绍利用 Pandas 和 Datetime 处理时间序列。包括日期和时间数据类型的介绍、时间数据与字符串之间的转换、时间序列的索引、时间序列的平移、时期数据的创建和计算以及时间序列的重采样和频率转换<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> dateutil.parser <span class="keyword">import</span> parse</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -1766,7 +1766,7 @@ NaN
   </entry>
   <entry>
     <title>Matplotlib + Seaborn - 绘图基础</title>
-    <url>/2022/data_analysis/08-pandas_and_seaborn/</url>
+    <url>/data_analysis/08-pandas_and_seaborn/</url>
     <content><![CDATA[<p>这篇博客主要介绍利用 Matplotlib 和 Seaborn 绘制基本图像，包括折线图、条形图、直方图、密度图、散点图、散步矩阵图等；最后还简单介绍了 Seaborn 分面网格的功能<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
@@ -1784,7 +1784,7 @@ NaN
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">s = pd.Series(np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]))</span><br><span class="line">s.plot(kind=<span class="string">'bar'</span>, grid=<span class="literal">True</span>, rot=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;AxesSubplot:&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_4_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_4_1.png" alt="png"></p>
 <h3 id="frameplot---subplots-sharex-sharey-sortcolumns-"><strong><em>frame.plot( ... ..., subplots, sharex, sharey, sortcolumns )</em></strong></h3>
 <blockquote>
 <p><strong><em>subplots</em></strong> : 是否将 frame 各列单独绘制<br>
@@ -1793,14 +1793,14 @@ NaN
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">10</span>, <span class="number">4</span>).cumsum(<span class="number">0</span>),</span><br><span class="line">                  columns=[<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>],</span><br><span class="line">                  index=np.arange(<span class="number">0</span>, <span class="number">100</span>, <span class="number">10</span>))</span><br><span class="line">df.plot()</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;AxesSubplot:&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_6_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_6_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.plot(subplots=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">array([&lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;],</span><br><span class="line">      dtype=object)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_7_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_7_1.png" alt="png"></p>
 <h3 id="frameplotline-----折线图"><strong><em>frame.plot.line( ... ... )</em></strong> : 折线图</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">fig.subplots_adjust()</span><br><span class="line">data = pd.DataFrame(np.random.rand(<span class="number">6</span>, <span class="number">4</span>), </span><br><span class="line">                    index=[<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>, <span class="string">'four'</span>, <span class="string">'five'</span>, <span class="string">'six'</span>],</span><br><span class="line">                    columns=pd.Index([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>], </span><br><span class="line">                    name=<span class="string">'Genus'</span>))</span><br><span class="line">data.plot.bar(ax=axes[<span class="number">0</span>])</span><br><span class="line">data.plot.line(ax=axes[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;AxesSubplot:&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_9_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_9_1.png" alt="png"></p>
 <h3 id="frameplotbar-stacked---frameplotbarh-stacked----条形图"><strong><em>frame.plot.bar( stacked, ... ), frame.plot.barh( stacked, ... )</em></strong> : 条形图</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = pd.DataFrame(np.arange(<span class="number">1</span>,<span class="number">25</span>).reshape(<span class="number">4</span>, <span class="number">6</span>).T, </span><br><span class="line">                    index=[<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>, <span class="string">'four'</span>, <span class="string">'five'</span>, <span class="string">'six'</span>],</span><br><span class="line">                    columns=pd.Index([<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>], </span><br><span class="line">                    name=<span class="string">'Genus'</span>))</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
 <div>
@@ -1945,8 +1945,8 @@ six
 </div>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.plot.bar()</span><br><span class="line">data.plot.barh(stacked=<span class="literal">True</span>) <span class="comment">#叠加</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;AxesSubplot:&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_12_1.png" alt="png"></p>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_12_2.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_12_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_12_2.png" alt="png"></p>
 <h3 id="snsbarplot-data-x-y-hue-orient---平均值及置信度"><strong><em>sns.barplot( data, x, y, hue, orient )</em></strong> : 平均值及置信度</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tips = pd.read_csv(<span class="string">'pydata-book-2nd-edition/examples/tips.csv'</span>)</span><br><span class="line">tips.head()</span><br></pre></td></tr></table></figure>
 <div>
@@ -2287,31 +2287,31 @@ Dinner
 </div>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tips[<span class="string">'tip/total_bill'</span>].plot.hist(bins=<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;AxesSubplot:ylabel='Frequency'&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_18_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_18_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tips[<span class="string">'tip/total_bill'</span>].plot.density()</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;AxesSubplot:ylabel='Density'&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_19_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_19_1.png" alt="png"></p>
 <h3 id="snsregplot-data-x-y-hue---散点图"><strong><em>sns.regplot( data, x, y, hue )</em></strong> : 散点图</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">macro = pd.read_csv(<span class="string">'pydata-book-2nd-edition/examples/macrodata.csv'</span>)</span><br><span class="line">data = macro[[<span class="string">'cpi'</span>, <span class="string">'m1'</span>, <span class="string">'tbilrate'</span>, <span class="string">'unemp'</span>]]</span><br><span class="line">trans_data = np.log(data).diff().dropna()</span><br><span class="line">trans_data.head()</span><br><span class="line">sns.regplot(x = <span class="string">'m1'</span>, y = <span class="string">'unemp'</span>, data=trans_data)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;AxesSubplot:xlabel='m1', ylabel='unemp'&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_21_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_21_1.png" alt="png"></p>
 <h3 id="snspairplot-data-diag_kind-plot_kws---散步图矩阵"><strong><em>sns.pairplot( data, diag_kind, plot_kws )</em></strong> : 散步图矩阵</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sns.pairplot(trans_data, diag_kind=<span class="string">'kde'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;seaborn.axisgrid.PairGrid at 0x2244980c220&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_23_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_23_1.png" alt="png"></p>
 <h3 id="snscatplot-data-x-y-hue-row-col-kind---分面网格"><strong><em>sns.catplot( data, x, y, hue, row, col, kind )</em></strong> : 分面网格</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tips = pd.read_csv(<span class="string">'pydata-book-2nd-edition/examples/tips.csv'</span>)</span><br><span class="line">tips[<span class="string">'tip_pct'</span>] = tips[<span class="string">'tip'</span>] / tips[<span class="string">'total_bill'</span>]</span><br><span class="line">sns.catplot(x=<span class="string">'day'</span>, y=<span class="string">'tip_pct'</span>, hue=<span class="string">'time'</span>, col=<span class="string">'smoker'</span>,</span><br><span class="line">               kind=<span class="string">'bar'</span>, data=tips)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;seaborn.axisgrid.FacetGrid at 0x224497158b0&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_25_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_25_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sns.catplot(x=<span class="string">'day'</span>, y=<span class="string">'tip_pct'</span>, row=<span class="string">'time'</span>,</span><br><span class="line">               col=<span class="string">'smoker'</span>,</span><br><span class="line">               kind=<span class="string">'bar'</span>, data=tips)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;seaborn.axisgrid.FacetGrid at 0x2244a232370&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_26_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_26_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sns.catplot(x=<span class="string">'tip_pct'</span>, y=<span class="string">'day'</span>, kind=<span class="string">'bar'</span>,</span><br><span class="line">               data=tips[tips.tip_pct &lt; <span class="number">0.5</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;seaborn.axisgrid.FacetGrid at 0x2244a653100&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_27_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_27_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sns.catplot(x=<span class="string">'tip_pct'</span>, y=<span class="string">'day'</span>, kind=<span class="string">'box'</span>,</span><br><span class="line">               data=tips[tips.tip_pct &lt; <span class="number">0.5</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;seaborn.axisgrid.FacetGrid at 0x2244a830af0&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_28_1.png" alt="png"></p>
+<p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_28_1.png" alt="png"></p>
 ]]></content>
       <categories>
         <category>python</category>
@@ -2326,7 +2326,7 @@ Dinner
   </entry>
   <entry>
     <title>Matplotlib - 绘图基础</title>
-    <url>/2022/data_analysis/07-matplotlib/</url>
+    <url>/data_analysis/07-matplotlib/</url>
     <content><![CDATA[<p>这篇博客主要介绍利用 Matplotlib 绘制图像，包括 figure 和 subplot 的创建，刻度、标签和图例的设置、标题和轴标签的设置以及添加文本、添加图形等功能<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -2334,70 +2334,70 @@ Dinner
 <h3 id="pltplot-data-color-linestyle-marker-label-drawstyle-"><strong><em>plt.plot( data, color, linestyle, marker, label, drawstyle )</em></strong></h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.plot(data)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">[&lt;matplotlib.lines.Line2D at 0x11dba8e1e50&gt;]</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_4_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_4_1.png" alt="png"></p>
 <h4 id="color-linestyle-marker-label--颜色-标记-线型-图例"><strong><em>color, linestyle, marker, label</em></strong> : 颜色, 标记, 线型, 图例</h4>
 <p><strong><em>plt.subplots( nrows, ncols, sharex, sharey )</em></strong> : 调整图片大小</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.random.randn(<span class="number">30</span>).cumsum()</span><br><span class="line">plt.plot(data, color=<span class="string">'b'</span>, linestyle=<span class="string">'--'</span>, marker=<span class="string">'o'</span>)</span><br><span class="line">plt.plot(-data, <span class="string">'ro--'</span>)</span><br><span class="line">plt.subplots_adjust(top=<span class="number">0.6</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_7_0.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_7_0.png" alt="png"></p>
 <h4 id="drawstyle"><strong><em>drawstyle</em></strong></h4>
 <p><strong><em>plt.legend( loc )</em></strong> : 设置图例</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.random.randn(<span class="number">30</span>).cumsum()</span><br><span class="line">plt.plot(data, <span class="string">'k--'</span>, label=<span class="string">'Default'</span>)</span><br><span class="line">plt.plot(data, <span class="string">'k-'</span>, drawstyle=<span class="string">'steps-post'</span>, label=<span class="string">'steps-post'</span>)</span><br><span class="line">plt.legend(loc=<span class="string">'best'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;matplotlib.legend.Legend at 0x11dbb0d9850&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_10_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_10_1.png" alt="png"></p>
 <h2 id="figure-和-subplot">Figure 和 Subplot</h2>
 <h3 id="pltfigure-figsize---创建一个的-figure-对象-matplotlib-的图像都位于-figure-对象中"><strong><em>plt.figure( figsize )</em></strong> : 创建一个的 Figure 对象; matplotlib 的图像都位于 Figure 对象中</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure() <span class="comment">#创建一个的 Figure 对象</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;Figure size 432x288 with 0 Axes&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="figadd_subplot-nrows-ncols-index---创建一个的-axessubplot-对象-位于--nrows-ncols--的-index-位置"><strong><em>fig.add_subplot( nrows, ncols, index )</em></strong> : 创建一个的 AxesSubplot 对象, 位于 <em>[ nrows, ncols ]</em> 的 <em>index</em> 位置</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure() <span class="comment">#创建一个的 Figure 对象</span></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">ax2 = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">ax3 = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">ax4 = fig.add_subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">data = np.random.randn(<span class="number">100</span>)</span><br><span class="line">plt.plot(data.cumsum(), <span class="string">'k--'</span>)</span><br><span class="line">ax1.plot(data.cumsum())</span><br><span class="line">ax2.hist(data, bins=<span class="number">12</span>, color=<span class="string">'k'</span>, alpha=<span class="number">0.3</span>) <span class="comment"># 统计直方图</span></span><br><span class="line">ax3.scatter(np.arange(<span class="number">100</span>), data.cumsum()) <span class="comment"># 散点图</span></span><br><span class="line">plt.savefig(<span class="string">'normal.png'</span>, dpi=<span class="number">1080</span>, bbox_inches=<span class="string">'tight'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_15_0.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_15_0.png" alt="png"></p>
 <h3 id="pltsubplots-nrows-ncols-sharex-sharey---创建-figure-对象和-一组-axessubplot-对象存放于-ndarray-中"><strong><em>plt.subplots( nrows, ncols, sharex, sharey )</em></strong> : 创建 Figure 对象和 一组 AxesSubplot 对象（存放于 ndarray 中）</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">1</span>, sharex=<span class="string">'all'</span>, sharey=<span class="string">'all'</span>) <span class="comment"># 共享x轴, y轴</span></span><br><span class="line"><span class="comment"># fig : Figure 对象 ; axes : ndarray 对象, 用于索引 AxesSubplot</span></span><br><span class="line">plt.plot(data, <span class="string">'k--'</span>)</span><br><span class="line">axes[<span class="number">0</span>].plot(data) <span class="comment">#对图片进行索引</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">[&lt;matplotlib.lines.Line2D at 0x11dbb291610&gt;]</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_17_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_17_1.png" alt="png"></p>
 <h3 id="pltsubplots_adjust-left-bottom-right-top-wspace-hspace---调整-subplot-大小和间距"><strong><em>plt.subplots_adjust( left, bottom, right, top, wspace, hspace )</em></strong> : 调整 subplot 大小和间距</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, sharex=<span class="literal">True</span>, sharey=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">        axes[i, j].hist(np.random.randn(<span class="number">500</span>), bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.subplots_adjust(left=<span class="number">0</span>, bottom=<span class="number">0</span>, right=<span class="number">2</span>, top=<span class="number">1.2</span>, </span><br><span class="line">                    wspace=<span class="number">0</span>, hspace=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_19_0.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_19_0.png" alt="png"></p>
 <h2 id="刻度-标签-和-图例">刻度, 标签 和 图例</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.random.randn(<span class="number">500</span>)</span><br><span class="line">_ = plt.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_21_0.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_21_0.png" alt="png"></p>
 <h3 id="pltxlim--pltxlim--start-stop---控制绘图范围"><strong><em>plt.xlim( ), plt.xlim( [ start, stop] )</em></strong> : 控制绘图范围</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.xlim(), plt.xlim([-<span class="number">2</span>, <span class="number">2</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">((-3.411006317547548, 3.221768778645931), (-2.0, 2.0))</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_23_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_23_1.png" alt="png"></p>
 <h3 id="axget_xlim--axset_xlim--start-stop---控制绘图范围"><strong><em>ax.get_xlim( ), ax.set_xlim( [ start, stop] )</em></strong> : 控制绘图范围</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">ax.get_xlim(), ax.set_xlim([-<span class="number">2</span>,<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">((-3.411006317547548, 3.221768778645931), (-2.0, 2.0))</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_25_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_25_1.png" alt="png"></p>
 <h3 id="pltxticks--pltxticks-ticks-labels---控制刻度位置和标签"><strong><em>plt.xticks( ), plt.xticks( ticks, labels )</em></strong> : 控制刻度位置和标签</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.random.randn(<span class="number">500</span>)</span><br><span class="line">plt.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.xticks(ticks = [-<span class="number">2</span>, <span class="number">0</span>, <span class="number">2</span>] )</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">([&lt;matplotlib.axis.XTick at 0x11dbb949430&gt;,</span><br><span class="line">  &lt;matplotlib.axis.XTick at 0x11dbb949400&gt;,</span><br><span class="line">  &lt;matplotlib.axis.XTick at 0x11dbb937f40&gt;],</span><br><span class="line"> [Text(0, 0, ''), Text(0, 0, ''), Text(0, 0, '')])</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_27_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_27_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.random.randn(<span class="number">500</span>)</span><br><span class="line">plt.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.xticks(ticks = [-<span class="number">2</span>, <span class="number">0</span>, <span class="number">2</span>], labels=[<span class="string">'negative'</span>, <span class="string">'zero'</span>, <span class="string">'positive'</span>] )</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">([&lt;matplotlib.axis.XTick at 0x11dbba06310&gt;,</span><br><span class="line">  &lt;matplotlib.axis.XTick at 0x11dbba062e0&gt;,</span><br><span class="line">  &lt;matplotlib.axis.XTick at 0x11dbb8735e0&gt;],</span><br><span class="line"> [Text(-2, 0, 'negative'), Text(0, 0, 'zero'), Text(2, 0, 'positive')])</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_28_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_28_1.png" alt="png"></p>
 <h3 id="axget_xticks--axset_xticks-ticks---控制刻度位置"><strong><em>ax.get_xticks( ), ax.set_xticks( ticks )</em></strong> : 控制刻度位置</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">ax.get_xticks(), ax.set_xticks([-<span class="number">2</span>, <span class="number">0</span>, <span class="number">2</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">(array([-4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.]),</span><br><span class="line"> [&lt;matplotlib.axis.XTick at 0x11dbbac5760&gt;,</span><br><span class="line">  &lt;matplotlib.axis.XTick at 0x11dbbac5730&gt;,</span><br><span class="line">  &lt;matplotlib.axis.XTick at 0x11dbbabe040&gt;])</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_30_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_30_1.png" alt="png"></p>
 <h3 id="axget_xticklabels--axset_xticklabels-list---控制刻度标签"><strong><em>ax.get_xticklabels( ), ax.set_xticklabels( list )</em></strong> : 控制刻度标签</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">ax.set_xticks([-<span class="number">2</span>, <span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line">ax.set_xticklabels([<span class="string">'negative'</span>, <span class="string">'zero'</span>, <span class="string">'positive'</span>])</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">[Text(-2, 0, 'negative'), Text(0, 0, 'zero'), Text(2, 0, 'positive')]</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_32_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_32_1.png" alt="png"></p>
 <h2 id="标题-和-轴标签">标题 和 轴标签</h2>
 <h3 id="axset_xlabel-xlabel--axset_title-title-"><strong><em>ax.set_xlabel( xlabel ), ax.set_title( title )</em></strong></h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">'XLABEL'</span>), ax.set_title(<span class="string">'TITLE'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">(Text(0.5, 0, 'XLABEL'), Text(0.5, 1.0, 'TITLE'))</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_35_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_35_1.png" alt="png"></p>
 <h3 id="axset-kwargs-"><strong><em>ax.set( *</em>kwargs )</strong>*</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>)</span><br><span class="line">props = {</span><br><span class="line">    <span class="string">'title'</span>: <span class="string">'My first matplotlib plot'</span>,</span><br><span class="line">    <span class="string">'xlabel'</span>: <span class="string">'Stages'</span></span><br><span class="line">}</span><br><span class="line">ax.<span class="built_in">set</span>(**props)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">[Text(0.5, 1.0, 'My first matplotlib plot'), Text(0.5, 0, 'Stages')]</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_37_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_37_1.png" alt="png"></p>
 <h2 id="图例">图例</h2>
 <h3 id="axlegend-loc-"><strong><em>ax.legend( loc )</em></strong></h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>, label=<span class="string">'one'</span>)</span><br><span class="line">ax.legend(loc=<span class="string">'best'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;matplotlib.legend.Legend at 0x11dbcdba2e0&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_40_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_40_1.png" alt="png"></p>
 <h2 id="添加文本">添加文本</h2>
 <h3 id="axtext-x-y-str-rotation-ha-va-fontdict--dict---bbox--dict---"><strong><em>ax.text( x, y, str, rotation, ha, va, fontdict = dict( ... ), bbox = dict( ... ) )</em></strong></h3>
 <p><strong><em>fontdict = dict( fontsize, color, family, weight )</em></strong><br>
@@ -2412,7 +2412,7 @@ Dinner
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>, label=<span class="string">'one'</span>)</span><br><span class="line">ax.text(<span class="number">0</span>, <span class="number">10</span>, <span class="string">'Hello world!'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(family=<span class="string">'monospace'</span>, fontsize=<span class="number">20</span>), </span><br><span class="line">        bbox = <span class="built_in">dict</span>(facecolor=<span class="string">'#74c476'</span>, edgecolor=<span class="string">'b'</span>, alpha=<span class="number">0.7</span>))</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">Text(0, 10, 'Hello world!')</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_44_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_44_1.png" alt="png"></p>
 <h3 id="axannotate-text-xy-xytext-xycoords-textcoords-ha-va-weight-color-bbox-arrowprops-"><strong><em>ax.annotate( text, xy, xytext, xycoords, textcoords, ha, va, weight, color, bbox, arrowprops )</em></strong></h3>
 <p><strong><em>xy = ( x, y )</em></strong><br>
 <strong><em>xytext = ( x, y )</em></strong><br>
@@ -2431,7 +2431,7 @@ Dinner
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.hist(data, bins=<span class="number">50</span>, color=<span class="string">'k'</span> ,alpha=<span class="number">0.5</span>, label=<span class="string">'one'</span>)</span><br><span class="line">ax.annotate(<span class="string">'Hello World!'</span>, (<span class="number">0</span>, <span class="number">10</span>), (<span class="number">2</span>, <span class="number">25</span>), ha = <span class="string">'center'</span>, va = <span class="string">'top'</span>, fontsize=<span class="number">20</span>, </span><br><span class="line">            arrowprops=<span class="built_in">dict</span>(facecolor=<span class="string">'k'</span>, width=<span class="number">0.1</span>, headwidth=<span class="number">5</span>, headlength=<span class="number">5</span>, shrink=<span class="number">0.05</span>), </span><br><span class="line">            bbox = <span class="built_in">dict</span>(facecolor=<span class="string">'#74c476'</span>, edgecolor=<span class="string">'b'</span>, alpha=<span class="number">0.7</span>)</span><br><span class="line">            )</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">Text(2, 25, 'Hello World!')</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_47_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_47_1.png" alt="png"></p>
 <h2 id="添加图形">添加图形</h2>
 <h3 id="axadd_patch-shp-"><strong><em>ax.add_patch( shp )</em></strong></h3>
 <p><strong><em>plt.Rectangle( xy, width, height, angle, color, alpha )</em></strong><br>
@@ -2439,10 +2439,10 @@ Dinner
 <strong><em>plt.Polygon( [ xy1, xy2, ... ], color, alpha )</em></strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">4.5</span>, <span class="number">9.5</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.set_xlim(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line">ax.set_ylim(<span class="number">1</span>,<span class="number">20</span>)</span><br><span class="line"><span class="comment"># 正方形</span></span><br><span class="line">rect = plt.Rectangle((<span class="number">0</span>, <span class="number">1</span>), <span class="number">9</span>, <span class="number">20</span>, color=<span class="string">'#b7e464'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">0.6</span>, <span class="number">13.9</span>), <span class="number">3.2</span>, <span class="number">5.5</span>, color=<span class="string">'#8db53c'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">0.7</span>, <span class="number">14</span>), <span class="number">3</span>, <span class="number">5.3</span>, color=<span class="string">'#b7e464'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">6.3</span>, <span class="number">0</span>), <span class="number">2</span>, <span class="number">20</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">5.5</span>, <span class="number">0</span>), <span class="number">0.4</span>, <span class="number">20</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line"><span class="comment"># 圆形</span></span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">15.15</span>), <span class="number">0.8</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">15.15</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">18.15</span>), <span class="number">0.8</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">18.15</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">16.65</span>), <span class="number">0.4</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">16.65</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">15.15</span>), <span class="number">0.35</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">18.15</span>), <span class="number">0.35</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">15.15</span>), <span class="number">0.25</span>, color=<span class="string">'w'</span>, alpha=<span class="number">0.9</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">18.15</span>), <span class="number">0.25</span>, color=<span class="string">'w'</span>, alpha=<span class="number">0.9</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">ax.text(<span class="number">7.3</span>, <span class="number">2.5</span>, <span class="string">'realme'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">30</span>, color=<span class="string">'#74c476'</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">9</span>):</span><br><span class="line">        ax.text(<span class="number">5.7</span>, <span class="number">1.4</span>+i*<span class="number">2</span>, <span class="string">'DARE TO LEAP'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">7</span>, color=<span class="string">'w'</span>))</span><br><span class="line">ax.text(<span class="number">5.7</span>, <span class="number">1.4</span>+(i+<span class="number">1</span>)*<span class="number">2</span>, <span class="string">'DAR'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">7</span>, color=<span class="string">'w'</span>))</span><br><span class="line">ax.text(<span class="number">1.75</span>, <span class="number">16.75</span>, <span class="string">'64MP'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'center'</span>, alpha=<span class="number">0.9</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">16</span>, color=<span class="string">'#EEEEEE'</span>, weight=<span class="string">'light'</span>))</span><br><span class="line">ax.text(<span class="number">1.75</span>, <span class="number">16.35</span>, <span class="string">'MATRIX CAMERA'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'center'</span>, alpha=<span class="number">0.9</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">5</span>, color=<span class="string">'#EEEEEE'</span>, weight=<span class="string">'light'</span>))</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">Text(1.75, 16.35, 'MATRIX CAMERA')</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_51_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_51_1.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">pgon = plt.Polygon([[<span class="number">0.1</span>, <span class="number">0.1</span>], [<span class="number">0.6</span>, <span class="number">0.9</span>], [<span class="number">0.9</span>, <span class="number">0.6</span>]])</span><br><span class="line">ax.add_patch(pgon)</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">&lt;matplotlib.patches.Polygon at 0x11dbb80d640&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_52_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_52_1.png" alt="png"></p>
 <h2 id="保存图片">保存图片</h2>
 <h3 id="pltsavefig-fname-dpi-bbox_inches-"><strong><em>plt.savefig( fname, dpi, bbox_inches )</em></strong></h3>
 <blockquote>
@@ -2450,7 +2450,7 @@ Dinner
 <strong><em>bbox_inches</em></strong> : 控制图片周围白边, bbox_inches = 'tight'</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">4.5</span>, <span class="number">9.5</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.set_xlim(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line">ax.set_ylim(<span class="number">1</span>,<span class="number">20</span>)</span><br><span class="line"><span class="comment"># 正方形</span></span><br><span class="line">rect = plt.Rectangle((<span class="number">0</span>, <span class="number">1</span>), <span class="number">9</span>, <span class="number">20</span>, color=<span class="string">'#b7e464'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">0.6</span>, <span class="number">13.9</span>), <span class="number">3.2</span>, <span class="number">5.5</span>, color=<span class="string">'#8db53c'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">0.7</span>, <span class="number">14</span>), <span class="number">3</span>, <span class="number">5.3</span>, color=<span class="string">'#b7e464'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">6.3</span>, <span class="number">0</span>), <span class="number">2</span>, <span class="number">20</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">5.5</span>, <span class="number">0</span>), <span class="number">0.4</span>, <span class="number">20</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line"><span class="comment"># 圆形</span></span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">15.15</span>), <span class="number">0.8</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">15.15</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">18.15</span>), <span class="number">0.8</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)<span class="comment">## </span></span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">18.15</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">16.65</span>), <span class="number">0.4</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">16.65</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">15.15</span>), <span class="number">0.35</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">18.15</span>), <span class="number">0.35</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">15.15</span>), <span class="number">0.25</span>, color=<span class="string">'w'</span>, alpha=<span class="number">0.9</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">18.15</span>), <span class="number">0.25</span>, color=<span class="string">'w'</span>, alpha=<span class="number">0.9</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">ax.text(<span class="number">7.3</span>, <span class="number">2.5</span>, <span class="string">'realme'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">30</span>, color=<span class="string">'#74c476'</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">9</span>):</span><br><span class="line">        ax.text(<span class="number">5.7</span>, <span class="number">1.4</span>+i*<span class="number">2</span>, <span class="string">'DARE TO LEAP'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">7</span>, color=<span class="string">'w'</span>))</span><br><span class="line">ax.text(<span class="number">5.7</span>, <span class="number">1.4</span>+(i+<span class="number">1</span>)*<span class="number">2</span>, <span class="string">'DAR'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">7</span>, color=<span class="string">'w'</span>))</span><br><span class="line">ax.text(<span class="number">1.75</span>, <span class="number">16.75</span>, <span class="string">'64MP'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'center'</span>, alpha=<span class="number">0.9</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">16</span>, color=<span class="string">'#EEEEEE'</span>, weight=<span class="string">'light'</span>))</span><br><span class="line">ax.text(<span class="number">1.75</span>, <span class="number">16.35</span>, <span class="string">'MATRIX CAMERA'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'center'</span>, alpha=<span class="number">0.9</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">5</span>, color=<span class="string">'#EEEEEE'</span>, weight=<span class="string">'light'</span>))</span><br><span class="line">plt.savefig(<span class="string">'realmeneo2.png'</span>, dpi=<span class="number">1080</span>, bbox_inches=<span class="string">'tight'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_55_0.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_55_0.png" alt="png"></p>
 <h2 id="matplotlib-的全局配置">matplotlib 的全局配置</h2>
 <h3 id="pltrc-group-kwargs---全局参数的定义"><strong><em>plt.rc( group, **kwargs )</em></strong> : 全局参数的定义</h3>
 <blockquote>
@@ -2459,7 +2459,7 @@ Dinner
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># plt.rc('figure', figsize=(4, 3))</span></span><br><span class="line"><span class="comment"># font_options = {</span></span><br><span class="line"><span class="comment">#     'family' : 'monospace', </span></span><br><span class="line"><span class="comment">#     'weight' : 'bold', </span></span><br><span class="line"><span class="comment">#     'size' : 10}</span></span><br><span class="line"><span class="comment"># plt.rc('font', **font_options)</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.text(<span class="number">0.2</span>, <span class="number">0.2</span>, <span class="string">'Hello world!'</span>, ha = <span class="string">'left'</span>, va = <span class="string">'bottom'</span>, </span><br><span class="line">        fontdict=<span class="built_in">dict</span>(fontsize=<span class="number">20</span>),   </span><br><span class="line">        bbox = <span class="built_in">dict</span>(facecolor=<span class="string">'#74c476'</span>, edgecolor=<span class="string">'b'</span>, alpha=<span class="number">0.7</span>))</span><br></pre></td></tr></table></figure>
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">Text(0.2, 0.2, 'Hello world!')</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_59_1.png" alt="png"></p>
+<p><img src="/data_analysis/07-matplotlib/07-matplotlib_59_1.png" alt="png"></p>
 ]]></content>
       <categories>
         <category>python</category>
@@ -2472,7 +2472,7 @@ Dinner
   </entry>
   <entry>
     <title>Pandas - 数据重塑 Pt.3</title>
-    <url>/2022/data_analysis/06-pandas-data_wrangling_03/</url>
+    <url>/data_analysis/06-pandas-data_wrangling_03/</url>
     <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
@@ -4115,7 +4115,7 @@ NaN
   </entry>
   <entry>
     <title>Pandas - 数据重塑 Pt.2</title>
-    <url>/2022/data_analysis/06-pandas-data_wrangling_02/</url>
+    <url>/data_analysis/06-pandas-data_wrangling_02/</url>
     <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
@@ -5980,7 +5980,7 @@ NaN
   </entry>
   <entry>
     <title>Pandas - 数据重塑 Pt.1</title>
-    <url>/2022/data_analysis/06-pandas-data_wrangling_01/</url>
+    <url>/data_analysis/06-pandas-data_wrangling_01/</url>
     <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
@@ -7505,7 +7505,7 @@ b
   </entry>
   <entry>
     <title>Pandas - 数据重塑 Pt.4</title>
-    <url>/2022/data_analysis/06-pandas-data_wrangling_04/</url>
+    <url>/data_analysis/06-pandas-data_wrangling_04/</url>
     <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
@@ -9504,7 +9504,7 @@ baz
   </entry>
   <entry>
     <title>Pandas - 数据清洗 Pt.3</title>
-    <url>/2022/data_analysis/05-pandas-data_cleaning_03/</url>
+    <url>/data_analysis/05-pandas-data_cleaning_03/</url>
     <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
 Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
 Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
@@ -10347,7 +10347,7 @@ data
   </entry>
   <entry>
     <title>Pandas - 数据清洗 Pt.2</title>
-    <url>/2022/data_analysis/05-pandas-data_cleaning_02/</url>
+    <url>/data_analysis/05-pandas-data_cleaning_02/</url>
     <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
 Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
 Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
@@ -11604,7 +11604,7 @@ NEW
   </entry>
   <entry>
     <title>Pandas - 数据清洗 Pt.1</title>
-    <url>/2022/data_analysis/05-pandas-data_cleaning_01/</url>
+    <url>/data_analysis/05-pandas-data_cleaning_01/</url>
     <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
 Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
 Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
@@ -13266,7 +13266,7 @@ NaN
   </entry>
   <entry>
     <title>Pandas - 数据读写</title>
-    <url>/2022/data_analysis/04-pandas-data_loading/</url>
+    <url>/data_analysis/04-pandas-data_loading/</url>
     <content><![CDATA[<p>这篇博客主要介绍利用 Pandas 对 Excel 文件进行读写的操作<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -15265,7 +15265,7 @@ foo
   </entry>
   <entry>
     <title>Pandas - 语法基础 Pt.4</title>
-    <url>/2022/data_analysis/03-pandas_04/</url>
+    <url>/data_analysis/03-pandas_04/</url>
     <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
@@ -16466,7 +16466,7 @@ MSFT
   </entry>
   <entry>
     <title>Pandas - 语法基础 Pt.3</title>
-    <url>/2022/data_analysis/03-pandas_03/</url>
+    <url>/data_analysis/03-pandas_03/</url>
     <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
@@ -18428,7 +18428,7 @@ c
   </entry>
   <entry>
     <title>Pandas - 语法基础 Pt.2</title>
-    <url>/2022/data_analysis/03-pandas_02/</url>
+    <url>/data_analysis/03-pandas_02/</url>
     <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
@@ -20057,7 +20057,7 @@ New York
   </entry>
   <entry>
     <title>Pandas - 语法基础 Pt.1</title>
-    <url>/2022/data_analysis/03-pandas_01/</url>
+    <url>/data_analysis/03-pandas_01/</url>
     <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
@@ -21428,7 +21428,7 @@ NaN
   </entry>
   <entry>
     <title>NumPy - 语法基础 Pt.2</title>
-    <url>/2022/data_analysis/02-numpy_02/</url>
+    <url>/data_analysis/02-numpy_02/</url>
     <content><![CDATA[<p>这篇博客主要介绍 NumPy 的数据类型和函数使用，包括 NumPy 数组的创建、索引和运算，常用的一元函数和二元函数，统计计算，线性代数计算，数组比较，随机数组的生成以及 NumPy 数组的读取与写出</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="数组扩展">数组扩展</h2>
@@ -21456,7 +21456,7 @@ NaN
         [ True,  True,  True, ...,  True,  True,  True],
         [ True,  True,  True, ...,  True,  True,  True]]))</code></pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">z = np.sqrt(x**<span class="number">2</span> + y**<span class="number">2</span>)</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.imshow(z, cmap=plt.cm.gray)</span><br><span class="line">plt.colorbar()</span><br><span class="line">plt.title(<span class="string">"Image plot of $\sqrt{x^2 + y^2}$ for a grid of values"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/2022/data_analysis/02-numpy_02/02-numpy_132_0.png" alt="png"></p>
+<p><img src="/data_analysis/02-numpy_02/02-numpy_132_0.png" alt="png"></p>
 <h2 id="数据替换">数据替换</h2>
 <h3 id="npwherecondition-x-y--npwhereshape--conditionshape"><strong><em>np.where(condition, x, y)</em></strong> : np.where(...).shape = condition.shape</h3>
 <blockquote>
@@ -21870,7 +21870,7 @@ S : 奇异值; U : 左奇异向量; V : 右奇异向量</p>
   </entry>
   <entry>
     <title>NumPy - 语法基础 Pt.1</title>
-    <url>/2022/data_analysis/02-numpy_01/</url>
+    <url>/data_analysis/02-numpy_01/</url>
     <content><![CDATA[<p>这篇博客主要介绍 NumPy 的数据类型和函数使用，包括 NumPy 数组的创建、索引和运算，常用的一元函数和二元函数，统计计算，线性代数计算，数组比较，随机数组的生成以及 NumPy 数组的读取与写出</p>
 <span id="more"></span>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
@@ -22477,7 +22477,7 @@ Wall time: 339 ms</code></pre>
   </entry>
   <entry>
     <title>Python - 基础</title>
-    <url>/2022/data_analysis/01-python/</url>
+    <url>/data_analysis/01-python/</url>
     <content><![CDATA[<p>这篇博客主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的读写</p>
 <span id="more"></span>
 <h2 id="列表推导式">列表推导式</h2>
@@ -22549,9 +22549,9 @@ set  is \{'pythove', 'dove', 'love'}  </code></pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>([line.rstrip() <span class="keyword">for</span> line <span class="keyword">in</span> f])</span><br></pre></td></tr></table></figure>
 <pre><code>['致橡树：', '我如果爱你——', '绝不像攀援的凌霄花，', '借你的高枝炫耀自己；', '我如果爱你——', '绝不学痴情的鸟儿，', '为绿荫重复单调的歌曲；', '也不止像泉源，', '常年送来清凉的慰藉；', '也不止像险峰，', '增加你的高度，衬托你的威仪。', '甚至日光，', '甚至春雨。']</code></pre>
 <h4 id="打开模式">打开模式</h4>
-<p><img src="/2022/data_analysis/01-python/1.jpg" alt="文件打开模式"></p>
+<p><img src="/data_analysis/01-python/1.jpg" alt="文件打开模式"></p>
 <h3 id="文件读写">文件读写</h3>
-<p><img src="/2022/data_analysis/01-python/2.jpg" alt="文件读写"></p>
+<p><img src="/data_analysis/01-python/2.jpg" alt="文件读写"></p>
 <h4 id="读取及定位">读取及定位</h4>
 <p><strong><em>f.tell( ), f.seek( position ), f.read( size ), f.readlines( hint )</em></strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="built_in">print</span>(f.tell()) <span class="comment"># 从0开始</span></span><br><span class="line">    l = f.read(<span class="number">9</span>) <span class="comment"># 从当前位置向前读取9个字符</span></span><br><span class="line">    <span class="built_in">print</span>(f.tell()) <span class="comment">#读取的字节数</span></span><br><span class="line">    f.seek(<span class="number">8</span>)  <span class="comment">#定位文件中的位置，单位：字节</span></span><br><span class="line">    <span class="built_in">print</span>(f.tell())</span><br><span class="line">    <span class="built_in">print</span>(f.read(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
@@ -22594,7 +22594,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
   </entry>
   <entry>
     <title>CDO - 其他操作</title>
-    <url>/2022/cdo/cdo_11_Miscellaneous/</url>
+    <url>/cdo/cdo_11_Miscellaneous/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 的其他功能，如：滤波、平滑、统计等功能</p>
 <span id="more"></span>
 <h2 id="其他操作-miscellaneous-operators">其他操作 Miscellaneous Operators</h2>
@@ -22847,7 +22847,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
   </entry>
   <entry>
     <title>CDO - 转换相关的操作</title>
-    <url>/2022/cdo/cdo_10_Transformation/</url>
+    <url>/cdo/cdo_10_Transformation/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 进行坐标系变换、傅里叶变换和风场与涡度散度之间的转换等功能</p>
 <span id="more"></span>
 <h2 id="transformation-转换">Transformation 转换</h2>
@@ -23024,7 +23024,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
   </entry>
   <entry>
     <title>CDO - 插值操作</title>
-    <url>/2022/cdo/cdo_09_Interpolation/</url>
+    <url>/cdo/cdo_09_Interpolation/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 进行水平网格插值、垂直层插值和时间插值的功能</p>
 <span id="more"></span>
 <h2 id="interpolation-插值">Interpolation 插值</h2>
@@ -23383,7 +23383,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 相关系数和回归系数的计算</title>
-    <url>/2022/cdo/cdo_08_Correlation_%20and_Regression/</url>
+    <url>/cdo/cdo_08_Correlation_%20and_Regression/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 进行相关系数、协方差和回归系数计算的相关功能</p>
 <span id="more"></span>
 <h2 id="相关系数和协方差-correlation-and-covariance">相关系数和协方差 Correlation and Covariance</h2>
@@ -23500,7 +23500,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 统计计算的操作</title>
-    <url>/2022/cdo/cdo_07_Statistical/</url>
+    <url>/cdo/cdo_07_Statistical/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 进行空间统计及时间统计的相关操作，包括计算 min, max, range, sum, mean, avg, std, var 等统计量</p>
 <span id="more"></span>
 <h2 id="统计计算-statistical-values">统计计算 Statistical Values</h2>
@@ -24257,7 +24257,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 算术运算的操作</title>
-    <url>/2022/cdo/cdo_06_Arithmetic/</url>
+    <url>/cdo/cdo_06_Arithmetic/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 在不同维度上进行算术运算的相关功能</p>
 <span id="more"></span>
 <h2 id="arithmetic-计算">Arithmetic 计算</h2>
@@ -25127,7 +25127,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 修改操作</title>
-    <url>/2022/cdo/cdo_05_Modification/</url>
+    <url>/cdo/cdo_05_Modification/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 对输入数据集进行修改的操作</p>
 <span id="more"></span>
 <h2 id="修改操作-modification-operators">修改操作 Modification Operators</h2>
@@ -25502,7 +25502,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 比较操作</title>
-    <url>/2022/cdo/cdo_04_Comparison/</url>
+    <url>/cdo/cdo_04_Comparison/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 将一个数据集与另一个数据集或常数进行比较的功能</p>
 <span id="more"></span>
 <h2 id="比较操作-comparison-operators">比较操作 Comparison Operators</h2>
@@ -25550,7 +25550,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 选择（切片）操作</title>
-    <url>/2022/cdo/cdo_03_Selection/</url>
+    <url>/cdo/cdo_03_Selection/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 根据给定参数或条件进行选择和删除字段的功能</p>
 <span id="more"></span>
 <h2 id="切片操作-selection-operators">切片操作 Selection Operators</h2>
@@ -26001,7 +26001,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 文件的操作</title>
-    <url>/2022/cdo/cdo_02_File/</url>
+    <url>/cdo/cdo_02_File/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 文件的复制、拼接和拆分等功能</p>
 <span id="more"></span>
 <h2 id="文件操作-file-operators">文件操作 File Operators</h2>
@@ -26399,7 +26399,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 信息查询操作</title>
-    <url>/2022/cdo/cdo_01_Information/</url>
+    <url>/cdo/cdo_01_Information/</url>
     <content><![CDATA[<p>CDO (Climate Data Operator) 是用于标准处理气候和模式数据的操作集合，包括简单的统计和算术、数据选择以及空间插值等操作，从而将 GRIB 和 NetCDF4 数据集相同的处理功能集放在一个包中</p>
 <p>本篇博客将介绍 CDO 信息查询的功能</p>
 <span id="more"></span>
