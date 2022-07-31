@@ -19,7 +19,8 @@
   <entry>
     <title>数据分析-09  Pandas and Time Series</title>
     <url>/2022/data_analysis/09-pandas-time_series/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍利用 Pandas 和 Datetime 处理时间序列。包括日期和时间数据类型的介绍、时间数据与字符串之间的转换、时间序列的索引、时间序列的平移、时期数据的创建和计算以及时间序列的重采样和频率转换<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> dateutil.parser <span class="keyword">import</span> parse</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="日期和时间数据的类型">日期和时间数据的类型</h2>
 <h3 id="datetime-类型"><strong><em>datetime</em></strong> 类型</h3>
@@ -1435,7 +1436,8 @@ NaN
   <entry>
     <title>数据分析-08  Pandas and Seaborn</title>
     <url>/2022/data_analysis/08-pandas_and_seaborn/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍利用 Matplotlib 和 Seaborn 绘制基本图像，包括折线图、条形图、直方图、密度图、散点图、散步矩阵图等；最后还简单介绍了 Seaborn 分面网格的功能<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 <h3 id="objplot-use_index-xlim-xticks-xlabel-rot-logy-figsize-label-legend-title-kind-style-alpha-grid-ax-"><strong><em>obj.plot( use_index, xlim, xticks, xlabel, rot, logy, figsize, label, legend, title, kind, style, alpha, grid, ax )</em></strong></h3>
@@ -1998,7 +2000,8 @@ Dinner
   <entry>
     <title>数据分析-07  Matplotlib</title>
     <url>/2022/data_analysis/07-matplotlib/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍利用 Matplotlib 绘制图像，包括 figure 和 subplot 的创建，刻度、标签和图例的设置、标题和轴标签的设置以及添加文本、添加图形等功能<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
 <h3 id="pltplot-data-color-linestyle-marker-label-drawstyle-"><strong><em>plt.plot( data, color, linestyle, marker, label, drawstyle )</em></strong></h3>
@@ -2131,7 +2134,7 @@ Dinner
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">4.5</span>, <span class="number">9.5</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">ax.set_xlim(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line">ax.set_ylim(<span class="number">1</span>,<span class="number">20</span>)</span><br><span class="line"><span class="comment"># 正方形</span></span><br><span class="line">rect = plt.Rectangle((<span class="number">0</span>, <span class="number">1</span>), <span class="number">9</span>, <span class="number">20</span>, color=<span class="string">'#b7e464'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">0.6</span>, <span class="number">13.9</span>), <span class="number">3.2</span>, <span class="number">5.5</span>, color=<span class="string">'#8db53c'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">0.7</span>, <span class="number">14</span>), <span class="number">3</span>, <span class="number">5.3</span>, color=<span class="string">'#b7e464'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">6.3</span>, <span class="number">0</span>), <span class="number">2</span>, <span class="number">20</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line">rect = plt.Rectangle((<span class="number">5.5</span>, <span class="number">0</span>), <span class="number">0.4</span>, <span class="number">20</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(rect)</span><br><span class="line"><span class="comment"># 圆形</span></span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">15.15</span>), <span class="number">0.8</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">15.15</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">18.15</span>), <span class="number">0.8</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)<span class="comment">## </span></span><br><span class="line">circ = plt.Circle((<span class="number">1.75</span>, <span class="number">18.15</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">16.65</span>), <span class="number">0.4</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">16.65</span>), <span class="number">0.25</span>, color=<span class="string">'#121233'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">15.15</span>), <span class="number">0.35</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">18.15</span>), <span class="number">0.35</span>, color=<span class="string">'k'</span>, alpha=<span class="number">1</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">15.15</span>), <span class="number">0.25</span>, color=<span class="string">'w'</span>, alpha=<span class="number">0.9</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">circ = plt.Circle((<span class="number">3.1</span>, <span class="number">18.15</span>), <span class="number">0.25</span>, color=<span class="string">'w'</span>, alpha=<span class="number">0.9</span>)</span><br><span class="line">ax.add_patch(circ)</span><br><span class="line">ax.text(<span class="number">7.3</span>, <span class="number">2.5</span>, <span class="string">'realme'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">30</span>, color=<span class="string">'#74c476'</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">9</span>):</span><br><span class="line">        ax.text(<span class="number">5.7</span>, <span class="number">1.4</span>+i*<span class="number">2</span>, <span class="string">'DARE TO LEAP'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">7</span>, color=<span class="string">'w'</span>))</span><br><span class="line">ax.text(<span class="number">5.7</span>, <span class="number">1.4</span>+(i+<span class="number">1</span>)*<span class="number">2</span>, <span class="string">'DAR'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'bottom'</span>, rotation=<span class="number">90</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">7</span>, color=<span class="string">'w'</span>))</span><br><span class="line">ax.text(<span class="number">1.75</span>, <span class="number">16.75</span>, <span class="string">'64MP'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'center'</span>, alpha=<span class="number">0.9</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">16</span>, color=<span class="string">'#EEEEEE'</span>, weight=<span class="string">'light'</span>))</span><br><span class="line">ax.text(<span class="number">1.75</span>, <span class="number">16.35</span>, <span class="string">'MATRIX CAMERA'</span>, ha = <span class="string">'center'</span>, va = <span class="string">'center'</span>, alpha=<span class="number">0.9</span>, </span><br><span class="line">        fontdict = <span class="built_in">dict</span>(fontsize=<span class="number">5</span>, color=<span class="string">'#EEEEEE'</span>, weight=<span class="string">'light'</span>))</span><br><span class="line">plt.savefig(<span class="string">'realmeneo2.png'</span>, dpi=<span class="number">1080</span>, bbox_inches=<span class="string">'tight'</span>)</span><br></pre></td></tr></table></figure>
 <p><img src="/2022/data_analysis/07-matplotlib/07-matplotlib_55_0.png" alt="png"></p>
 <h2 id="matplotlib-的全局配置">matplotlib 的全局配置</h2>
-<h3 id="pltrc-group-kwargs---全局参数的定义"><strong><em>plt.rc( group, *</em>kwargs )</strong>* : 全局参数的定义</h3>
+<h3 id="pltrc-group-kwargs---全局参数的定义"><strong><em>plt.rc( group, **kwargs )</em></strong> : 全局参数的定义</h3>
 <blockquote>
 <p><strong><em>group</em></strong> : <em>figure, font, axes, xtick, grid, legend</em> , 希望定义的对象</p>
 </blockquote>
@@ -2152,7 +2155,12 @@ Dinner
   <entry>
     <title>数据分析-06  Pandas-数据重塑 Pt.3</title>
     <url>/2022/data_analysis/06-pandas-data_wrangling_03/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
+Pt.2 部分详细介绍利用 Pandas 合并数据<br>
+Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
+Pt.4 部分主要介绍利用 Pandas 重塑数据<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="合并数据">合并数据</h2>
 <h3 id="pt2-合并数据回顾"><a href="./06-pandas-data_wrangling_02.md">Pt.2 合并数据回顾</a></h3>
@@ -3891,7 +3899,12 @@ dtype: float64</p>
   <entry>
     <title>数据分析-06  Pandas-数据重塑 Pt.2</title>
     <url>/2022/data_analysis/06-pandas-data_wrangling_02/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
+Pt.2 部分详细介绍利用 Pandas 合并数据<br>
+Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
+Pt.4 部分主要介绍利用 Pandas 重塑数据<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="合并数据">合并数据</h2>
 <h3 id="pdmerge-left-right-on-how-suffixes-"><strong><em>pd.merge( left, right, on, how, suffixes )</em></strong></h3>
@@ -5823,7 +5836,12 @@ NaN
   <entry>
     <title>数据分析-06  Pandas-数据重塑 Pt.1</title>
     <url>/2022/data_analysis/06-pandas-data_wrangling_01/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
+Pt.2 部分详细介绍利用 Pandas 合并数据<br>
+Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
+Pt.4 部分主要介绍利用 Pandas 重塑数据<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="层次化索引">层次化索引</h2>
 <h3 id="series-的层次化索引"><strong><em>Series 的层次化索引</em></strong></h3>
@@ -7384,7 +7402,12 @@ b
   <entry>
     <title>数据分析-06  Pandas-数据重塑 Pt.4</title>
     <url>/2022/data_analysis/06-pandas-data_wrangling_04/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
+Pt.2 部分详细介绍利用 Pandas 合并数据<br>
+Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
+Pt.4 部分主要介绍利用 Pandas 重塑数据<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="数据重塑和轴向旋转">数据重塑和轴向旋转</h2>
 <h3 id="pt3-数据重塑和轴向旋转回顾"><a href="./06-pandas-data_wrangling_03.md">Pt.3 数据重塑和轴向旋转回顾</a></h3>
@@ -9376,9 +9399,13 @@ baz
       </tags>
   </entry>
   <entry>
-    <title>数据分析-05  Pandas-缺失处理 Pt.3</title>
+    <title>数据分析-05  Pandas-数据清洗 Pt.3</title>
     <url>/2022/data_analysis/05-pandas-data_cleaning_03/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
+Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
+Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
+Pt.3 部分主要介绍利用 Pandas 与 正则表达式的结合<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="随机采样">随机采样</h2>
 <h3 id="nprandompermutation-x-"><strong><em>np.random.permutation( x )</em></strong></h3>
@@ -10270,9 +10297,13 @@ dtype: object</p>
       </tags>
   </entry>
   <entry>
-    <title>数据分析-05  Pandas-缺失处理 Pt.2</title>
+    <title>数据分析-05  Pandas-数据清洗 Pt.2</title>
     <url>/2022/data_analysis/05-pandas-data_cleaning_02/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
+Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
+Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
+Pt.3 部分主要介绍利用 Pandas 与 正则表达式的结合<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="处理重复数据">处理重复数据</h2>
 <h3 id="objduplicated-columns-keep--objdrop_duplicates-columns-keep---移除重复数据"><strong><em>obj.duplicated( columns, keep ), obj.drop_duplicates( columns, keep )</em></strong> : 移除重复数据</h3>
@@ -11583,9 +11614,13 @@ Categories (4, interval[float64, right]): [(-0.001, 11.0] &lt; (11.0, 50.5] &lt;
       </tags>
   </entry>
   <entry>
-    <title>数据分析05 Pandas-缺失处理 Pt.1</title>
+    <title>数据分析05 Pandas-数据清洗 Pt.1</title>
     <url>/2022/data_analysis/05-pandas-data_cleaning_01/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
+Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
+Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
+Pt.3 部分主要介绍利用 Pandas 与 正则表达式的结合<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="处理缺失数据">处理缺失数据</h2>
 <blockquote>
@@ -13278,7 +13313,8 @@ NaN
   <entry>
     <title>数据分析-04  Pandas-数据读写</title>
     <url>/2022/data_analysis/04-pandas-data_loading/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍利用 Pandas 对 Excel 文件进行读写的操作<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="读文件">读文件</h2>
 <h3 id="pdread_csv-path-sep-header-index_col-names-skiprows-na_values-nrows-chunksize-encoding-"><strong><em>pd.read_csv( path, sep, header, index_col, names, skiprows, na_values, nrows, chunksize, encoding )</em></strong></h3>
@@ -15319,7 +15355,12 @@ foo
   <entry>
     <title>数据分析-03  Pandas Pt.4</title>
     <url>/2022/data_analysis/03-pandas_04/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
+Pt.2 部分详细介绍了 Pandas 的索引操作<br>
+Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
+Pt.4 部分详细介绍了 Pandas 的统计计算相关的函数<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</span><br></pre></td></tr></table></figure>
 <h2 id="统计计算">统计计算</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">frame = pd.DataFrame([[<span class="number">1</span>, np.nan], [<span class="number">2</span>, <span class="number">4</span>],</span><br><span class="line">                      [np.nan, np.nan], [<span class="number">3</span>, <span class="number">5</span>]],</span><br><span class="line">                    index=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>],</span><br><span class="line">                    columns=[<span class="string">'one'</span>, <span class="string">'two'</span>])</span><br></pre></td></tr></table></figure>
@@ -16593,7 +16634,12 @@ dtype: int64)</p>
   <entry>
     <title>数据分析-03  Pandas Pt.3</title>
     <url>/2022/data_analysis/03-pandas_03/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
+Pt.2 部分详细介绍了 Pandas 的索引操作<br>
+Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
+Pt.4 部分详细介绍了 Pandas 的统计计算相关的函数<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</span><br></pre></td></tr></table></figure>
 <h2 id="算术运算与数据对齐">算术运算与数据对齐</h2>
 <h3 id="-------"><strong><em>+</em></strong> , <strong><em>-</em></strong> , ******* , <strong><em>/</em></strong></h3>
@@ -18664,7 +18710,12 @@ c
   <entry>
     <title>数据分析-03  Pandas Pt.2</title>
     <url>/2022/data_analysis/03-pandas_02/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
+Pt.2 部分详细介绍了 Pandas 的索引操作<br>
+Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
+Pt.4 部分详细介绍了 Pandas 的统计计算相关的函数<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</span><br></pre></td></tr></table></figure>
 <h2 id="pandas-的索引对象--index">pandas 的索引对象 —— <strong><em>index</em></strong></h2>
 <h3 id="index-对象"><strong><em>index</em></strong> 对象</h3>
@@ -20368,7 +20419,12 @@ New York
   <entry>
     <title>数据分析-03  Pandas Pt.1</title>
     <url>/2022/data_analysis/03-pandas_01/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
+Pt.2 部分详细介绍了 Pandas 的索引操作<br>
+Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
+Pt.4 部分详细介绍了 Pandas 的统计计算相关的函数<br>
+<span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> Series, DataFrame</span><br></pre></td></tr></table></figure>
 <h2 id="pandas-的数据结构---series">pandas 的数据结构 - <strong><em>Series</em></strong></h2>
 <h3 id="pdseries-data-index-"><strong><em>pd.Series( data, index )</em></strong></h3>
