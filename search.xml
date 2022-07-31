@@ -2481,7 +2481,7 @@ Pt.4 部分主要介绍利用 Pandas 重塑数据<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="合并数据">合并数据</h2>
-<h3 id="pt2-合并数据回顾"><a href="./06-pandas-data_wrangling_02.md">Pt.2 合并数据回顾</a></h3>
+<h3 id="pt2-合并数据回顾"><a href="06-pandas-data_wrangling_02.md">Pt.2 合并数据回顾</a></h3>
 <blockquote>
 <p><strong><em>pd.merge( left, right, on, how, suffixes )</em></strong><br>
 <strong><em>pd.merge( left, right, left_on, right_on, how, suffixes )</em></strong> : 分别根据左右指定列进行合并<br>
@@ -7514,7 +7514,7 @@ Pt.4 部分主要介绍利用 Pandas 重塑数据<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="数据重塑和轴向旋转">数据重塑和轴向旋转</h2>
-<h3 id="pt3-数据重塑和轴向旋转回顾"><a href="./06-pandas-data_wrangling_03.md">Pt.3 数据重塑和轴向旋转回顾</a></h3>
+<h3 id="pt3-数据重塑和轴向旋转回顾"><a href="06-pandas-data_wrangling_03.md">Pt.3 数据重塑和轴向旋转回顾</a></h3>
 <blockquote>
 <p><strong><em>frame.stack( level )</em></strong> : 将横轴旋转为竖轴, DataFrame → Series<br>
 <strong><em>series.unstack( level )</em></strong> : 将竖轴旋转为横轴, Series → DataFrame</p>
