@@ -11530,7 +11530,27 @@ NEW
 <strong><em>right</em></strong> : <em>True : ( , ] ; False : [ , )</em><br>
 <strong><em>labels</em></strong> : 设置面元的名称</p>
 </blockquote>
-<h4 id="bins--list"><strong><em>bins = list</em></strong></h4>
+<h4 id="bins--list--直接指定面元"><strong><em>bins = list</em></strong> : 直接指定面元</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ages = [<span class="number">20</span>, <span class="number">22</span>, <span class="number">25</span>, <span class="number">27</span>, <span class="number">21</span>, <span class="number">23</span>, <span class="number">37</span>, <span class="number">31</span>, <span class="number">61</span>, <span class="number">45</span>, <span class="number">41</span>, <span class="number">32</span>]</span><br><span class="line">bins = [<span class="number">18</span>, <span class="number">25</span>, <span class="number">35</span>, <span class="number">60</span>, <span class="number">100</span>]</span><br><span class="line">cats = pd.cut(ages, bins, right=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cats.categories <span class="comment"># 展示了划分的面元</span></span><br></pre></td></tr></table></figure>
+<p>IntervalIndex([[18, 25), [25, 35), [35, 60), [60, 100)], dtype='interval[int64, left]')</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cats.codes </span><br></pre></td></tr></table></figure>
+<p>array([0, 0, 1, 1, 0, 0, 2, 1, 3, 2, 2, 1], dtype=int8)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.value_counts(cats)</span><br></pre></td></tr></table></figure>
+<p>[18, 25) 4<br>
+[25, 35) 4<br>
+[35, 60) 3<br>
+[60, 100) 1<br>
+dtype: int64</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">group_names = [<span class="string">'Youth'</span>, <span class="string">'YoungAdult'</span>, <span class="string">'MiddleAged'</span>, <span class="string">'Senior'</span>]</span><br><span class="line">pd.cut(ages, bins, labels=group_names)</span><br></pre></td></tr></table></figure>
+<p>['Youth', 'Youth', 'Youth', 'YoungAdult', 'Youth', ..., 'YoungAdult', 'Senior', 'MiddleAged', 'MiddleAged', 'YoungAdult']<br>
+Length: 12<br>
+Categories (4, object): ['Youth' &lt; 'YoungAdult' &lt; 'MiddleAged' &lt; 'Senior']</p>
+<h4 id="bins--n--根据样本的-最小值和最大值-计算等长的面元"><strong><em>bins = n</em></strong> : 根据样本的 <strong>最小值和最大值</strong> 计算等长的面元</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = np.random.randint(<span class="number">0</span>, <span class="number">11</span>, (<span class="number">50</span>))</span><br><span class="line">pd.cut(data, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>[(-0.01, 2.0], (-0.01, 2.0], (-0.01, 2.0], (4.0, 6.0], (-0.01, 2.0], ..., (6.0, 8.0], (8.0, 10.0], (-0.01, 2.0], (4.0, 6.0], (-0.01, 2.0]]<br>
+Length: 50<br>
+Categories (5, interval[float64, right]): [(-0.01, 2.0] &lt; (2.0, 4.0] &lt; (4.0, 6.0] &lt; (6.0, 8.0] &lt; (8.0, 10.0]]</p>
 <h3 id="pdqcut-x-q-labels---根据分位数划分面元-quantile-binning-"><strong><em>pd.qcut( x, q, labels )</em></strong> : 根据分位数划分面元（ quantile binning ）</h3>
 <blockquote>
 <p><strong><em>x</em></strong> : <em>The input array to be binned; must be 1-D</em><br>
