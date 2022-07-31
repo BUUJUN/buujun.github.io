@@ -22,7 +22,18 @@
     <content><![CDATA[<p>这篇博客主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的 IO</p>
 <span id="more"></span>
 <h2 id="列表推导式">列表推导式</h2>
-<p><strong><em></em></strong></p>]]></content>
+<p><strong><em>result = [ expr for val in collection if condition ]</em></strong></p>
+<h3 id="普通推导式">普通推导式</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strings = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'as'</span>, <span class="string">'bat'</span>, <span class="string">'car'</span>, <span class="string">'dove'</span>, <span class="string">'python'</span>, <span class="string">'love'</span>, <span class="string">'pythove'</span>]</span><br><span class="line">l = [val <span class="keyword">for</span> val <span class="keyword">in</span> strings <span class="keyword">if</span> <span class="string">'ove'</span> <span class="keyword">in</span> val]</span><br><span class="line">d = {key:val <span class="keyword">for</span> val, key <span class="keyword">in</span> <span class="built_in">enumerate</span>(strings) <span class="keyword">if</span> <span class="string">'ove'</span> <span class="keyword">in</span> key}</span><br><span class="line">s = {val <span class="keyword">for</span> val <span class="keyword">in</span> strings <span class="keyword">if</span> <span class="string">'ove'</span> <span class="keyword">in</span> val}</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'list is {0} \ndict is {1} \nset  is {2}'</span>.<span class="built_in">format</span>(l, d, s))</span><br></pre></td></tr></table></figure>
+<p>list is ['dove', 'love', 'pythove']<br>
+dict is {'dove': 6, 'love': 8, 'pythove': 9}<br>
+set is {'pythove', 'dove', 'love'}</p>
+<h3 id="嵌套推导式">嵌套推导式</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tuples = [(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>),(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>),(<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>)]</span><br><span class="line">[val2 <span class="keyword">for</span> val1 <span class="keyword">in</span> tuples <span class="keyword">for</span> val2 <span class="keyword">in</span> val1]</span><br></pre></td></tr></table></figure>
+<p>[1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[[val2 <span class="keyword">for</span> val2 <span class="keyword">in</span> val1] <span class="keyword">for</span> val1 <span class="keyword">in</span> tuples ]</span><br></pre></td></tr></table></figure>
+<p>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</p>
+]]></content>
       <tags>
         <tag>Python</tag>
       </tags>
