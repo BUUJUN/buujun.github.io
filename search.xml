@@ -260,10 +260,10 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
-        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
@@ -584,10 +584,10 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
-        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
@@ -13290,11 +13290,9 @@ NaN
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -13392,11 +13390,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -13474,11 +13470,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -13576,11 +13570,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -13678,11 +13670,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -13781,11 +13771,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -13955,11 +13943,9 @@ d
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14098,11 +14084,9 @@ d
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14202,11 +14186,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14316,11 +14298,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14429,11 +14409,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14544,11 +14522,9 @@ NaN
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14647,11 +14623,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14740,11 +14714,9 @@ ddd
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -14886,11 +14858,9 @@ Q
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -15020,11 +14990,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
@@ -15137,11 +15105,9 @@ foo
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
-
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
     .dataframe thead th {
         text-align: right;
     }
