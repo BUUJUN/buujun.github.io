@@ -17,6 +17,42 @@
       </tags>
   </entry>
   <entry>
+    <title>CDO - 处理 CMIP6 实战</title>
+    <url>/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/</url>
+    <content><![CDATA[<p>本篇博客将介绍 CDO 处理 CMIP6 常用的操作，包括插值、合并时间、选取时间、计算集合平均等</p>
+<span id="more"></span>
+<p>假设需要将 <strong>CMIP6</strong> 模式的历史降水数据（如下图所示），插值到 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="9.553ex" height="1.557ex" role="img" focusable="false" viewbox="0 -666 4222.4 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"/><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(500,0)"/><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"/></g><g data-mml-node="mo" transform="translate(1722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/></g><g data-mml-node="mn" transform="translate(2722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"/><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(1000,0)"/></g></g></g></svg></mjx-container></span> 的经纬度网格中，并合并时间维度，选取 1959 年至 2014 年 MJJAS 的数据，最后计算模式的集合平均</p>
+<p><img src="/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/微信图片_20220804223244.png" alt="数据目录"></p>
+<h3 id="插值操作">插值操作</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo remapbil,r360x181 infile outfile</span><br></pre></td></tr></table></figure>
+<p>对多个文件进行批量插值操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">models=(MODEL1 MODEL2)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="variable">${models[*]}</span>; <span class="keyword">do</span> </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> $(<span class="built_in">ls</span> ./<span class="variable">${m}</span>); <span class="keyword">do</span> </span><br><span class="line">        cdo remapbil,r360x181 <span class="variable">${i}</span> remap_<span class="variable">${i}</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="合并时间">合并时间</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo mergetime var_MODEL_*.nc var_MODEL.nc</span><br></pre></td></tr></table></figure>
+<p>插值并合并时间</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo mergetime -apply,remapbil,r360x181 [ nvar_MODEL_*.nc ] var_MODEL.nc</span><br></pre></td></tr></table></figure>
+<p>对不同模式进行批量插值并合并时间</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">models=(MODEL1 MODEL2 MODEL3)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="variable">${models[*]}</span>; <span class="keyword">do</span> </span><br><span class="line">    cdo mergetime -apply,remapbil,r360x181 [ ./<span class="variable">${m}</span>/var_<span class="variable">${m}</span>_*.nc ] ./var_<span class="variable">${m}</span>.nc</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="选取时间">选取时间</h3>
+<p>选取 1959 年至 2014 年 MJJAS 的数据</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo selyear,1959/2014 -selmonth,5/9 infile outfile</span><br></pre></td></tr></table></figure>
+<p>对不同模式进行批量选取时间的操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">models=(MODEL1 MODEL2 MODEL3)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="variable">${models[*]}</span>; <span class="keyword">do</span> </span><br><span class="line">    cdo selyear,1959/2014 -selmonth,5/9 var_<span class="variable">${m}</span>.nc var_<span class="variable">${m}</span>_1959-2014_MJJAS.nc</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>对不同模式进行批量插值、合并时间并选取时间的操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">models=(MODEL1 MODEL2 MODEL3)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="variable">${models[*]}</span>; <span class="keyword">do</span> </span><br><span class="line">    cdo selyear,1959/2014 -selmonth,5/9 -mergetime -apply,remapbil,r360x181 [ ./<span class="variable">${m}</span>/var_<span class="variable">${m}</span>_*.nc ] ./var_<span class="variable">${m}</span>.nc</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="集合平均">集合平均</h3>
+<p>对不同模式求集合平均</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo ensmean var_{MODEL1,MODEL2,MODEL3}.nc var_ENSM.nc</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CDO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Xarray - 计算</title>
     <url>/xarray/ch2-calculate/</url>
     <content><![CDATA[<p>本文主要介绍 Xarray 相关的计算，包括：基础计算、分组计算、重采样计算、滑动计算以及多项式回归</p>
@@ -260,10 +296,10 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
+        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
@@ -584,10 +620,10 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
+        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
@@ -23055,7 +23091,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
 <tr class="odd">
 <td><strong>双线性插值（bilinear）</strong></td>
 <td><strong>remap<font color="red">bil</font><font color="green">,grid</font></strong></td>
-<td>双线性插值； <br> 参数 <strong><font color="green">grid</font></strong> ：目标网格的描述文件或名称，如 <strong><font color="green">n32</font></strong> (Gaussian N32 grid)</td>
+<td>双线性插值； <br> 参数 <strong><font color="green">grid</font></strong> ：目标网格的描述文件或名称，如 <strong><font color="green">n32</font></strong> (Gaussian N32 grid)、<strong><font color="green">r360x181</font></strong> (lonlat 360x181)</td>
 </tr>
 <tr class="even">
 <td></td>
