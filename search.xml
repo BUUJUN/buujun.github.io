@@ -43,6 +43,9 @@
 <h3 id="集合平均">集合平均</h3>
 <p>对不同模式求集合平均</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo ensmean var_{MODEL1,MODEL2,MODEL3}.nc var_ENSM.nc</span><br></pre></td></tr></table></figure>
+<div class="note success"><h3 id="参考">参考</h3>
+<p><strong>CDO 官方文档：</strong> <a href="https://code.mpimet.mpg.de/projects/cdo/embedded/cdo.pdf">https://code.mpimet.mpg.de/projects/cdo/embedded/cdo.pdf</a></p>
+</div>
 ]]></content>
       <categories>
         <category>linux</category>
