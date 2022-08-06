@@ -36,7 +36,7 @@
 <h3 id="选取时间">选取时间</h3>
 <p>选取 1959 年至 2014 年 MJJAS 的数据</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo selyear,1959/2014 -selmonth,5/9 infile outfile</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo select,year=1959/2014.month=5/9 infile outfile</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo select,year=1959/2014,month=5/9 infile outfile</span><br></pre></td></tr></table></figure>
 <p>对不同模式进行批量选取时间的操作</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">models=(MODEL1 MODEL2 MODEL3)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="variable">${models[*]}</span>; <span class="keyword">do</span> </span><br><span class="line">    cdo select,year=1959/2014,month=5/9 var_<span class="variable">${m}</span>.nc var_<span class="variable">${m}</span>_1959-2014_MJJAS.nc</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 <p>对不同模式进行批量插值、合并时间并选取时间的操作</p>
