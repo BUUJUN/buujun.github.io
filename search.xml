@@ -17,6 +17,303 @@
       </tags>
   </entry>
   <entry>
+    <title>01-WRF安装</title>
+    <url>/WRF/01-WRF%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>本篇博客将介绍 WRF 和 WPS 的环境配置、编译和安装</p>
+<span id="more"></span>
+<h3 id="什么是-wrf-">什么是 WRF ？</h3>
+<p>WRF (Weather Research and Forecasting Model) 是中尺度天气预报系统</p>
+<p><strong>组成：</strong></p>
+<ul>
+<li>2 dynamic cores (ARW and NMM)
+<ul>
+<li>ARW 由 NCAR 开发， NMM 由 NCEP 开发</li>
+</ul></li>
+<li>1 数据同化系统</li>
+<li>软件架构</li>
+</ul>
+<p><strong>官网：</strong></p>
+<ul>
+<li><a href="https://www.mmm.ucar.edu/wrf-release-information">https://www.mmm.ucar.edu/wrf-release-information</a></li>
+<li><a href="https://www.mmm.ucar.edu/weather-research-and-forecasting-Model">https://www.mmm.ucar.edu/weather-research-and-forecasting-Model</a></li>
+</ul>
+<h3 id="wrf-下载">WRF 下载</h3>
+<p>参考：<a href="https://www2.mmm.ucar.edu/wrf/users/download/get_sources_new.php">https://www2.mmm.ucar.edu/wrf/users/download/get_sources_new.php</a></p>
+<ul>
+<li><strong>方式一</strong></li>
+</ul>
+<p>通过 git clone 从 github 克隆代码库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recurse-submodules git@github.com:wrf-model/WRF.git</span><br></pre></td></tr></table></figure>
+<p>复制到软件安装目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> -<span class="built_in">pr</span> ~/WRF /usr/lib/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>方式二</strong></li>
+</ul>
+<p>访问 <a href="https://github.com/wrf-model/WRF/releases">https://github.com/wrf-model/WRF/releases</a> 下载对应版本源代码</p>
+<p>解压到目标目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar -zxf WRF-4.4.tar.gz --directory=/usr/lib/</span><br></pre></td></tr></table></figure>
+<h4 id="wrf-目录的理解">WRF 目录的理解</h4>
+<p>源代码目录</p>
+<ul>
+<li><strong>dyn_em</strong> ：ARW dynamics cores</li>
+<li><strong>external</strong> ：外部包，包含 IO ，计时器和 MPI 等</li>
+<li><strong>frame</strong> ：包含 WRF 框架的模块</li>
+<li><strong>inc</strong> ：包含 'include' 文件</li>
+<li><strong>main</strong> ：包含主要的例行程序，如 wrf.F 和所有的可执行文件</li>
+<li><strong>phys</strong> ：包含所有的物理模块</li>
+<li><strong>share</strong> ：包含用于 WRF 中间层和 WRF I/O 的主要模块</li>
+<li><strong>tools</strong> ：存放开发人员的工具包</li>
+</ul>
+<p>脚本</p>
+<ul>
+<li><strong>clean</strong> ：清理创建的文件和可执行文件的脚本</li>
+<li><strong>configure</strong> ：创建 configure.wrf 文件，为编译 WRF 做准备的脚本</li>
+<li><strong>compile</strong> ：编译 WRF 的脚本</li>
+</ul>
+<p>其他</p>
+<ul>
+<li><strong>arch</strong> ：存放编译选项的目录</li>
+<li><strong>run</strong> ：用于运行 WRF 的目录</li>
+<li><strong>test</strong> ：包含几个测试案例，也可用于运行 WRF</li>
+<li><strong>Makefile</strong> ：Top–level makefile</li>
+<li><strong>Registry</strong> ：存放 WRF 注册表文件</li>
+</ul>
+<h3 id="wrfwps-环境测试">WRF/WPS 环境测试</h3>
+<p>参考：<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP1">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP1</a></p>
+<h4 id="检查是否已经安装-gfortran--gcc-和-cpp">检查是否已经安装 <code>gfortran</code> ， <code>gcc</code> 和 <code>cpp</code></h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">which</span> gfortran</span><br><span class="line"><span class="built_in">which</span> gcc</span><br><span class="line"><span class="built_in">which</span> cpp</span><br></pre></td></tr></table></figure>
+<p>如果都已安装，以上返回的应该是安装的路径</p>
+<h4 id="检查-gcc-的版本是否为46或更高版本">检查 <code>gcc</code> 的版本是否为4.6或更高版本</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc --version</span><br></pre></td></tr></table></figure>
+<h4 id="运行一些简单的测试">运行一些简单的测试</h4>
+<p>通过运行以下的简单测试来验证 <code>fortran</code> 编译器是否正确构建，以及是否与 <code>C</code> 编译器兼容</p>
+<h5 id="下载测试文件到-tests-目录中">下载测试文件到 <code>TESTS</code> 目录中</h5>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> TESTS</span><br><span class="line"><span class="built_in">cd</span> ./TESTS</span><br><span class="line">wget https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/Fortran_C_tests.tar Fortran_C_tests.tar</span><br><span class="line">tar -xf Fortran_C_tests.tar</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 1 ：固定格式 <code>Fortran</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gfortran TEST_1_fortran_only_fixed.f &amp;&amp; ./a.out</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">SUCCESS test 1 fortran only fixed format</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 2 ：自由格式 <code>Fortran</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gfortran TEST_2_fortran_only_free.f90 &amp;&amp; ./a.out</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">Assume Fortran 2003: has FLUSH, ALLOCATABLE derived type, and ISO C Binding  </span><br><span class="line">SUCCESS test 2 fortran only free format </span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 3 ：<code>C</code> 编译</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc TEST_3_c_only.c &amp;&amp; ./a.out</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">SUCCESS test 3 C only</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 4 ：<code>Fortran</code> 调用 <code>C</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -c -m64 TEST_4_fortran+c_c.c</span><br><span class="line">gfortran -c -m64 TEST_4_fortran+c_f.f90</span><br><span class="line">gfortran -m64 TEST_4_fortran+c_f.o TEST_4_fortran+c_c.o</span><br><span class="line">./a.out</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">C function called by Fortran</span><br><span class="line">Values are xx =  2.00 and ii = 1</span><br><span class="line">SUCCESS test 4 fortran calling c</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 5 ：<code>csh</code> 脚本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./TEST_csh.csh</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">SUCCESS csh test</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 6 ：<code>perl</code> 脚本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./TEST_perl.pl</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">SUCCESS perl test</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 7 ：<code>sh</code> 脚本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./TEST_sh.sh</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">SUCCESS sh test</span><br></pre></td></tr></table></figure>
+<h3 id="安装-wrfwps-编译相关软件">安装 WRF/WPS 编译相关软件</h3>
+<p>参考：<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP2">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP2</a></p>
+<h4 id="下载编译软件">下载编译软件</h4>
+<p>下载网站：<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/</a></p>
+<p>分别下载 <code>netcdf</code> , <code>mpich</code> , <code>zlib</code> , <code>libpng</code> 和 <code>Jasper</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/netcdf-4.1.3.tar.gz netcdf-4.1.3.tar.gz</span><br><span class="line">wget https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/mpich-3.0.4.tar.gz mpich-3.0.4.tar.gz</span><br><span class="line">wget http://zlib.net/zlib-1.2.12.tar.gz zlib-1.2.12.tar.gz</span><br><span class="line">wget https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/libpng-1.2.50.tar.gz libpng-1.2.50.tar.gz</span><br><span class="line">wget https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/jasper-1.900.1.tar.gz jasper-1.900.1.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="设置环境变量">设置环境变量</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> DIR=/usr/bin</span><br><span class="line"><span class="built_in">export</span> CC=gcc</span><br><span class="line"><span class="built_in">export</span> CXX=g++</span><br><span class="line"><span class="built_in">export</span> FC=gfortran</span><br><span class="line"><span class="built_in">export</span> FCFLAGS=-m64</span><br><span class="line"><span class="built_in">export</span> F77=gfortran</span><br><span class="line"><span class="built_in">export</span> FFLAGS=-m64</span><br><span class="line"><span class="built_in">export</span> JASPERLIB=<span class="variable">$DIR</span>/grib2/lib</span><br><span class="line"><span class="built_in">export</span> JASPERINC=<span class="variable">$DIR</span>/grib2/include</span><br><span class="line"><span class="built_in">export</span> LDFLAGS=-L<span class="variable">$DIR</span>/grib2/lib</span><br><span class="line"><span class="built_in">export</span> CPPFLAGS=-I<span class="variable">$DIR</span>/grib2/include</span><br><span class="line"><span class="built_in">export</span> NETCDF_classic=1</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:<span class="variable">$DIR</span>/grib2/lib/</span><br></pre></td></tr></table></figure>
+<h4 id="安装-netcdf4">安装 <code>NetCDF4</code></h4>
+<p>解压 <code>netcdf-4.1.3.tar.gz</code> 到：<code>/usr/bin/netcdf-4.1.3</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar -xzvf netcdf-4.1.3.tar.gz --directory=/usr/bin/</span><br><span class="line"><span class="built_in">cd</span> /usr/bin/netcdf-4.1.3</span><br><span class="line">sudo ./configure --prefix=<span class="variable">$DIR</span>/netcdf --disable-dap --disable-netcdf-4 --disable-shared</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$DIR</span>/netcdf/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> NETCDF=<span class="variable">$DIR</span>/netcdf</span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+<p>检查是否安装成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">which</span> ncdump</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">/usr/bin/netcdf/bin/ncdump</span><br></pre></td></tr></table></figure>
+<h4 id="安装-mpich">安装 <code>MPICH</code></h4>
+<p>解压 <code>mpich-3.0.4.tar.gz</code> 到：<code>/usr/bin/mpich-3.0.4</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar -xzvf mpich-3.0.4.tar.gz --directory=/usr/bin/</span><br><span class="line"><span class="built_in">cd</span> /usr/bin/mpich-3.0.4</span><br><span class="line">sudo ./configure --prefix=<span class="variable">$DIR</span>/mpich</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$DIR</span>/mpich/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+<h4 id="安装-zlib">安装 <code>zlib</code></h4>
+<p>解压 <code>zlib-1.2.12.tar.gz</code> 到：<code>/usr/bin/zlib-1.2.12</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar -xzvf zlib-1.2.12.tar.gz --directory=/usr/bin/</span><br><span class="line"><span class="built_in">cd</span> /usr/bin/zlib-1.2.12</span><br><span class="line"><span class="comment"># sudo ./configure --prefix=$DIR/grib2</span></span><br><span class="line">sudo ./configure</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+<h4 id="安装-libpng">安装 <code>libpng</code></h4>
+<p>解压 <code>libpng-1.2.50.tar.gz</code> 到：<code>/usr/bin/libpng-1.2.50</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar -xzvf libpng-1.2.50.tar.gz --directory=/usr/bin/</span><br><span class="line"><span class="built_in">cd</span> /usr/bin/libpng-1.2.50</span><br><span class="line">sudo ./configure --prefix=<span class="variable">$DIR</span>/grib2</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+<h4 id="安装-jasper">安装 <code>Jasper</code></h4>
+<p>解压 <code>jasper-1.900.1.tar.gz</code> 到：<code>/usr/bin/jasper-1.900.1</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar -xzvf jasper-1.900.1.tar.gz --directory=/usr/bin/</span><br><span class="line"><span class="built_in">cd</span> /usr/bin/jasper-1.900.1</span><br><span class="line">sudo ./configure --prefix=<span class="variable">$DIR</span>/grib2</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>
+<h3 id="编译软件兼容性测试">编译软件兼容性测试</h3>
+<p>参考：<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP3">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP3</a></p>
+<h4 id="下载测试文件">下载测试文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> TESTS</span><br><span class="line">wget https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compile_tutorial/tar_files/Fortran_C_NETCDF_MPI_tests.tar Fortran_C_NETCDF_MPI_tests.tar</span><br><span class="line">tar -xf Fortran_C_NETCDF_MPI_tests.tar</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 1 ： <code>Fortran</code> + <code>C</code> + <code>NetCDF</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> <span class="variable">${NETCDF}</span>/include/netcdf.inc .</span><br><span class="line">gfortran -c 01_fortran+c+netcdf_f.f</span><br><span class="line">gcc -c 01_fortran+c+netcdf_c.c</span><br><span class="line">gfortran 01_fortran+c+netcdf_f.o 01_fortran+c+netcdf_c.o -L<span class="variable">${NETCDF}</span>/lib -lnetcdff -lnetcdf</span><br><span class="line">./a.out</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">C function called by Fortran</span><br><span class="line">Values are xx = 2.00 and ii = 1</span><br><span class="line">SUCCESS test 1 fortran + c + netcdf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试 2 ： <code>Fortran</code> + <code>C</code> + <code>NetCDF</code> + <code>MPI</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cp</span> <span class="variable">${NETCDF}</span>/include/netcdf.inc .</span><br><span class="line">mpif90 -c 02_fortran+c+netcdf+mpi_f.f</span><br><span class="line">mpicc -c 02_fortran+c+netcdf+mpi_c.c</span><br><span class="line">mpif90 02_fortran+c+netcdf+mpi_f.o 02_fortran+c+netcdf+mpi_c.o -L<span class="variable">${NETCDF}</span>/lib -lnetcdff -lnetcdf</span><br><span class="line">mpirun ./a.out</span><br></pre></td></tr></table></figure>
+<p>正确输出为：</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">C function called by Fortran</span><br><span class="line">Values are xx = 2.00 and ii = 1</span><br><span class="line">status = 2</span><br><span class="line">SUCCESS test 2 fortran + c + netcdf + mpi</span><br></pre></td></tr></table></figure>
+<h3 id="安装和编译-wrf">安装和编译 WRF</h3>
+<p>参考：<br>
+<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP4">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP4</a><br>
+<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wrf_compile3.php">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wrf_compile3.php</a></p>
+<h4 id="安装-wrf">安装 WRF</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib/WRF</span><br><span class="line">./configure     <span class="comment"># 34 1</span></span><br></pre></td></tr></table></figure>
+<h4 id="编译-wrf">编译 WRF</h4>
+<p>编译，并将输出和错误信息写入到 <code>log.compile</code> 中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib/WRF</span><br><span class="line">./compile [case_name] &gt;&amp; log.compile</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th>case_name</th>
+<th>Type of case</th>
+<th>case_name</th>
+<th>Type of case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>em_real</td>
+<td>3d real case</td>
+<td>em_hill2d_x</td>
+<td>2d ideal case</td>
+</tr>
+<tr class="even">
+<td>em_quarter_ss</td>
+<td>3d ideal case</td>
+<td>em_squall2d_x</td>
+<td>2d ideal case</td>
+</tr>
+<tr class="odd">
+<td>em_b_wave</td>
+<td>3d ideal case</td>
+<td>em_squall2d_y</td>
+<td>2d ideal case</td>
+</tr>
+<tr class="even">
+<td>em_les</td>
+<td>3d ideal case</td>
+<td>em_grav2d_x</td>
+<td>2d ideal case</td>
+</tr>
+<tr class="odd">
+<td>em_heldsuarez</td>
+<td>3d ideal case</td>
+<td>em_seabreeze2d_x</td>
+<td>2d ideal case</td>
+</tr>
+<tr class="even">
+<td>em_tropical_cyclone</td>
+<td>3d ideal case</td>
+<td>em_scm_xy</td>
+<td>1d ideal case</td>
+</tr>
+</tbody>
+</table>
+<p>编译大约需要 20-30 分钟</p>
+<p>编译成功后，会在 <code>/usr/lib/WRF/main</code> 目录下生成可执行文件 <code>*.exe</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -<span class="built_in">ls</span> ./main/*.exe</span><br></pre></td></tr></table></figure>
+<p>如果编译的是 real case ，则生成的可执行文件为</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">wrf.exe (model executable)</span><br><span class="line">real.exe (real data initialization)</span><br><span class="line">ndown.exe (one-way nesting)</span><br><span class="line">tc.exe (for tc bogusing--serial only)</span><br></pre></td></tr></table></figure>
+<p>如果编译的是 ideal case ，则生成的可执行文件为</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">wrf.exe (model executable)</span><br><span class="line">ideal.exe (ideal case initialization)</span><br></pre></td></tr></table></figure>
+<h3 id="安装编译-wps">安装编译 WPS</h3>
+<p>WPS (<strong>W</strong>RF <strong>P</strong>reprocessing <strong>S</strong>ystem Source Code)</p>
+<p>WPS 是 <strong>WRF 预处理系统</strong>，用于运行 <strong>真实模型</strong> 之前 <strong>输入预处理</strong> 工作，准备好必须的输入数据和模型参数后才能顺利运行模式</p>
+<p>WPS 主要做了三件事：</p>
+<ul>
+<li>定义模型运行空间（投影、范围）和嵌套关系（ <code>geogrid</code> ）</li>
+<li>对 GRIB 数据进行重投影和转坐标，从而提取所需要的气象参数（ <code>ungrib</code> ）</li>
+<li>对地表参数、气象数据插值到模拟区域（ <code>metgrid</code> ）</li>
+</ul>
+<p>参考：<br>
+<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP5">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP5</a><br>
+<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wps_compile1.php">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wps_compile1.php</a></p>
+<h4 id="下载-wps">下载 WPS</h4>
+<ul>
+<li><strong>方式一</strong></li>
+</ul>
+<p>通过 git clone 从 github 克隆代码库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --recurse-submodules git@github.com:wrf-model/WPS.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>方式二</strong></li>
+</ul>
+<p>访问 <a href="https://github.com/wrf-model/WPS/releases">https://github.com/wrf-model/WPS/releases</a> 下载对应版本源代码</p>
+<p>解压到目标目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar -zxf WPS-4.4.tar.gz --directory=/usr/lib/</span><br></pre></td></tr></table></figure>
+<h4 id="wps-目录的理解">WPS 目录的理解</h4>
+<p>源代码目录</p>
+<ul>
+<li><strong>geogrid</strong> ：包含创建静态数据的代码，定义模式范围，将静态地形资料插值到格点</li>
+<li><strong>ungrib</strong> ：包含解压 GRIB 数据的代码，从 GRIB 数据中提取所需要的气象参数</li>
+<li><strong>metgrid</strong> ：包含创建 WRF 的输入的代码，将 <code>ungrib</code> 解码的气象场水平地插值到geogrid定义的网格上</li>
+<li><strong>util</strong> ：包含实用程序</li>
+</ul>
+<p>脚本</p>
+<ul>
+<li><strong>clean</strong> ：清理创建的文件和可执行文件的脚本</li>
+<li><strong>configure</strong> ：创建 configure.wps 文件，配置环境，准备编译 WPS</li>
+<li><strong>compile</strong> ：编译 WPS 的脚本</li>
+<li><strong>link_grib.csh</strong> ：将 GRIB 文件链接到 WPS 目录的脚本</li>
+</ul>
+<p>其他</p>
+<ul>
+<li><strong>arch</strong> ：收集编译选项的目录</li>
+<li><strong>namelist.wps</strong> ：将用于运行 <code>geogrid.exe</code> 、 <code>ungrib.exe</code> 和 <code>metgrid.exe</code> 的 WPS 名称列表</li>
+<li><strong>namelist.wps-all_options</strong> ：包含可以在 <code>namelist.wps</code> 文件中使用的所有其他选项的参考</li>
+</ul>
+<h4 id="安装-wps">安装 WPS</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib/WPS</span><br><span class="line">./clean</span><br><span class="line"><span class="built_in">export</span> JASPERLIB=<span class="variable">$DIR</span>/grib2/lib</span><br><span class="line"><span class="built_in">export</span> JASPERINC=<span class="variable">$DIR</span>/grib2/include</span><br><span class="line">./configure   <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+<h4 id="编译-wps">编译 WPS</h4>
+<p>编译，并将输出和错误信息写入到 <code>log.compile</code> 中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib/WRF</span><br><span class="line">./compile &gt;&amp; log.compile</span><br></pre></td></tr></table></figure>
+<p>编译成功后，会在 <code>/usr/lib/WPS</code> 目录下生成可执行文件 <code>*.exe</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -<span class="built_in">ls</span> ./*.exe</span><br></pre></td></tr></table></figure>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">geogrid.exe -&gt; geogrid/src/geogrid.exe</span><br><span class="line">ungrib.exe -&gt; ungrib/src/ungrib.exe</span><br><span class="line">metgrid.exe -&gt; metgrid/src/metgrid.exe</span><br></pre></td></tr></table></figure>
+<h3 id="下载地形数据">下载地形数据</h3>
+<p>WRF 模式能够创建理想化的模拟，如果要进行真实数据的案例，必须将模型创建在地球上的物理位置以及该位置的静态信息，这就需要一个包含地形和土地利用类别等信息的数据集</p>
+<p>数据下载网址：<a href="http://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html">http://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html</a></p>
+<p>下载静态的地形数据后将数据解压到 <code>/usr/share/WPS_GEOG/</code> 中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /usr/share/WPS_GEOG</span><br><span class="line">sudo tar -xf geog.tar.gz --directory=/usr/share/WPS_GEOG</span><br></pre></td></tr></table></figure>
+<p>修改 <code>/usr/lib/WPS/namelist.wps</code> 中的地形数据路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib/WPS/</span><br><span class="line">vim namelist.wps</span><br><span class="line">geog_data_path = <span class="string">'/usr/share/WPS_GEOG'</span></span><br></pre></td></tr></table></figure>
+<p>下载好地形数据后，便可执行 <code>geogrid.exe</code> 程序，具体内容将在 <strong>运行 WPS 和 WRF</strong> 小节展开</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib/WPS</span><br><span class="line">./geogrid.exe  &gt;&amp; log.geogrid</span><br></pre></td></tr></table></figure>
+<h3 id="参考链接">参考链接</h3>
+<p><a href="https://www2.mmm.ucar.edu/wrf/users/download/get_sources_new.php">https://www2.mmm.ucar.edu/wrf/users/download/get_sources_new.php</a><br>
+<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php</a><br>
+<a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/start.php">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/start.php</a></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>WRF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CDO - 处理 CMIP6 实战</title>
     <url>/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/</url>
     <content><![CDATA[<p>本篇博客将介绍 CDO 处理 CMIP6 常用的操作，包括插值、合并时间、选取时间、计算集合平均等</p>
