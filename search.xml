@@ -17,8 +17,48 @@
       </tags>
   </entry>
   <entry>
-    <title>01-WRF安装</title>
-    <url>/WRF/01-WRF%E5%AE%89%E8%A3%85/</url>
+    <title>NCL-安装</title>
+    <url>/NCL/01-Installing_NCL/</url>
+    <content><![CDATA[<p>本篇博客将介绍 NCL 的安装和环境配置</p>
+<h3 id="下载-ncl-安装包">下载 NCL 安装包</h3>
+<p>访问 NCL 官网：<br>
+<a href="https://www.ncl.ucar.edu/Download/list_of_binaries.shtml">https://www.ncl.ucar.edu/Download/list_of_binaries.shtml</a><br>
+<a href="https://www.earthsystemgrid.org/dataset/ncl.html">https://www.earthsystemgrid.org/dataset/ncl.html</a></p>
+<p>选择合适的版本下载，这里选用：<br>
+<em><a href="https://www.earthsystemgrid.org/dataset/ncl.662.dap/file/ncl_ncarg-6.6.2-Debian7.11_64bit_nodap_gnu472.tar.gz">ncl_ncarg-6.6.2-Debian7.11_64bit_nodap_gnu472.tar.gz</a></em></p>
+<h4 id="下载并解压到安装目录">下载并解压到安装目录</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://www.earthsystemgrid.org/dataset/ncl.662.dap/file/ncl_ncarg-6.6.2-Debian7.11_64bit_nodap_gnu472.tar.gz</span><br><span class="line">sudo <span class="built_in">mkdir</span> /usr/local/ncl-6.6.2</span><br><span class="line">sudo tar -zxf ./ncl_ncarg-6.6.2-Debian7.11_64bit_nodap_gnu472.tar.gz --directory=/usr/local/ncl-6.6.2</span><br></pre></td></tr></table></figure>
+<h4 id="配置环境">配置环境</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="built_in">export</span> NCARG_ROOT=/usr/local/ncl-6.6.2</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NCARG_ROOT</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<h4 id="测试">测试</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ncl</span><br></pre></td></tr></table></figure>
+<p>正确输出为</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line"> Copyright (C) 1995-2019 - All Rights Reserved</span><br><span class="line"> University Corporation for Atmospheric Research</span><br><span class="line"> NCAR Command Language Version 6.6.2</span><br><span class="line"> The use of this software is governed by a License Agreement.</span><br><span class="line"> See http://www.ncl.ucar.edu/ for more details.</span><br><span class="line">ncl 0&gt; </span><br></pre></td></tr></table></figure>
+<p>如果报错缺少某个依赖文件</p>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">ncl: error while loading shared libraries: lib***.so.X: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
+<p>则安装对应的依赖库即可，推荐使用 <code>apt-file</code> 寻找缺失文件所在的库</p>
+<p>安装 <code>apt-file</code> 之前，添加 <code>apt</code> 的源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ bionic main universe</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>安装 <code>apt-file</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install apt-file</span><br></pre></td></tr></table></figure>
+<p>更新 <code>apt-file</code> 数据库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-file update</span><br></pre></td></tr></table></figure>
+<p>查找缺失文件 <strong><code>lib***.so.X</code></strong> 所在的库，这里以 <code>libgfortran.so.3</code> 为例</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-file search libgfortran.so.3</span><br></pre></td></tr></table></figure>
+<p>安装任何一个库即可解决问题</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libgfortran3</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>NCL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WRF-安装</title>
+    <url>/WRF/01-Instaling_WRF/</url>
     <content><![CDATA[<p>本篇博客将介绍 WRF 和 WPS 的环境配置、编译和安装</p>
 <span id="more"></span>
 <h3 id="什么是-wrf-">什么是 WRF ？</h3>
