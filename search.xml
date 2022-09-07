@@ -259,7 +259,14 @@
 <li>从 <code>GRIB</code> 文件提取列在 <code>Vtable</code> 气象要素场（ <code>ungrib</code> ）</li>
 <li>将地表参数、气象要素插值到模拟区域，将风场旋转到 WRF 网格（ <code>metgrid</code> ）</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">  A([静态地形数据]) --&gt; B[geogrid] </span><br><span class="line">  D([GRIB 格点数据]) --&gt; E[ungrid]</span><br><span class="line">  subgraph WPS</span><br><span class="line">    B[geogrid] --&gt; C[metgrid]</span><br><span class="line">    E[ungrid] --&gt; C</span><br><span class="line">  end</span><br><span class="line">  C --&gt; F([real])</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph LR
+  A([静态地形数据]) --&gt; B[geogrid] 
+  D([GRIB 格点数据]) --&gt; E[ungrid]
+  subgraph WPS
+    B[geogrid] --&gt; C[metgrid]
+    E[ungrid] --&gt; C
+  end
+  C --&gt; F([real])</pre>
 <p>参考：<br>
 <a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP5">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP5</a><br>
 <a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wps_compile1.php">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wps_compile1.php</a></p>
@@ -616,10 +623,10 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
-        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
@@ -940,10 +947,10 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
-        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
