@@ -259,14 +259,14 @@
 <li>从 <code>GRIB</code> 文件提取列在 <code>Vtable</code> 气象要素场（ <code>ungrib</code> ）</li>
 <li>将地表参数、气象要素插值到模拟区域，将风场旋转到 WRF 网格（ <code>metgrid</code> ）</li>
 </ul>
-<pre class="mermaid">graph LR
-  A([静态地形数据]) --&gt; B[geogrid] 
-  D([GRIB 格点数据]) --&gt; E[ungrid]
-  subgraph WPS
-    B[geogrid] --&gt; C[metgrid]
-    E[ungrid] --&gt; C
-  end
-  C --&gt; F([real])</pre>
+<pre class="mermaid">graph LR;
+  A([静态地形数据]) --&gt; B[geogrid]; 
+  D([GRIB 格点数据]) --&gt; E[ungrid];
+  subgraph WPS;
+    B[geogrid] --&gt; C[metgrid];
+    E[ungrid] --&gt; C;
+  end;
+  C --&gt; F([real]);</pre>
 <p>参考：<br>
 <a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP5">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php#STEP5</a><br>
 <a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wps_compile1.php">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Compile/wps_compile1.php</a></p>
