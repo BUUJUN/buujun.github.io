@@ -17,9 +17,10 @@
       </tags>
   </entry>
   <entry>
-    <title>NCL-安装</title>
+    <title>NCL - 安装</title>
     <url>/NCL/01-Installing_NCL/</url>
     <content><![CDATA[<p>本篇博客将介绍 NCL 的安装和环境配置</p>
+<span id="more"></span>
 <h3 id="下载-ncl-安装包">下载 NCL 安装包</h3>
 <p>访问 NCL 官网：<br>
 <a href="https://www.ncl.ucar.edu/Download/list_of_binaries.shtml">https://www.ncl.ucar.edu/Download/list_of_binaries.shtml</a><br>
@@ -57,7 +58,7 @@
       </tags>
   </entry>
   <entry>
-    <title>WRF-安装</title>
+    <title>WRF - 安装</title>
     <url>/WRF/01-Instaling_WRF/</url>
     <content><![CDATA[<p>本篇博客将介绍 WRF 和 WPS 的环境配置、编译和安装</p>
 <span id="more"></span>
