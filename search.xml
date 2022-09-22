@@ -24138,7 +24138,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 计算 10x10 网格的平均值：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo gridboxmean,10,10 infile outfile</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo gridboxmean,10,10 infile outfile</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="statistical-values-over-all-timesteps">Statistical values over all timesteps</h3>
 <p><strong><font color="red">&lt;operator&gt; infile outfile</font></strong></p>
@@ -25280,7 +25280,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 从时间序列使用中减去每日平均时间：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo daysub infile -dayavg infile outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo daysub infile -dayavg infile outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="monthly-arithmetic-月计算函数">Monthly arithmetic 月计算函数</h3>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
@@ -25319,7 +25319,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 从时间序列使用中减去月平均时间：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo monsub infile -monavg infile outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo monsub infile -monavg infile outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="yearly-arithmetic-年计算函数">Yearly arithmetic 年计算函数</h3>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
@@ -25358,7 +25358,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 从时间序列使用中减去年平均时间：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo yearsub infile -yearavg infile outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo yearsub infile -yearavg infile outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="multi-year-hourly-arithmetic">Multi-year hourly arithmetic</h3>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
@@ -25397,7 +25397,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 从时间序列使用中减去多年的小时平均：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo yhoursub infile -yhouravg infile outfile   </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo yhoursub infile -yhouravg infile outfile   </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="multi-year-daily-arithmetic">Multi-year daily arithmetic</h3>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
@@ -25436,7 +25436,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 从时间序列使用中减去多年的日平均：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo ydaysub infile -ydayavg infile outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo ydaysub infile -ydayavg infile outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="multi-year-monthly-arithmetic">Multi-year monthly arithmetic</h3>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
@@ -25475,7 +25475,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 从时间序列使用中减去多年的月平均：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo ymonsub infile -ymonavg infile outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo ymonsub infile -ymonavg infile outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="multi-year-seasonal-arithmetic">Multi-year seasonal arithmetic</h3>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
@@ -25514,7 +25514,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 从时间序列使用中减去多年的季节平均：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo yseassub infile -yseasavg infile outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo yseassub infile -yseasavg infile outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="arithmetic-with-days">Arithmetic with days</h3>
 <p><strong><font color="red">&lt;operator&gt; infile outfile</font></strong></p>
@@ -26442,7 +26442,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <strong><font color="green">c</font></strong>，FLOAT，常量</p></li>
 <li><p><strong>例子</strong><br>
 如果 infile 中对应的字段元素大于 0 ，则创建常量值为 7 的字段：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo ifthenc,7 infile outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo ifthenc,7 infile outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
       <categories>
@@ -26601,9 +26601,9 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 <ul>
 <li><p><strong>例子</strong><br>
 合并具有相同的时间步数和不同的变量的数据集到一个新的数据集：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo merge infile1 infile2 infile3 outfile  </span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo merge infile1 infile2 infile3 outfile  </span><br></pre></td></tr></table></figure>
 <p>合并相同变量但不同时间步的数据集到一个新的数据集：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo cdo mergetime infile1 infile2 infile3 infile4 outfile  </span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cdo mergetime infile1 infile2 infile3 infile4 outfile  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
 <table>
