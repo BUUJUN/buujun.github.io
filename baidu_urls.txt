@@ -1,5 +1,0 @@
-https://buujun.fun/Linux/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/
-https://buujun.fun/WRF/02-Running_WRF/
-https://buujun.fun/NCL/01-Installing_NCL/
-https://buujun.fun/WRF/01-Instaling_WRF/
-https://buujun.fun/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/
