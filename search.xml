@@ -17,6 +17,143 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu - 系统重装</title>
+    <url>/Linux/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/</url>
+    <content><![CDATA[<p>本篇博客将介绍 Ubuntu 系统的备份与重装</p>
+<span id="more"></span>
+<h4 id="准备工作">准备工作</h4>
+<ul>
+<li>一个 8G 以上的 U盘 用作系统的启动盘<br>
+</li>
+<li>下载 <a href="https://cn.ezbsystems.com/download.htm">UltralSO 软件</a><br>
+</li>
+<li>下载 <a href="https://cn.ubuntu.com/download/desktop">Ubuntu 系统镜像</a> （<a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/">清华镜像源</a>）</li>
+</ul>
+<h4 id="制作启动盘">制作启动盘</h4>
+<p>打开 UltralSO 软件，点击 <strong>文件</strong> &gt; <strong>打开</strong> ，选择之前下载的 <strong>Ubuntu 镜像</strong> <strong>打开</strong></p>
+<p><img src="/Linux/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/微信图片_20220923191702.png" alt="UltralSO_1"></p>
+<p>点击 <strong>启动</strong> &gt; <strong>写入硬盘映像</strong> 弹出写入硬盘映像窗口</p>
+<p><strong>硬盘驱动器</strong> 为插入的 U盘<br>
+<strong>映像文件</strong> 为下载的 Ubuntu 镜像的路径<br>
+<strong>写入方式</strong> 为USB-HDD+</p>
+<p>点击 <strong>格式化</strong> &gt; <strong>写入</strong></p>
+<p><img src="/Linux/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/微信截图_20220923192216.png" alt="UltralSO_2"></p>
+<p>至此，启动盘制作完成</p>
+<h4 id="系统备份">系统备份</h4>
+<p>将系统 <strong>根目录</strong> 的所有文件打包到 <code>/media/user/DISK</code> 中</p>
+<p>其中，根目录的 <code>/proc</code> <code>/media</code> <code>/mnt</code> <code>/sys</code> <code>/lost+found</code> 不备份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/user/DISK</span><br><span class="line">sudo tar -cvpzf ubuntu_backup.tar.gz --exclude=/proc --exclude=/media --exclude=/mnt --exclude=/sys --exclude=/lost+found /</span><br></pre></td></tr></table></figure>
+<h4 id="重装系统">重装系统</h4>
+<p>开机按 <strong>F12</strong> 进入 BOOT ，选择 <strong>U盘启动</strong></p>
+<p>点击 <strong>继续</strong> &gt; <strong>安装 Ubuntu</strong> &gt; <strong>继续</strong> &gt; <strong>其他选项</strong> 进入系统分区界面</p>
+<h5 id="系统分区">系统分区</h5>
+<table>
+<thead>
+<tr class="header">
+<th>用于</th>
+<th>挂载点</th>
+<th>分区硬盘</th>
+<th>分区大小</th>
+<th>分区类型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EFI 引导</td>
+<td>/boot/efi</td>
+<td>sdb</td>
+<td>1 GB</td>
+<td>主分区</td>
+</tr>
+<tr class="even">
+<td>交换空间（SWAP）</td>
+<td>-</td>
+<td>sdb</td>
+<td>32 GB</td>
+<td>主分区</td>
+</tr>
+<tr class="odd">
+<td>Ext4 日志文件系统</td>
+<td>/boot</td>
+<td>sdb</td>
+<td>2 GB</td>
+<td>逻辑分区</td>
+</tr>
+<tr class="even">
+<td>Ext4 日志文件系统</td>
+<td>/</td>
+<td>sdb</td>
+<td>200 GB</td>
+<td>逻辑分区</td>
+</tr>
+<tr class="odd">
+<td>Ext4 日志文件系统</td>
+<td>/usr/local</td>
+<td>sda</td>
+<td>20 GB</td>
+<td>逻辑分区</td>
+</tr>
+<tr class="even">
+<td>Ext4 日志文件系统</td>
+<td>/tmp</td>
+<td>sda</td>
+<td>20 GB</td>
+<td>逻辑分区</td>
+</tr>
+<tr class="odd">
+<td>Ext4 日志文件系统</td>
+<td>/var</td>
+<td>sda</td>
+<td>40 GB</td>
+<td>逻辑分区</td>
+</tr>
+<tr class="even">
+<td>Ext4 日志文件系统</td>
+<td>/opt</td>
+<td>sda</td>
+<td>20 GB</td>
+<td>逻辑分区</td>
+</tr>
+<tr class="odd">
+<td>Ext4 日志文件系统</td>
+<td>/usr</td>
+<td>sda</td>
+<td>250 GB</td>
+<td>逻辑分区</td>
+</tr>
+<tr class="even">
+<td>Ext4 日志文件系统</td>
+<td>/home</td>
+<td>sda</td>
+<td>600 GB</td>
+<td>逻辑分区</td>
+</tr>
+</tbody>
+</table>
+<p>等待安装完成后，系统提示重启电脑，此时拔出 U盘 ，按下 <strong>Enter</strong> 即可</p>
+<p>至此，Ubuntu 系统安装完成</p>
+<h4 id="系统恢复">系统恢复</h4>
+<h5 id="备份重要配置文件">备份重要配置文件</h5>
+<p>将配置文件复制到 <code>/media/user/DISK</code> 中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/user/DISK</span><br><span class="line">sudo <span class="built_in">cp</span> /boot/grub/grub.cfg ./</span><br><span class="line">sudo <span class="built_in">cp</span> /etc/fstab ./</span><br></pre></td></tr></table></figure>
+<p>在 <code>/</code> 下解压 <strong>ubuntu_backup.tar.gz</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> /media/user/DISK/ubuntu_backup.tar.gz /</span><br><span class="line"><span class="built_in">cd</span> /</span><br><span class="line">sudo tar -xvpzf ubuntu_backup.tar.gz -C /</span><br></pre></td></tr></table></figure>
+<p>文件恢复后，替换刚刚复制的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/user/DISK</span><br><span class="line">sudo <span class="built_in">cp</span> grub.cfg  /boot/grub/ </span><br><span class="line">sudo <span class="built_in">cp</span> fstab /etc/</span><br></pre></td></tr></table></figure>
+<p><strong>重启 <code>reboot</code></strong> ，<strong>按 F12</strong> ，<strong>选择 U盘 启动</strong> ，选择 <strong>Try Ubuntu</strong> 进入系统</p>
+<p>安装 <strong>Boot Repair</strong> 修复</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yannubuntu/boot-repair</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y boot-repair</span><br></pre></td></tr></table></figure>
+<p>安装完成后，打开 <strong>Boot Repair</strong> ，点击 <strong>Recommended repair</strong> ，等待几分钟修复完成，重新启动即可</p>
+<p>至此，Ubuntu 系统备份、重装和恢复工作完成</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WRF - 运行</title>
     <url>/WRF/02-Running_WRF/</url>
     <content><![CDATA[<p>本篇博客将介绍 WPS 数据预处理和 WRF 的运行</p>
