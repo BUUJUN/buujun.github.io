@@ -9,11 +9,11 @@
         <tag>Python</tag>
         <tag>Machine Learning</tag>
         <tag>Deep Learning</tag>
+        <tag>linux</tag>
         <tag>PyToch</tag>
         <tag>Numpy</tag>
         <tag>Pandas</tag>
         <tag>Matplotlib</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -224,8 +224,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>linux</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -274,8 +274,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>NCL</tag>
         <tag>linux</tag>
+        <tag>NCL</tag>
       </tags>
   </entry>
   <entry>
@@ -597,8 +597,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>WRF</tag>
         <tag>linux</tag>
+        <tag>WRF</tag>
       </tags>
   </entry>
   <entry>
@@ -637,8 +637,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -885,10 +885,10 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
+        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
@@ -1209,10 +1209,10 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>xarray</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>matplotlib</tag>
+        <tag>xarray</tag>
       </tags>
   </entry>
   <entry>
@@ -23432,8 +23432,8 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -23609,8 +23609,8 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -23968,8 +23968,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -24085,8 +24085,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -24842,8 +24842,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -25712,8 +25712,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -26087,8 +26087,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -26135,8 +26135,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -26586,8 +26586,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -26984,8 +26984,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
   <entry>
@@ -27282,8 +27282,8 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
         <category>linux</category>
       </categories>
       <tags>
-        <tag>CDO</tag>
         <tag>linux</tag>
+        <tag>CDO</tag>
       </tags>
   </entry>
 </search>
