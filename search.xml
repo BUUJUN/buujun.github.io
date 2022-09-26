@@ -17,6 +17,33 @@
       </tags>
   </entry>
   <entry>
+    <title>常用的气象专业名词</title>
+    <url>/papers/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
+    <content><![CDATA[<h4 id="指数">指数</h4>
+<h4 id="方法">方法</h4>
+<p><strong>PCC</strong> : Pattern Correlation Coefficient</p>
+<h4 id="数据">数据</h4>
+<h5 id="模式">模式</h5>
+<p><strong>MIP</strong> : Model Intercomparison Projects<br>
+<strong>PMIP</strong> : Palaeoclimate Modelling Intercomparison Project<br>
+<strong>DCPP</strong> : Decadal Climate Prediction Project<br>
+<strong>GMMIP</strong> : Global Monsoons Model Intercomparison Project<br>
+<strong>HighResMIP</strong> : High-Resolution Model Intercomparison Project</p>
+<h5 id="再分析资料">再分析资料</h5>
+<p><strong>20CR</strong> : 20th Century Reanalysis<br>
+<strong>APHRODITE</strong> : Asian precipitation—highly‑resolved observational data integration towards evaluation<br>
+<strong>REGEN</strong> : Rainfall estimates on a gridded network</p>
+]]></content>
+      <categories>
+        <category>notebook</category>
+      </categories>
+      <tags>
+        <tag>paper</tag>
+        <tag>English</tag>
+        <tag>notebook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu - 系统重装</title>
     <url>/Linux/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/</url>
     <content><![CDATA[<p>本篇博客将介绍 Ubuntu 系统的备份与重装</p>
