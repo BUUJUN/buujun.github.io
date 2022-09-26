@@ -19,20 +19,38 @@
   <entry>
     <title>常用的气象专业名词</title>
     <url>/papers/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
-    <content><![CDATA[<h4 id="指数">指数</h4>
+    <content><![CDATA[<p>本篇博客将整理博主目前遇到的气象相关的专业名词缩写，持续更新中...</p>
+<span id="more"></span>
+<h4 id="指数">指数</h4>
+<ul>
+<li><strong>AAO</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/antarctic-oscillation">Antarctic Oscillation</a></li>
+<li><strong>AMO</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/atlantic-multidecadal-oscillation">Atlantic Multidecadal Oscillation</a></li>
+<li><strong>AO</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/arctic-oscillation">Arctic Oscillation</a></li>
+<li><strong>ENSO</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/el-nino-southern-oscillation">El Nino-Southern Oscillation</a></li>
+<li><strong>IOD</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/indian-ocean-dipole">Indian Ocean Dipole</a></li>
+<li><strong>MJO</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/madden-julian-oscillation">Madden-Julian Oscillation</a></li>
+<li><strong>NAO</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/north-atlantic-oscillation">North Atlantic Oscillation</a></li>
+<li><strong>PDO</strong> : <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/pacific-decadal-oscillation">Pacific Decadal Oscillation</a></li>
+</ul>
 <h4 id="方法">方法</h4>
-<p><strong>PCC</strong> : Pattern Correlation Coefficient</p>
+<ul>
+<li><strong>PCC</strong> : Pattern Correlation Coefficient</li>
+</ul>
 <h4 id="数据">数据</h4>
 <h5 id="模式">模式</h5>
-<p><strong>MIP</strong> : Model Intercomparison Projects<br>
-<strong>PMIP</strong> : Palaeoclimate Modelling Intercomparison Project<br>
-<strong>DCPP</strong> : Decadal Climate Prediction Project<br>
-<strong>GMMIP</strong> : Global Monsoons Model Intercomparison Project<br>
-<strong>HighResMIP</strong> : High-Resolution Model Intercomparison Project</p>
+<ul>
+<li><strong>MIP</strong> : Model Intercomparison Projects</li>
+<li><strong>PMIP</strong> : Palaeoclimate Modelling Intercomparison Project</li>
+<li><strong>DCPP</strong> : Decadal Climate Prediction Project</li>
+<li><strong>GMMIP</strong> : Global Monsoons Model Intercomparison Project</li>
+<li><strong>HighResMIP</strong> : High-Resolution Model Intercomparison Project</li>
+</ul>
 <h5 id="再分析资料">再分析资料</h5>
-<p><strong>20CR</strong> : 20th Century Reanalysis<br>
-<strong>APHRODITE</strong> : Asian precipitation—highly‑resolved observational data integration towards evaluation<br>
-<strong>REGEN</strong> : Rainfall estimates on a gridded network</p>
+<ul>
+<li><strong>20CR</strong> : 20th Century Reanalysis</li>
+<li><strong>APHRODITE</strong> : Asian precipitation—highly‑resolved observational data integration towards evaluation</li>
+<li><strong>REGEN</strong> : Rainfall estimates on a gridded network</li>
+</ul>
 ]]></content>
       <categories>
         <category>notebook</category>
