@@ -6,14 +6,14 @@
     <content><![CDATA[<p>大家好呀，欢迎来到我的博客！我是气象行业的一只菜鸟，目前所做的工作主要涉及 <strong>人工智能</strong> 和 <strong>气候预测</strong> ，我的博客也将围绕气象数据处理（ CDO 和 Python）、计算（SciPy 和 MetPy）、绘图（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、数值模式（WRF）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
 ]]></content>
       <tags>
-        <tag>Python</tag>
         <tag>Machine Learning</tag>
         <tag>Deep Learning</tag>
         <tag>linux</tag>
         <tag>PyToch</tag>
-        <tag>Numpy</tag>
-        <tag>Pandas</tag>
-        <tag>Matplotlib</tag>
+        <tag>python</tag>
+        <tag>numpy</tag>
+        <tag>pandas</tag>
+        <tag>matplotlib</tag>
       </tags>
   </entry>
   <entry>
