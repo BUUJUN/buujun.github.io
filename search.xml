@@ -147,7 +147,7 @@
 <li>CMIP6 可以再现 CDD 的下降趋势，但是低估了变化的振幅</li>
 <li>CMIP6 vs CMIP5 ：对于绝大多数极端降水指数，模式和再分析资料之前的差异在 1990 之前减少了</li>
 </ol>
-<p><embed src="./CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig1_HTML.webp"></p>
+<p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig1_HTML.jpg" alt="Fig.1 亚洲 7 个极端降水指数的平均值，阴影为模型的四分位数范围（0.25~0.75）"></p>
 <p>为了量化各个模型年际变率的相似性，作者计算了各个模型的 7 个极端降水指数的 IVS</p>
 ]]></content>
       <categories>
