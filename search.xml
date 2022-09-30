@@ -182,6 +182,8 @@
 <li><strong>6-HIST</strong> 相对于 5-HIST 在空间分布方面的改善并不明显</li>
 </ol>
 <p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig3_HTML.jpg" alt="Fig.3 泰勒图分析；左上角为模式和观测之间的偏差范围，角度表示空间相关系数，距原点的距离表示空间标准差的比值；一般而言泰勒图的极坐标系中越靠近（1, 1）性能越好"></p>
+<h5 id="区域分析">区域分析</h5>
+<p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig4_HTML.jpg" alt="方框表示四分位数区间，框内实线表示中位数，须表示总的模式间的范围"></p>
 ]]></content>
       <categories>
         <category>notebook</category>
