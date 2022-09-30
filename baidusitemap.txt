@@ -7,8 +7,8 @@
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_03/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_04/
     https://www.buujun.fun/data_analysis/08-pandas_and_seaborn/
-    https://www.buujun.fun/xarray/ch1-basics/
     https://www.buujun.fun/xarray/ch2-calculate/
+    https://www.buujun.fun/xarray/ch1-basics/
     https://www.buujun.fun/hello-world/
     https://www.buujun.fun/data_analysis/03-pandas_03/
     https://www.buujun.fun/data_analysis/03-pandas_04/
