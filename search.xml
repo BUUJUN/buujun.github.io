@@ -18,7 +18,7 @@
   </entry>
   <entry>
     <title>读书笔记 - (CD) Evaluation of extreme precipitation over Asia in CMIP6 models</title>
-    <url>/papers/Climate%20Dynamics_2021/CD_Evaluation%20of%C2%A0extreme%20precipitation%20over%C2%A0Asia%20in%C2%A0CMIP6%20models/</url>
+    <url>/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/</url>
     <content><![CDATA[<p>本文基于四个再分析数据集，研究 CMIP6 的 30 个模式对极端降水模拟的表现。并与 CMIP5 的 28 个模式进行比较。基于 四个指标 (PCC, STD, Bias 和 IVS)，利用 泰勒图和 MR 方法排名，得到了7个对极端降水模拟较好的模式。CMIP6 和 CMIP5 相比，PCC 的改善更为明显，中国南方和印度的干偏差和西藏的湿偏差均有所减小，这可能得益于 CMIP6 更能捕捉经向水汽通量辐合的特征，改善了对经向和纬向比湿涡的高估或低估。</p>
 <span id="more"></span>
 <p><a href="https://doi.org/10.1007/s00382-021-05773-1">原文链接</a></p>
@@ -147,7 +147,7 @@
 <li>CMIP6 可以再现 CDD 的下降趋势，但是低估了变化的振幅</li>
 <li>CMIP6 vs CMIP5 ：对于绝大多数极端降水指数，模式和再分析资料之前的差异在 1990 之前减少了</li>
 </ol>
-<p><embed src="./CD_Evaluation%20of%C2%A0extreme%20precipitation%20over%C2%A0Asia%20in%C2%A0CMIP6%20models/382_2021_5773_Fig1_HTML.webp"></p>
+<p><embed src="./CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig1_HTML.webp"></p>
 <p>为了量化各个模型年际变率的相似性，作者计算了各个模型的 7 个极端降水指数的 IVS</p>
 ]]></content>
       <categories>

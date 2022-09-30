@@ -1,5 +1,5 @@
 
-    https://www.buujun.fun/papers/Climate%20Dynamics_2021/CD_Evaluation%20of%C2%A0extreme%20precipitation%20over%C2%A0Asia%20in%C2%A0CMIP6%20models/
+    https://www.buujun.fun/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/
     https://www.buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/
     https://www.buujun.fun/data_analysis/03-pandas_01/
     https://www.buujun.fun/data_analysis/03-pandas_02/
