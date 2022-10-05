@@ -183,7 +183,28 @@
 </ol>
 <p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig3_HTML.jpg" alt="Fig.3 泰勒图分析；左上角为模式和观测之间的偏差范围，角度表示空间相关系数，距原点的距离表示空间标准差的比值；一般而言泰勒图的极坐标系中越靠近（1, 1）性能越好"></p>
 <h5 id="区域分析">区域分析</h5>
-<p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig4_HTML.jpg" alt="方框表示四分位数区间，框内实线表示中位数，须表示总的模式间的范围"></p>
+<p>作者接着对不同区域的模式的极端降水指数结果进行了对比，分别是 5-Hist , 6-Hist , HighResMIP , REGEN , APHRODITE , ERA5 和 20CR 。</p>
+<ol type="1">
+<li>对于所有的指数，除了日本以外，大多数地区的 REGEN（黑色）都比 APHRODITE（橙色） 大</li>
+<li>6-Hist 和 HighResMIP 的 RX5day、RX1day 和 R95T 在海洋性大陆上存在较强的异常值，这表明海洋性大陆的模式和再分析都有很大的不确定性</li>
+<li>对于中国区域，除 CDD 外，西北地区的不确定性最大，东北地区的不确定性大于西北地区， <strong>南方地区的不确定性最大</strong> ，表明潮湿地区相比干旱地区的不确定性更大</li>
+<li>除西藏地区外，RX5day、RX1day、R95T 和 SDII 的中位数：HighResMIP &gt; 6-Hist &gt; 5-Hist</li>
+<li>对于西藏地区，大多数模式高估了极端降水指数，低估了 CDD ，均表明模式在西藏具有偏湿性</li>
+</ol>
+<p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig4_HTML.jpg" alt="Fig.4 方框表示四分位数区间，框内实线表示中位数，须表示总的模式间的范围"></p>
+<h3 id="模式表现的度量分析">模式表现的度量分析</h3>
+<h4 id="模式的表现">模式的表现</h4>
+<p>各个模式对七个极端降水指数的模拟的表现如 Fig.5 所示， 图中具体展示了各模式模拟的 PCC , STD , Bias 和 IVS 的信息，颜色越浅，模拟越好</p>
+<p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig5_HTML.jpg" alt="Fig.5 各个模式对各极端降水指数模拟的 1/PCC , STD , Bias 和 IVS"></p>
+<p>为了定量比较模式在极端降水时间演化和空间分布的综合性能，作者利用 PCC , STD , Bias 和 IVS 计算了 MR 对各模式进行排序，如 Fig.6 所示。MR 越接近 1 ，模式的表现越好，HighResMip 的 ECMWF-IFS-LR 表现最好，6-Hist 的 EC-Earth3 和 EC-Earth3-Veg 其次</p>
+<ol type="1">
+<li>前 20% 的模式中，5-Hist 占据大多数，但是前几名都是 6-Hist 和 HighResMIP 的模式</li>
+<li>排在最后五名的模式均来自 CMIP6</li>
+<li>HadGEM3-GC31-HM 排在 HadGEM3-GC31-MM 说明提高模式的分辨率不一定能提高模式的性能</li>
+</ol>
+<p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig6_HTML.jpg" alt="Fig.6 亚洲极端降水指数的 MR"></p>
+<p>Fig.7 对比了 CMIP5 和 CMIP6 ，可以看出 PCC 的改善最为明显</p>
+<p><img src="/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/382_2021_5773_Fig7_HTML.jpg" alt="Fig.7 CMIP5 和 CMIP6 对应模式的亚洲极端降水指数的 MR 排名的变化"></p>
 ]]></content>
       <categories>
         <category>notebook</category>
