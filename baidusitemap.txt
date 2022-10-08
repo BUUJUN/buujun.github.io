@@ -1,26 +1,25 @@
 
     https://www.buujun.fun/papers/Climate_Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/
-    https://www.buujun.fun/papers/Climate%20Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/
     https://www.buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/
-    https://www.buujun.fun/xarray/ch2-calculate/
-    https://www.buujun.fun/xarray/ch1-basics/
     https://www.buujun.fun/data_analysis/03-pandas_01/
     https://www.buujun.fun/data_analysis/03-pandas_02/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_01/
-    https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_04/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_03/
+    https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_04/
     https://www.buujun.fun/data_analysis/08-pandas_and_seaborn/
+    https://www.buujun.fun/xarray/ch1-basics/
+    https://www.buujun.fun/xarray/ch2-calculate/
     https://www.buujun.fun/hello-world/
     https://www.buujun.fun/data_analysis/03-pandas_03/
-    https://www.buujun.fun/data_analysis/04-pandas-data_loading/
     https://www.buujun.fun/data_analysis/03-pandas_04/
+    https://www.buujun.fun/data_analysis/04-pandas-data_loading/
     https://www.buujun.fun/data_analysis/05-pandas-data_cleaning_01/
     https://www.buujun.fun/data_analysis/05-pandas-data_cleaning_02/
     https://www.buujun.fun/data_analysis/05-pandas-data_cleaning_03/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_02/
     https://www.buujun.fun/data_analysis/09-pandas-time_series/
-    https://www.buujun.fun/data_analysis/02-numpy_02/
     https://www.buujun.fun/data_analysis/02-numpy_01/
+    https://www.buujun.fun/data_analysis/02-numpy_02/
     https://www.buujun.fun/data_analysis/07-matplotlib/
     https://www.buujun.fun/data_analysis/01-python/
     https://www.buujun.fun/cdo/cdo_01_Information/
