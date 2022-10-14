@@ -17,9 +17,20 @@
       </tags>
   </entry>
   <entry>
-    <title>读书笔记 - (CD) Evaluation of extreme precipitation over Asia in CMIP6 models</title>
+    <title></title>
     <url>/papers/Climate_Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/</url>
-    <content><![CDATA[<p>本文基于四个再分析数据集，研究 CMIP6 的 30 个模式对极端降水模拟的表现。并与 CMIP5 的 28 个模式进行比较。基于 四个指标 (PCC, STD, Bias 和 IVS)，利用 泰勒图和 MR 方法排名，得到了7个对极端降水模拟较好的模式。CMIP6 和 CMIP5 相比，PCC 的改善更为明显，中国南方和印度的干偏差和西藏的湿偏差均有所减小，这可能得益于 CMIP6 更能捕捉经向水汽通量辐合的特征，改善了对经向和纬向比湿涡的高估或低估。</p>
+    <content><![CDATA[<!------->
+<!--title: 读书笔记 - (CD) Evaluation of extreme precipitation over Asia in CMIP6 models-->
+<!--date: 2022-09-27 21:51:34-->
+<!--tags: -->
+<!--- Extreme Precipitation-->
+<!--- CMIP6-->
+<!--- PCC-->
+<!--- Taylor-->
+<!--categories: -->
+<!--- notebook-->
+<!------->
+<p>本文基于四个再分析数据集，研究 CMIP6 的 30 个模式对极端降水模拟的表现。并与 CMIP5 的 28 个模式进行比较。基于 四个指标 (PCC, STD, Bias 和 IVS)，利用 泰勒图和 MR 方法排名，得到了7个对极端降水模拟较好的模式。CMIP6 和 CMIP5 相比，PCC 的改善更为明显，中国南方和印度的干偏差和西藏的湿偏差均有所减小，这可能得益于 CMIP6 更能捕捉经向水汽通量辐合的特征，改善了对经向和纬向比湿涡的高估或低估。</p>
 <span id="more"></span>
 <p><a href="https://doi.org/10.1007/s00382-021-05773-1">原文链接</a></p>
 <h3 id="引言">引言</h3>
@@ -270,15 +281,6 @@ CMIP5 的 inmcm4 的 IVS 表现最好<br>
 <li>海洋性大陆和中国南部地区，CMIP6 改进了经向和纬向的比湿常定涡旋的输送，从而改进对降水的模拟</li>
 </ul>
 ]]></content>
-      <categories>
-        <category>notebook</category>
-      </categories>
-      <tags>
-        <tag>Extreme Precipitation</tag>
-        <tag>CMIP6</tag>
-        <tag>PCC</tag>
-        <tag>Taylor</tag>
-      </tags>
   </entry>
   <entry>
     <title>整理 - 常用的气象专业名词</title>
