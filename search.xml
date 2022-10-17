@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Welcome to BUUJUN&#39;s Blog!</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>欢迎来到我的博客！我的博客将围绕气象数据处理（ CDO 和 Python）、计算（SciPy 和 MetPy）、绘图（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、数值模式（WRF）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
+]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>Machine Learning</tag>
+        <tag>Deep Learning</tag>
+        <tag>linux</tag>
+        <tag>PyToch</tag>
+        <tag>numpy</tag>
+        <tag>pandas</tag>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>整理 - 常用的气象专业名词</title>
     <url>/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
     <content><![CDATA[<p>本篇博客将整理博主目前遇到的气象相关的专业名词缩写，持续更新中...</p>
@@ -62,22 +78,6 @@
       </categories>
       <tags>
         <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Welcome to BUUJUN&#39;s Blog!</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>欢迎来到我的博客！我的博客将围绕气象数据处理（ CDO 和 Python）、计算（SciPy 和 MetPy）、绘图（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、数值模式（WRF）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
-]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>Machine Learning</tag>
-        <tag>Deep Learning</tag>
-        <tag>linux</tag>
-        <tag>PyToch</tag>
-        <tag>numpy</tag>
-        <tag>pandas</tag>
-        <tag>matplotlib</tag>
       </tags>
   </entry>
   <entry>

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</loc>
+    <loc>https://www.buujun.fun/hello-world/</loc>
     
     <lastmod>2022-10-17</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://www.buujun.fun/hello-world/</loc>
+    <loc>https://www.buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</loc>
     
     <lastmod>2022-10-17</lastmod>
     
@@ -502,20 +502,6 @@
   </url>
   
   <url>
-    <loc>https://www.buujun.fun/tags/seaborn/</loc>
-    <lastmod>2022-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.buujun.fun/tags/datetime/</loc>
-    <lastmod>2022-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.buujun.fun/tags/English/</loc>
     <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -524,6 +510,20 @@
   
   <url>
     <loc>https://www.buujun.fun/tags/xarray/</loc>
+    <lastmod>2022-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.buujun.fun/tags/seaborn/</loc>
+    <lastmod>2022-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.buujun.fun/tags/datetime/</loc>
     <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -574,14 +574,14 @@
   </url>
   
   <url>
-    <loc>https://www.buujun.fun/categories/python/</loc>
+    <loc>https://www.buujun.fun/categories/notebook/</loc>
     <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.buujun.fun/categories/notebook/</loc>
+    <loc>https://www.buujun.fun/categories/python/</loc>
     <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
