@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.buujun.fun/papers/Climate_Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/</loc>
+    <loc>https://www.buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</loc>
     
     <lastmod>2022-10-17</lastmod>
     
@@ -11,9 +11,36 @@
   </url>
   
   <url>
-    <loc>https://www.buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</loc>
+    <loc>https://www.buujun.fun/hello-world/</loc>
     
-    <lastmod>2022-09-29</lastmod>
+    <lastmod>2022-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.buujun.fun/about/index.html</loc>
+    
+    <lastmod>2022-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.buujun.fun/papers/Geophysical_Research_Letters_2022/GRL_Revealing_the_Circulation_Pattern_Most_Conducive_to_Precipitation_Extremes_in_Henan_Province_of_North_China/</loc>
+    
+    <lastmod>2022-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.buujun.fun/papers/Climate_Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/</loc>
+    
+    <lastmod>2022-10-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -84,15 +111,6 @@
   
   <url>
     <loc>https://www.buujun.fun/data_analysis/03-pandas_01/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.buujun.fun/hello-world/</loc>
     
     <lastmod>2022-09-26</lastmod>
     
@@ -353,15 +371,6 @@
   </url>
   
   <url>
-    <loc>https://www.buujun.fun/about/index.html</loc>
-    
-    <lastmod>2022-08-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.buujun.fun/links/index.html</loc>
     
     <lastmod>2022-08-04</lastmod>
@@ -543,6 +552,13 @@
   
   <url>
     <loc>https://www.buujun.fun/tags/Taylor/</loc>
+    <lastmod>2022-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.buujun.fun/tags/SOM/</loc>
     <lastmod>2022-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
