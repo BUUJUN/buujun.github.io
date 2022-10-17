@@ -1,8 +1,8 @@
 
     https://www.buujun.fun/papers/Climate_Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/
     https://www.buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/
-    https://www.buujun.fun/data_analysis/03-pandas_01/
     https://www.buujun.fun/data_analysis/03-pandas_02/
+    https://www.buujun.fun/data_analysis/03-pandas_01/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_01/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_03/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_04/
@@ -12,9 +12,9 @@
     https://www.buujun.fun/hello-world/
     https://www.buujun.fun/data_analysis/03-pandas_03/
     https://www.buujun.fun/data_analysis/03-pandas_04/
-    https://www.buujun.fun/data_analysis/05-pandas-data_cleaning_02/
     https://www.buujun.fun/data_analysis/04-pandas-data_loading/
     https://www.buujun.fun/data_analysis/05-pandas-data_cleaning_01/
+    https://www.buujun.fun/data_analysis/05-pandas-data_cleaning_02/
     https://www.buujun.fun/data_analysis/05-pandas-data_cleaning_03/
     https://www.buujun.fun/data_analysis/06-pandas-data_wrangling_02/
     https://www.buujun.fun/data_analysis/09-pandas-time_series/
@@ -25,12 +25,12 @@
     https://www.buujun.fun/cdo/cdo_01_Information/
     https://www.buujun.fun/cdo/cdo_02_File/
     https://www.buujun.fun/cdo/cdo_05_Modification/
-    https://www.buujun.fun/cdo/cdo_07_Statistical/
-    https://www.buujun.fun/cdo/cdo_08_Correlation_%20and_Regression/
     https://www.buujun.fun/cdo/cdo_06_Arithmetic/
+    https://www.buujun.fun/cdo/cdo_08_Correlation_%20and_Regression/
     https://www.buujun.fun/cdo/cdo_10_Transformation/
-    https://www.buujun.fun/cdo/cdo_11_Miscellaneous/
+    https://www.buujun.fun/cdo/cdo_07_Statistical/
     https://www.buujun.fun/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/
+    https://www.buujun.fun/cdo/cdo_11_Miscellaneous/
     https://www.buujun.fun/NCL/01-Installing_NCL/
     https://www.buujun.fun/WRF/01-Instaling_WRF/
     https://www.buujun.fun/WRF/02-Running_WRF/
