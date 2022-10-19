@@ -33,8 +33,8 @@
     https://buujun.fun/cdo/cdo_11_Miscellaneous/
     https://buujun.fun/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/
     https://buujun.fun/NCL/01-Installing_NCL/
-    https://buujun.fun/WRF/01-Instaling_WRF/
     https://buujun.fun/WRF/02-Running_WRF/
+    https://buujun.fun/WRF/01-Instaling_WRF/
     https://buujun.fun/cdo/cdo_03_Selection/
     https://buujun.fun/cdo/cdo_04_Comparison/
     https://buujun.fun/cdo/cdo_09_Interpolation/
