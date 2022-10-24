@@ -3,18 +3,18 @@
     https://buujun.fun/hello-world/
     https://buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/
     https://buujun.fun/papers/Climate_Dynamics_2021/CD_Evaluation_of_extreme_precipitation_over_Asia_in_CMIP6_models/
+    https://buujun.fun/xarray/ch1-basics/
+    https://buujun.fun/xarray/ch2-calculate/
     https://buujun.fun/data_analysis/03-pandas_01/
     https://buujun.fun/data_analysis/03-pandas_02/
     https://buujun.fun/data_analysis/06-pandas-data_wrangling_01/
     https://buujun.fun/data_analysis/06-pandas-data_wrangling_03/
-    https://buujun.fun/data_analysis/06-pandas-data_wrangling_04/
     https://buujun.fun/data_analysis/08-pandas_and_seaborn/
-    https://buujun.fun/xarray/ch1-basics/
-    https://buujun.fun/xarray/ch2-calculate/
+    https://buujun.fun/data_analysis/06-pandas-data_wrangling_04/
     https://buujun.fun/data_analysis/03-pandas_03/
     https://buujun.fun/data_analysis/03-pandas_04/
-    https://buujun.fun/data_analysis/04-pandas-data_loading/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_01/
+    https://buujun.fun/data_analysis/04-pandas-data_loading/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_02/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_03/
     https://buujun.fun/data_analysis/06-pandas-data_wrangling_02/
@@ -33,8 +33,8 @@
     https://buujun.fun/cdo/cdo_11_Miscellaneous/
     https://buujun.fun/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/
     https://buujun.fun/NCL/01-Installing_NCL/
-    https://buujun.fun/WRF/02-Running_WRF/
     https://buujun.fun/WRF/01-Instaling_WRF/
+    https://buujun.fun/WRF/02-Running_WRF/
     https://buujun.fun/cdo/cdo_03_Selection/
     https://buujun.fun/cdo/cdo_04_Comparison/
     https://buujun.fun/cdo/cdo_09_Interpolation/
