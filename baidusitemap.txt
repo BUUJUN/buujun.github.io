@@ -24,8 +24,8 @@
     https://buujun.fun/data_analysis/01-python/
     https://buujun.fun/cdo/cdo_01_Information/
     https://buujun.fun/cdo/cdo_02_File/
-    https://buujun.fun/cdo/cdo_05_Modification/
     https://buujun.fun/cdo/cdo_06_Arithmetic/
+    https://buujun.fun/cdo/cdo_05_Modification/
     https://buujun.fun/cdo/cdo_07_Statistical/
     https://buujun.fun/cdo/cdo_08_Correlation_%20and_Regression/
     https://buujun.fun/cdo/cdo_10_Transformation/
