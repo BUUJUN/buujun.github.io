@@ -6,10 +6,10 @@
     <content><![CDATA[<p>欢迎来到我的博客！我的博客将围绕气象数据处理（ CDO 和 Python）、计算（SciPy 和 MetPy）、绘图（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、数值模式（WRF）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
 ]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>python</tag>
         <tag>Machine Learning</tag>
         <tag>Deep Learning</tag>
+        <tag>linux</tag>
         <tag>PyToch</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
