@@ -486,13 +486,6 @@
   </url>
   
   <url>
-    <loc>https://buujun.fun/tags/seaborn/</loc>
-    <lastmod>2022-10-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://buujun.fun/tags/CDO/</loc>
     <lastmod>2022-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -500,14 +493,21 @@
   </url>
   
   <url>
-    <loc>https://buujun.fun/tags/datetime/</loc>
+    <loc>https://buujun.fun/tags/English/</loc>
     <lastmod>2022-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://buujun.fun/tags/English/</loc>
+    <loc>https://buujun.fun/tags/seaborn/</loc>
+    <lastmod>2022-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/tags/datetime/</loc>
     <lastmod>2022-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
