@@ -93,8 +93,8 @@
 <h4 id="2-字体复制至-matplotlib-存放字体目录">2. 字体复制至 Matplotlib 存放字体目录</h4>
 <p>获取 Matplotlib 存放字体的目录</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="built_in">print</span>(mpl.matplotlib_fname())</span><br></pre></td></tr></table></figure>
-<p>假设返回的目录为：<sub>/.conda/envs/name/lib/python3.8/site-packages/matplotlib/mpl-data/matplotlibrc<br>
-字体存放目录应为：</sub>/.conda/envs/name/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf</p>
+<p>假设返回的目录为：~/.conda/envs/name/lib/python3.8/site-packages/matplotlib/mpl-data/matplotlibrc<br>
+字体存放目录应为：~/.conda/envs/name/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.conda/envs/name/lib/python3.8/site-packages/matplotlib/mpl-data/fonts/ttf</span><br><span class="line"><span class="built_in">cp</span> /download_funt_path/fontname.ttf ./</span><br><span class="line"><span class="comment"># 清除 Matplotlib Cathe 缓存</span></span><br><span class="line"><span class="built_in">rm</span> -rf ~/.cache/matplotlib/fontlist-v*.json  </span><br></pre></td></tr></table></figure>
 <h3 id="matplotlib-字体查看">Matplotlib 字体查看</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="comment"># 查看  Matplotlib Cathe 缓存中的字体列表</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>([f.name <span class="keyword">for</span> f <span class="keyword">in</span> mpl.font_manager.fontManager.ttflist]))</span><br><span class="line"><span class="comment"># 查看对应字体文件的字体名称</span></span><br><span class="line"><span class="built_in">print</span>(mpl.font_manager.FontProperties(fname=<span class="string">'/usr/share/fonts/helvetica/Helvetica.ttf'</span>).get_name())</span><br></pre></td></tr></table></figure>
