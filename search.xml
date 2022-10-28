@@ -84,7 +84,9 @@
     <title>Matplotlib - 字体设置</title>
     <url>/matplotlib/01_font_set/</url>
     <content><![CDATA[<h3 id="字体下载">字体下载</h3>
-<p>下载地址：<a href="https://freefontsfamily.com/">https://freefontsfamily.com/</a></p>
+<p>字体下载地址：<br>
+<a href="https://freefontsfamily.com/">https://freefontsfamily.com/</a><br>
+<a href="https://fonts.google.com/">https://fonts.google.com/</a></p>
 <h3 id="字体安装">字体安装</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/fonts</span><br><span class="line">sudo <span class="built_in">mkdir</span> myfonts</span><br><span class="line">sudo <span class="built_in">cp</span> /download_fonts/* ./myfonts/</span><br><span class="line">sudo <span class="built_in">chmod</span> 755 -R myfonts</span><br><span class="line"><span class="comment"># 将下载的字体安装到系统中</span></span><br><span class="line">sudo mkfontscale &amp;&amp; sudo mkfontdir &amp;&amp; fc-cache -fv</span><br><span class="line"><span class="comment"># 清除 Matplotlib Cathe 缓存</span></span><br><span class="line"><span class="built_in">rm</span> -rf ~/.cache/matplotlib/fontlist-v*.json    </span><br></pre></td></tr></table></figure>
 <h3 id="matplotlib-字体查看">Matplotlib 字体查看</h3>
