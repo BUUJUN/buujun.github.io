@@ -6,13 +6,13 @@
     https://buujun.fun/data_analysis/03-pandas_01/
     https://buujun.fun/data_analysis/03-pandas_02/
     https://buujun.fun/data_analysis/06-pandas-data_wrangling_01/
-    https://buujun.fun/data_analysis/06-pandas-data_wrangling_03/
     https://buujun.fun/data_analysis/06-pandas-data_wrangling_04/
+    https://buujun.fun/data_analysis/06-pandas-data_wrangling_03/
     https://buujun.fun/data_analysis/08-pandas_and_seaborn/
     https://buujun.fun/xarray/ch1-basics/
     https://buujun.fun/xarray/ch2-calculate/
-    https://buujun.fun/data_analysis/03-pandas_04/
     https://buujun.fun/data_analysis/03-pandas_03/
+    https://buujun.fun/data_analysis/03-pandas_04/
     https://buujun.fun/data_analysis/04-pandas-data_loading/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_01/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_02/
