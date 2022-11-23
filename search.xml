@@ -107,7 +107,7 @@ network</li>
   </entry>
   <entry>
     <title>GFortran - 安装测试</title>
-    <url>/Linux/%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95gfortran/</url>
+    <url>/Linux/gfortran/</url>
     <content><![CDATA[<h4 id="检查系统有无-gfortran">检查系统有无 gfortran</h4>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">which</span> gfortran</span><br></pre></td></tr></table></figure>
 <p>若返回 <code>gfortran not found</code> ，则进行下一步</p>

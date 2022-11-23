@@ -1,5 +1,5 @@
 
-    https://buujun.fun/Linux/%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95gfortran/
+    https://buujun.fun/Linux/gfortran/
     https://buujun.fun/matplotlib/01_font_set/
     https://buujun.fun/hello-world/
     https://buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/
@@ -26,8 +26,8 @@
     https://buujun.fun/cdo/cdo_01_Information/
     https://buujun.fun/cdo/cdo_02_File/
     https://buujun.fun/cdo/cdo_05_Modification/
-    https://buujun.fun/cdo/cdo_06_Arithmetic/
     https://buujun.fun/cdo/cdo_07_Statistical/
+    https://buujun.fun/cdo/cdo_06_Arithmetic/
     https://buujun.fun/cdo/cdo_08_Correlation_%20and_Regression/
     https://buujun.fun/cdo/cdo_10_Transformation/
     https://buujun.fun/cdo/cdo_11_Miscellaneous/
