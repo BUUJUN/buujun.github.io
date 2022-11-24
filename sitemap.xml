@@ -418,7 +418,7 @@
 
   <url>
     <loc>https://buujun.fun/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -426,112 +426,112 @@
   
   <url>
     <loc>https://buujun.fun/tags/python/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/Machine-Learning/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/Deep-Learning/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/linux/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/PyToch/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/numpy/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/pandas/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/matplotlib/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/fortran/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/NCL/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/WRF/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/CDO/</loc>
-    <lastmod>2022-11-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/tags/seaborn/</loc>
-    <lastmod>2022-11-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/tags/datetime/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/English/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/tags/seaborn/</loc>
+    <lastmod>2022-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/tags/datetime/</loc>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/xarray/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -540,21 +540,21 @@
   
   <url>
     <loc>https://buujun.fun/categories/linux/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/categories/python/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/categories/notebook/</loc>
-    <lastmod>2022-11-23</lastmod>
+    <lastmod>2022-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
