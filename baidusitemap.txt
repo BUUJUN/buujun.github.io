@@ -1,4 +1,5 @@
 
+    https://buujun.fun/Linux/conda/
     https://buujun.fun/Linux/gfortran/
     https://buujun.fun/matplotlib/01_font_set/
     https://buujun.fun/hello-world/
@@ -11,16 +12,16 @@
     https://buujun.fun/data_analysis/08-pandas_and_seaborn/
     https://buujun.fun/xarray/ch1-basics/
     https://buujun.fun/xarray/ch2-calculate/
-    https://buujun.fun/data_analysis/03-pandas_03/
     https://buujun.fun/data_analysis/03-pandas_04/
-    https://buujun.fun/data_analysis/04-pandas-data_loading/
+    https://buujun.fun/data_analysis/03-pandas_03/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_01/
+    https://buujun.fun/data_analysis/04-pandas-data_loading/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_02/
     https://buujun.fun/data_analysis/05-pandas-data_cleaning_03/
     https://buujun.fun/data_analysis/06-pandas-data_wrangling_02/
     https://buujun.fun/data_analysis/09-pandas-time_series/
-    https://buujun.fun/data_analysis/02-numpy_01/
     https://buujun.fun/data_analysis/02-numpy_02/
+    https://buujun.fun/data_analysis/02-numpy_01/
     https://buujun.fun/data_analysis/07-matplotlib/
     https://buujun.fun/data_analysis/01-python/
     https://buujun.fun/cdo/cdo_01_Information/
