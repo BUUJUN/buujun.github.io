@@ -2,6 +2,339 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://buujun.fun/hello-world/</loc>
+    
+    <lastmod>2023-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cesm/cesm_01_%E7%A7%BB%E6%A4%8D/</loc>
+    
+    <lastmod>2023-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/09-pandas-time_series/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/08-pandas_and_seaborn/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/07-matplotlib/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_04/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_03/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_02/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_01/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/05-pandas-data_cleaning_03/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/05-pandas-data_cleaning_02/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/05-pandas-data_cleaning_01/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/04-pandas-data_loading/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/03-pandas_04/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/03-pandas_03/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/03-pandas_02/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/03-pandas_01/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/02-numpy_02/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/data_analysis/02-numpy_01/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/matplotlib/01_font_set/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/xarray/ch2-calculate/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/xarray/ch1-basics/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/WRF/02-Running_WRF/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/WRF/01-Instaling_WRF/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/NCL/01-Installing_NCL/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_02_File/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_03_Selection/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_04_Comparison/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_05_Modification/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_06_Arithmetic/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_07_Statistical/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_08_Correlation_%20and_Regression/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_09_Interpolation/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_10_Transformation/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_11_Miscellaneous/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/cdo/cdo_01_Information/</loc>
+    
+    <lastmod>2023-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://buujun.fun/Linux/conda/</loc>
     
     <lastmod>2023-07-16</lastmod>
@@ -14,24 +347,6 @@
     <loc>https://buujun.fun/Linux/gfortran/</loc>
     
     <lastmod>2022-11-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/matplotlib/01_font_set/</loc>
-    
-    <lastmod>2022-10-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/hello-world/</loc>
-    
-    <lastmod>2022-10-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -56,315 +371,9 @@
   </url>
   
   <url>
-    <loc>https://buujun.fun/xarray/ch2-calculate/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/xarray/ch1-basics/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/08-pandas_and_seaborn/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_03/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_01/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_04/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/03-pandas_02/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/03-pandas_01/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/09-pandas-time_series/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/06-pandas-data_wrangling_02/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/05-pandas-data_cleaning_03/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/05-pandas-data_cleaning_02/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/05-pandas-data_cleaning_01/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/04-pandas-data_loading/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/03-pandas_04/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/03-pandas_03/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/07-matplotlib/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/02-numpy_02/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/data_analysis/02-numpy_01/</loc>
-    
-    <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://buujun.fun/data_analysis/01-python/</loc>
     
     <lastmod>2022-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_11_Miscellaneous/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_10_Transformation/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_08_Correlation_%20and_Regression/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_07_Statistical/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_06_Arithmetic/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_05_Modification/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_02_File/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_01_Information/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/WRF/02-Running_WRF/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/NCL/01-Installing_NCL/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/WRF/01-Instaling_WRF/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_09_Interpolation/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_04_Comparison/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/cdo/cdo_03_Selection/</loc>
-    
-    <lastmod>2022-09-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -427,7 +436,7 @@
 
   <url>
     <loc>https://buujun.fun/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -435,112 +444,105 @@
   
   <url>
     <loc>https://buujun.fun/tags/python/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/tags/Machine-Learning/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/tags/Deep-Learning/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/linux/</loc>
-    <lastmod>2023-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://buujun.fun/tags/PyToch/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/numpy/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/pandas/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/matplotlib/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/fortran/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/NCL/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/WRF/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/CDO/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/seaborn/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/datetime/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/English/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/tags/xarray/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/tags/CESM/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/tags/CAM/</loc>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -549,21 +551,77 @@
   
   <url>
     <loc>https://buujun.fun/categories/linux/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/categories/python/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://buujun.fun/categories/notebook/</loc>
-    <lastmod>2023-07-18</lastmod>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/NCL/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/WRF/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/CESM/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/CDO/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/matplotlib/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/numpy/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/pandas/</loc>
+    <lastmod>2023-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://buujun.fun/categories/xarray/</loc>
+    <lastmod>2023-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

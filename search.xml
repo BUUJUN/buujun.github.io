@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Welcome to BUUJUN&#39;s Blog!</title>
+    <title>Welcome! Enjoy~ :)</title>
     <url>/hello-world/</url>
-    <content><![CDATA[<p>欢迎来到我的博客！我的博客将围绕气象数据处理（ CDO 和 Python）、计算（SciPy 和 MetPy）、绘图（ Matplotlib 和 Cartopy）、深度学习（PyTorch）、数值模式（WRF）和文献阅读等方面展开，欢迎大家阅读和讨论！</p>
+    <content><![CDATA[
 ]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>Machine Learning</tag>
-        <tag>Deep Learning</tag>
-        <tag>linux</tag>
-        <tag>PyToch</tag>
-        <tag>numpy</tag>
-        <tag>pandas</tag>
-        <tag>matplotlib</tag>
-      </tags>
   </entry>
   <entry>
     <title>整理 - 常用的气象专业名词</title>
@@ -78,6 +68,44 @@
       </categories>
       <tags>
         <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CESM2 - 下载与移植</title>
+    <url>/cesm/cesm_01_%E7%A7%BB%E6%A4%8D/</url>
+    <content><![CDATA[<h3 id="cesm-介绍">CESM 介绍</h3>
+<p>CESM (Community Earth System Model) 是一个模拟地球气候系统的耦合气候模式，由模拟大气、海洋、陆地、河流径流、陆冰和海冰的模块组成</p>
+<h3 id="cesm2-需要的软件">CESM2 需要的软件</h3>
+<ul>
+<li>UNIX 风格的操作系统，如：CNL, AIX 或 Linux<br>
+</li>
+<li>python &gt;=2.7</li>
+<li>perl 5</li>
+<li>subversion (&gt;=1.8 and &lt;=1.1)</li>
+<li>git &gt;=1.8</li>
+<li>Fortran compiler (支持 Fortran 2003)</li>
+<li>C compiler</li>
+<li>MPI</li>
+<li><a href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF</a> &gt;=4.3</li>
+<li><a href="http://earthsystemmodeling.org/">ESMF</a> &gt;=5.2.0 -- <em><a href="http://earthsystemmodeling.org/docs/nightly/develop/ESMF_usrdoc/">install</a></em></li>
+<li><a href="https://parallel-netcdf.github.io/">pnetcdf</a> &gt;=1.7.0 (推荐 1.8.1) -- <em><a href="https://github.com/Parallel-NetCDF/PnetCDF/blob/master/INSTALL">install</a></em></li>
+<li><a href="https://github.com/trilinos/Trilinos">Trilinos</a> -- <em><a href="https://docs.trilinos.org/files/TrilinosBuildReference.html#installing">install</a></em></li>
+<li><a href="https://www.netlib.org/lapack/">LAPACK</a> 和 <a href="https://www.netlib.org/blas/">BLAS</a></li>
+<li><a href="https://cmake.org/">CMake</a> &gt;=2.8.6 -- <em><a href="https://cmake.org/install/">install</a></em></li>
+</ul>
+<h3 id="cesm-下载">CESM 下载</h3>
+<p>待更新...</p>
+<h3 id="参考链接">参考链接</h3>
+<p><a href="https://escomp.github.io/CESM/versions/cesm2.2/html/">https://escomp.github.io/CESM/versions/cesm2.2/html/</a><br>
+<a href="http://esmci.github.io/cime/versions/master/html/index.html">http://esmci.github.io/cime/versions/master/html/index.html</a></p>
+]]></content>
+      <categories>
+        <category>CESM</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>CESM</tag>
+        <tag>CAM</tag>
       </tags>
   </entry>
   <entry>
@@ -171,9 +199,10 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">fontpath = <span class="string">r'/usr/share/fonts/msyh/msyh.ttc'</span></span><br><span class="line">font = mpl.font_manager.FontProperties(fname=fontpath) </span><br><span class="line">fontdict = <span class="built_in">dict</span>(fontproperties=font) </span><br><span class="line">plt.title(<span class="string">'标题'</span>, **fontdict)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>matplotlib</category>
       </categories>
       <tags>
+        <tag>python</tag>
         <tag>matplotlib</tag>
       </tags>
   </entry>
@@ -385,7 +414,6 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>WRF</tag>
       </tags>
   </entry>
@@ -432,7 +460,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /home/user/.vscode-server/data/Machine/settings.json</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line">    <span class="string">"code-runner.executorMap"</span>: {</span><br><span class="line">        <span class="string">"ncl"</span> : <span class="string">"ncl <span class="variable">$fileName</span>"</span></span><br><span class="line">    },</span><br><span class="line">    <span class="string">"code-runner.executorMapByFileExtension"</span>: {</span><br><span class="line">      <span class="string">".ncl"</span> : <span class="string">"ncl <span class="variable">$fileName</span>"</span>,</span><br><span class="line">    },</span><br><span class="line">    <span class="string">"code-runner.fileDirectoryAsCwd"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"code-runner.runInTerminal"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"code-runner.saveFileBeforeRun"</span>: <span class="literal">true</span>,</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>NCL</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -755,7 +783,7 @@
 <a href="https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/start.php">https://www2.mmm.ucar.edu/wrf/OnLineTutorial/Introduction/start.php</a></p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>WRF</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -795,7 +823,7 @@
 <p><strong>CDO 官方文档：</strong> <a href="https://code.mpimet.mpg.de/projects/cdo/embedded/cdo.pdf">https://code.mpimet.mpg.de/projects/cdo/embedded/cdo.pdf</a></p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -1042,7 +1070,7 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ds_poly.polyfit_coefficients.isel(degree=<span class="number">1</span>).plot()</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>xarray</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -1366,7 +1394,7 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">arr1_, arr2_ = xr.broadcast(arr1, arr2) <span class="comment">#广播/对齐</span></span><br><span class="line"><span class="built_in">print</span>(arr1_.data)</span><br><span class="line"><span class="built_in">print</span>(arr2_.data)</span><br><span class="line">arr1_ + arr2_</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>xarray</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -2542,7 +2570,7 @@ NaN
 </div>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -3100,7 +3128,7 @@ Dinner
 <p><img src="/data_analysis/08-pandas_and_seaborn/08-pandas_and_seaborn_28_1.png" alt="png"></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>matplotlib</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -3248,7 +3276,7 @@ Dinner
 <p><img src="/data_analysis/07-matplotlib/07-matplotlib_59_1.png" alt="png"></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>matplotlib</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -4892,7 +4920,7 @@ NaN
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">one  a    0.0</span><br><span class="line">     b    1.0</span><br><span class="line">     c    2.0</span><br><span class="line">     d    3.0</span><br><span class="line">     e    NaN</span><br><span class="line">two  a    NaN</span><br><span class="line">     b    NaN</span><br><span class="line">     c    4.0</span><br><span class="line">     d    5.0</span><br><span class="line">     e    6.0</span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -6757,7 +6785,7 @@ NaN
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">array([[ 0,  1,  2,  3,  0,  1,  2,  3],</span><br><span class="line">       [ 4,  5,  6,  7,  4,  5,  6,  7],</span><br><span class="line">       [ 8,  9, 10, 11,  8,  9, 10, 11]])</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -8282,7 +8310,7 @@ b
 </div>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -10281,7 +10309,7 @@ baz
 </div>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -11124,7 +11152,7 @@ data
 <p><strong><em>... ...</em></strong></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -12381,7 +12409,7 @@ NEW
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">[(50.5, 91.0], (11.0, 50.5], (11.0, 50.5], (50.5, 91.0], (11.0, 50.5], ..., (11.0, 50.5], (11.0, 50.5], (50.5, 91.0], (11.0, 50.5], (11.0, 50.5]]</span><br><span class="line">Length: 1000</span><br><span class="line">Categories (4, interval[float64, right]): [(-0.001, 11.0] &lt; (11.0, 50.5] &lt; (50.5, 91.0] &lt; (91.0, 100.0]]</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -14043,7 +14071,7 @@ NaN
 </div>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -16008,7 +16036,7 @@ foo
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">frame.to_excel(<span class="string">'pydata-book-2nd-edition/examples/ex2.xlsx'</span>, <span class="string">'Sheet1'</span>)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -17209,7 +17237,7 @@ MSFT
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">(   one  two  thr</span><br><span class="line"> a    1    3    5</span><br><span class="line"> b    2    4    6</span><br><span class="line"> c    1    3    6</span><br><span class="line"> d    2    4    6,</span><br><span class="line"> one  two  thr</span><br><span class="line"> 2    4    6      2</span><br><span class="line"> 1    3    5      1</span><br><span class="line">           6      1</span><br><span class="line"> dtype: int64)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -19171,7 +19199,7 @@ c
 </table>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -20800,7 +20828,7 @@ New York
 </table>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -22171,7 +22199,7 @@ NaN
 <figure class="highlight console"><table><tr><td class="code"><pre><span class="line">array([[2000, 'Ohio', 1.5, -1.2],</span><br><span class="line">       [2001, 'Ohio', 1.7, -1.5],</span><br><span class="line">       [2002, 'Ohio', 3.6, nan],</span><br><span class="line">       [2001, 'Nevada', 2.4, -1.5],</span><br><span class="line">       [2002, 'Nevada', 2.9, nan],</span><br><span class="line">       [2003, 'Nevada', 3.2, nan]], dtype=object)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>pandas</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -22613,7 +22641,7 @@ S : 奇异值; U : 左奇异向量; V : 右奇异向量</p>
 <h3 id="nprandomgamma-shape-scale-size---产生服从-gshapescale-gamma-分布的随机数"><strong><em>np.random.gamma( shape, scale, size )</em></strong> : 产生服从 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="15.264ex" height="2.262ex" role="img" focusable="false" viewbox="0 -750 6746.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43A" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q492 659 471 656T418 643T357 615T294 567T236 496T189 394T158 260Q156 242 156 221Q156 173 170 136T206 79T256 45T308 28T353 24Q407 24 452 47T514 106Q517 114 529 161T541 214Q541 222 528 224T468 227H431Q425 233 425 235T427 254Q431 267 437 273H454Q494 271 594 271Q634 271 659 271T695 272T707 272Q721 272 721 263Q721 261 719 249Q714 230 709 228Q706 227 694 227Q674 227 653 224Q646 221 643 215T629 164Q620 131 614 108Q589 6 586 3Q584 1 581 1Q571 1 553 21T530 52Q530 53 528 52T522 47Q448 -22 322 -22Q201 -22 126 55T50 252Z"/></g><g data-mml-node="mo" transform="translate(786,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/></g><g data-mml-node="mi" transform="translate(1175,0)"><path data-c="1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"/></g><g data-mml-node="mi" transform="translate(1644,0)"><path data-c="210E" d="M137 683Q138 683 209 688T282 694Q294 694 294 685Q294 674 258 534Q220 386 220 383Q220 381 227 388Q288 442 357 442Q411 442 444 415T478 336Q478 285 440 178T402 50Q403 36 407 31T422 26Q450 26 474 56T513 138Q516 149 519 151T535 153Q555 153 555 145Q555 144 551 130Q535 71 500 33Q466 -10 419 -10H414Q367 -10 346 17T325 74Q325 90 361 192T398 345Q398 404 354 404H349Q266 404 205 306L198 293L164 158Q132 28 127 16Q114 -11 83 -11Q69 -11 59 -2T48 16Q48 30 121 320L195 616Q195 629 188 632T149 637H128Q122 643 122 645T124 664Q129 683 137 683Z"/></g><g data-mml-node="mi" transform="translate(2220,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"/></g><g data-mml-node="mi" transform="translate(2749,0)"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"/></g><g data-mml-node="mi" transform="translate(3252,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"/></g><g data-mml-node="mo" transform="translate(3718,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"/></g><g data-mml-node="mi" transform="translate(4162.7,0)"><path data-c="1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"/></g><g data-mml-node="mi" transform="translate(4631.7,0)"><path data-c="1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"/></g><g data-mml-node="mi" transform="translate(5064.7,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"/></g><g data-mml-node="mi" transform="translate(5593.7,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"/></g><g data-mml-node="mi" transform="translate(5891.7,0)"><path data-c="1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"/></g><g data-mml-node="mo" transform="translate(6357.7,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/></g></g></g></svg></mjx-container></span> Gamma 分布的随机数</h3>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>numpy</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -23220,7 +23248,7 @@ Wall time: 339 ms</code></pre>
  array([ True, False,  True, False, False]))</code></pre>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>numpy</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -23590,7 +23618,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -23767,7 +23795,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -24126,7 +24154,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -24243,7 +24271,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -25000,7 +25028,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -25870,7 +25898,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -26245,7 +26273,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -26293,7 +26321,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -26744,7 +26772,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -27142,7 +27170,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
@@ -27440,7 +27468,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
 </table>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>CDO</category>
       </categories>
       <tags>
         <tag>linux</tag>
