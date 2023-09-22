@@ -71,6 +71,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux - 碎碎念</title>
+    <url>/Linux/tips/</url>
+    <content><![CDATA[<h2 id="usb-disk-挂载与解挂">USB disk 挂载与解挂</h2>
+<h3 id="查看本地设备状态和路径">查看本地设备状态和路径</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">Disk /dev/sdd：21.85 TiB，24000214335488 字节，46875418624 个扇区</span><br><span class="line">Disk model: My Book Duo 25F6</span><br><span class="line">单元：扇区 / 1 * 512 = 512 字节</span><br><span class="line">扇区大小(逻辑/物理)：512 字节 / 4096 字节</span><br><span class="line">I/O 大小(最小/最佳)：4096 字节 / 4096 字节</span><br><span class="line">磁盘标签类型：gpt</span><br><span class="line">磁盘标识符：2A0E2E54-B2E7-458F-9949-32EC13EE85A9</span><br><span class="line"></span><br><span class="line">设备        起点        末尾        扇区  大小 类型</span><br><span class="line">/dev/sdd1   2048 46875416575 46875414528 21.8T Microsoft 基本数据</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>可以看到插入设备的存放路径 <code>/dev/sdd1</code></p>
+<h3 id="创建文件夹并挂载设备">创建文件夹并挂载设备</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> /mnt/usbname <span class="comment"># 创建文件夹</span></span><br><span class="line">sudo mount /dev/sdd1 /mnt/usbname</span><br></pre></td></tr></table></figure>
+<h3 id="卸载挂载">卸载挂载</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo umount /dev/sdd1 /mnt/usbname</span><br></pre></td></tr></table></figure>
+<p>检查是否解挂成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
+<figure class="highlight console"><table><tr><td class="code"><pre><span class="line">NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span><br><span class="line">...</span><br><span class="line">sdd       8:64   0  21.8T  0 disk</span><br><span class="line">└─sdd1    8:65   0  21.8T  0 part /media/wangbj/WD20T</span><br></pre></td></tr></table></figure>
+<p>确保对应设备 part 后面的挂载文件夹已经解挂，方可拔出设备</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CESM2 - 下载与移植</title>
     <url>/cesm/cesm_01_%E7%A7%BB%E6%A4%8D/</url>
     <content><![CDATA[<h3 id="cesm-介绍">CESM 介绍</h3>
