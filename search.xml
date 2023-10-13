@@ -3,7 +3,8 @@
   <entry>
     <title>Welcome! Enjoy~ :)</title>
     <url>/hello-world/</url>
-    <content><![CDATA[<p>Here are my usual records.</p>
+    <content><![CDATA[<span id="more"></span>
+<p>Here are my usual records.</p>
 <p><img src="/hello-world/20231006_145352.jpg"></p>
 <!-- **2023-10-02 板障山**
 ![231002](hello-word/IMG_20231002_180021.jpg)
