@@ -2,26 +2,24 @@
 <search>
   <entry>
     <title>Welcome! Enjoy~ :)</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to my personal site.</p>
-<p>Here are my daily records.</p>
+    <url>/welcome/content/</url>
+    <content><![CDATA[<p><strong>2023-10-02 板障山</strong><br>
+<img src="/welcome/content/IMG_20231002_180021.jpg" alt="231002"></p>
 <span id="more"></span>
-<p><strong>2023-10-02 板障山</strong><br>
-<img src="/hello-world/IMG_20231002_180021.jpg" alt="231002"></p>
 <p><strong>2023-09-18 蜘蛛</strong><br>
-<img src="/hello-world/IMG_20230918_100316.jpg" alt="230918"></p>
+<img src="/welcome/content/IMG_20230918_100316.jpg" alt="230918"></p>
 <p><strong>2023-07-09 日出</strong><br>
-<img src="/hello-world/IMG_20230709_055849.jpg" alt="230709"></p>
+<img src="/welcome/content/IMG_20230709_055849.jpg" alt="230709"></p>
 <p><strong>2023-06-28 晚霞</strong><br>
-<img src="/hello-world/IMG_20230628_195700.jpg" alt="230628"></p>
+<img src="/welcome/content/IMG_20230628_195700.jpg" alt="230628"></p>
 <p><strong>2023-06-05 散光</strong><br>
-<img src="/hello-world/IMG_20230605_112231.jpg" alt="230605"></p>
+<img src="/welcome/content/IMG_20230605_112231.jpg" alt="230605"></p>
 <p><strong>2022-12-22 街灯明了</strong><br>
-<img src="/hello-world/IMG_20221222_180752.jpg" alt="221222"></p>
+<img src="/welcome/content/IMG_20221222_180752.jpg" alt="221222"></p>
 <p><strong>2022-07-30 教学楼</strong><br>
-<img src="/hello-world/IMG_20220730_153509.jpg" alt="220730"></p>
+<img src="/welcome/content/IMG_20220730_153509.jpg" alt="220730"></p>
 <p><strong>2022-05-05 久违的晴天</strong><br>
-<img src="/hello-world/IMG_20220505_184853.jpg" alt="220505"></p>
+<img src="/welcome/content/IMG_20220505_184853.jpg" alt="220505"></p>
 <p>END.</p>
 ]]></content>
   </entry>
@@ -1117,9 +1115,9 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
-        <tag>matplotlib</tag>
         <tag>xarray</tag>
       </tags>
   </entry>
@@ -1441,9 +1439,9 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
-        <tag>matplotlib</tag>
         <tag>xarray</tag>
       </tags>
   </entry>
@@ -3175,9 +3173,9 @@ Dinner
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
-        <tag>matplotlib</tag>
         <tag>seaborn</tag>
       </tags>
   </entry>
@@ -3323,8 +3321,8 @@ Dinner
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>numpy</tag>
         <tag>matplotlib</tag>
+        <tag>numpy</tag>
       </tags>
   </entry>
   <entry>
