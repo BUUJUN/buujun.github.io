@@ -4,9 +4,11 @@
     <title>Welcome! Enjoy~ :)</title>
     <url>/hello-world/</url>
     <content><![CDATA[<p>Here are my usual records.</p>
-<p><strong>2023-10-02 板障山</strong><br>
-<img src="/hello-world/IMG_20231002_180021.jpg" alt="231002"></p>
-<!-- **2023-09-18 蜘蛛**
+<p><img src="/hello-world/20231006_145352.jpg"></p>
+<!-- **2023-10-02 板障山**
+![231002](hello-word/IMG_20231002_180021.jpg)
+
+**2023-09-18 蜘蛛**
 ![230918](hello-word/IMG_20230918_100316.jpg)
 
 **2023-07-09 日出**
