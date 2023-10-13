@@ -1,6 +1,6 @@
 
-    https://buujun.fun/Linux/tips/
     https://buujun.fun/hello-world/
+    https://buujun.fun/Linux/tips/
     https://buujun.fun/cesm/cesm_01_%E7%A7%BB%E6%A4%8D/
     https://buujun.fun/data_analysis/09-pandas-time_series/
     https://buujun.fun/data_analysis/08-pandas_and_seaborn/
