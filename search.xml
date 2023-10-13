@@ -6,20 +6,26 @@
     <content><![CDATA[<p>Here are my usual records.</p>
 <p><strong>2023-10-02 板障山</strong><br>
 <img src="/hello-world/IMG_20231002_180021.jpg" alt="231002"></p>
-<p><strong>2023-09-18 蜘蛛</strong><br>
-<img src="/hello-world/IMG_20230918_100316.jpg" alt="230918"></p>
-<p><strong>2023-07-09 日出</strong><br>
-<img src="/hello-world/IMG_20230709_055849.jpg" alt="230709"></p>
-<p><strong>2023-06-28 晚霞</strong><br>
-<img src="/hello-world/IMG_20230628_195700.jpg" alt="230628"></p>
-<p><strong>2023-06-05 散光</strong><br>
-<img src="/hello-world/IMG_20230605_112231.jpg" alt="230605"></p>
-<p><strong>2022-12-22 街灯明了</strong><br>
-<img src="/hello-world/IMG_20221222_180752.jpg" alt="221222"></p>
-<p><strong>2022-07-30 教学楼</strong><br>
-<img src="/hello-world/IMG_20220730_153509.jpg" alt="220730"></p>
-<p><strong>2022-05-05 久违的晴天</strong><br>
-<img src="/hello-world/IMG_20220505_184853.jpg" alt="220505"></p>
+<!-- **2023-09-18 蜘蛛**
+![230918](hello-word/IMG_20230918_100316.jpg)
+
+**2023-07-09 日出**
+![230709](hello-word/IMG_20230709_055849.jpg)
+
+**2023-06-28 晚霞**
+![230628](hello-word/IMG_20230628_195700.jpg)
+
+**2023-06-05 散光**
+![230605](hello-word/IMG_20230605_112231.jpg)
+
+**2022-12-22 街灯明了**
+![221222](hello-word/IMG_20221222_180752.jpg)
+
+**2022-07-30 教学楼**
+![220730](hello-word/IMG_20220730_153509.jpg)
+
+**2022-05-05 久违的晴天**
+![220505](hello-word/IMG_20220505_184853.jpg) -->
 <p>END.</p>
 ]]></content>
   </entry>
