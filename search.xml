@@ -26,7 +26,7 @@
   <entry>
     <title>整理 - 常用的气象专业名词</title>
     <url>/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/</url>
-    <content><![CDATA[<p>本篇博客将整理博主目前遇到的气象相关的专业名词缩写，持续更新中...</p>
+    <content><![CDATA[<p>本篇随笔将整理博主目前遇到的气象相关的专业名词缩写，持续更新中...</p>
 <span id="more"></span>
 <h4 id="指数">指数</h4>
 <ul>
@@ -88,6 +88,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Python - 小波变换</title>
+    <url>/python_atmos/01_%E5%B0%8F%E6%B3%A2%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p>本篇随笔介绍利用 Python 实现小波变换和逆变换，并进行相关分析</p>
+<span id="more"></span>
+<h3 id="小波变换计算">小波变换计算</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">WaveTrans</span>(<span class="params">series, dt, **kwards_cwt</span>):</span><br><span class="line">    <span class="keyword">import</span> pycwt <span class="keyword">as</span> cwt</span><br><span class="line">    <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">    series = np.asarray(series)</span><br><span class="line">    std = series.std()</span><br><span class="line">    var = series.var()</span><br><span class="line">    N = <span class="built_in">len</span>(series)</span><br><span class="line">    series_norm = series/std</span><br><span class="line"></span><br><span class="line">    mother = cwt.Morlet(<span class="number">6</span>)</span><br><span class="line">    alpha, _, _ = cwt.ar1(series)  <span class="comment"># Lag-1 autocorrelation for red noise</span></span><br><span class="line"></span><br><span class="line">    wave, scales, freqs, coi, fft, fftfreqs = \</span><br><span class="line">        cwt.cwt(series_norm, dt=dt, wavelet=mother, **kwards_cwt)</span><br><span class="line">    power = np.<span class="built_in">abs</span>(wave)**<span class="number">2</span> <span class="comment">#/ scales[:, None]</span></span><br><span class="line">    periods = <span class="number">1</span>/freqs</span><br><span class="line"></span><br><span class="line">    signif, fft_theor = cwt.significance(<span class="number">1.0</span>, dt=dt, </span><br><span class="line">                                         scales=scales,</span><br><span class="line">                                         sigma_test=<span class="number">0</span>, </span><br><span class="line">                                         alpha=alpha, </span><br><span class="line">                                         significance_level=<span class="number">0.95</span>,  </span><br><span class="line">                                         wavelet=mother)</span><br><span class="line">    sig95 = np.ones([<span class="number">1</span>, N]) * signif[:, <span class="literal">None</span>]</span><br><span class="line">    sig95 = np.<span class="built_in">abs</span>(wave)**<span class="number">2</span> / sig95 <span class="comment"># The power is significant where the ratio power / sig95 &gt; 1.</span></span><br><span class="line"></span><br><span class="line">    glbl_power = power.mean(axis=<span class="number">1</span>) * var</span><br><span class="line">    dof = N - scales  <span class="comment"># Correction for padding at edges</span></span><br><span class="line">    glbl_sig95, glbl_fft_theor = \</span><br><span class="line">        cwt.significance(var, dt=dt, scales=scales, </span><br><span class="line">                         sigma_test=<span class="number">1</span>, alpha=alpha,</span><br><span class="line">                         significance_level=<span class="number">0.95</span>, </span><br><span class="line">                         dof=dof, wavelet=mother)</span><br><span class="line">    </span><br><span class="line">    iwave = np.asarray(cwt.icwt(wave, scales, dt, wavelet=mother), <span class="built_in">float</span>) * std</span><br><span class="line"></span><br><span class="line">    res_wt = <span class="built_in">dict</span>(iwave=iwave, power=power, </span><br><span class="line">                  scales=scales, periods=periods, </span><br><span class="line">                  coi=coi, sig95=sig95, </span><br><span class="line">                  glbl_power=glbl_power, glbl_sig95=glbl_sig95)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res_wt</span><br></pre></td></tr></table></figure>
+<h3 id="可视化">可视化</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Wave_Analysis_Plot</span>(<span class="params">dat, t, dt</span>):</span><br><span class="line">    <span class="keyword">import</span> proplot <span class="keyword">as</span> pplt</span><br><span class="line"></span><br><span class="line">    res_wt = WaveTrans(dat, dt)</span><br><span class="line">    iwave = res_wt[<span class="string">'iwave'</span>]</span><br><span class="line">    periods = res_wt[<span class="string">'periods'</span>]</span><br><span class="line">    power = res_wt[<span class="string">'power'</span>]</span><br><span class="line">    sig95 = res_wt[<span class="string">'sig95'</span>]</span><br><span class="line">    coi = res_wt[<span class="string">'coi'</span>]</span><br><span class="line">    glbl_power = res_wt[<span class="string">'glbl_power'</span>]</span><br><span class="line">    glbl_sig95 = res_wt[<span class="string">'glbl_sig95'</span>]</span><br><span class="line"></span><br><span class="line">    fig, axes = pplt.subplots([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>], </span><br><span class="line">                               [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]], figsize=(<span class="number">12</span>, <span class="number">10</span>))</span><br><span class="line">    axes[<span class="number">0</span>].plot(t, iwave, c=<span class="string">'grey'</span>, lw=<span class="number">1.5</span>)</span><br><span class="line">    axes[<span class="number">0</span>].plot(t, dat, c=<span class="string">'k'</span>, lw=<span class="number">2.5</span>)</span><br><span class="line">    axes[<span class="number">1</span>].contourf(t, periods, power)</span><br><span class="line">    axes[<span class="number">1</span>].contour(t, periods, sig95, colors=<span class="string">'k'</span>, vmin=<span class="number">1</span>, vmax=<span class="number">1</span>)</span><br><span class="line">    axes[<span class="number">1</span>].plot(t, coi, c=<span class="string">'k'</span>, lw=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    axes[<span class="number">2</span>].plot(glbl_power, periods, c=<span class="string">'k'</span>, lw=<span class="number">2</span>)</span><br><span class="line">    axes[<span class="number">2</span>].plot(glbl_sig95, periods, c=<span class="string">'grey'</span>, ls=<span class="string">'--'</span>, lw=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    axes[<span class="number">0</span>].<span class="built_in">format</span>(ylabel=<span class="string">'Data'</span>)</span><br><span class="line">    axes[<span class="number">2</span>].<span class="built_in">format</span>(xlabel=<span class="string">'Power'</span>)</span><br><span class="line">    axes[<span class="number">0</span>:<span class="number">2</span>].<span class="built_in">format</span>(xlabel=<span class="string">'Time'</span>)</span><br><span class="line">    axes[<span class="number">1</span>:<span class="number">3</span>].<span class="built_in">format</span>(ylabel=<span class="string">'Periods'</span>, yscale=<span class="string">'log'</span>, </span><br><span class="line">                    yticks=<span class="number">2</span>**np.arange(<span class="number">1</span>, <span class="built_in">int</span>(np.log2(coi.<span class="built_in">max</span>()))), </span><br><span class="line">                    ylim=(coi.<span class="built_in">max</span>()*<span class="number">1.1</span>, periods[<span class="number">0</span>]))                 </span><br><span class="line">    pplt.show()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res_wt</span><br></pre></td></tr></table></figure>
+<h3 id="例子">例子</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dt = <span class="number">1</span></span><br><span class="line">year = np.arange(<span class="number">1900</span>, <span class="number">2000</span>, dt)</span><br><span class="line">dat = np.concatenate(</span><br><span class="line">    [np.sin(np.arange(<span class="built_in">int</span>(year.size/<span class="number">3</span>))*np.pi/<span class="number">2</span>), </span><br><span class="line">     np.sin(np.arange(<span class="built_in">int</span>(year.size/<span class="number">3</span>), <span class="built_in">int</span>(year.size/<span class="number">3</span>*<span class="number">2</span>))*np.pi/<span class="number">4</span>),</span><br><span class="line">     np.sin(np.arange(<span class="built_in">int</span>(year.size/<span class="number">3</span>*<span class="number">2</span>), <span class="built_in">int</span>(year.size))*np.pi/<span class="number">2</span>)])</span><br><span class="line"></span><br><span class="line">res_wt = Wave_Analysis_Plot(dat, year, dt)</span><br></pre></td></tr></table></figure>
+<p><img src="/python_atmos/01_%E5%B0%8F%E6%B3%A2%E5%88%86%E6%9E%90/小波分析.png" alt="FIG"></p>
+<h3 id="references">References</h3>
+<p><a href="https://pycwt.readthedocs.io/en/latest/">https://pycwt.readthedocs.io/en/latest/</a><br>
+<a href="https://github.com/chris-torrence/wavelets">https://github.com/chris-torrence/wavelets</a><br>
+<a href="https://pywavelets.readthedocs.io/en/latest/">https://pywavelets.readthedocs.io/en/latest/</a></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux - 碎碎念</title>
     <url>/Linux/tips/</url>
     <content><![CDATA[<h2 id="usb-disk-挂载与解挂">USB disk 挂载与解挂</h2>
@@ -109,29 +133,6 @@
       </categories>
       <tags>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python - 小波变换</title>
-    <url>/python_atmos/01_%E5%B0%8F%E6%B3%A2%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h3 id="小波变换计算">小波变换计算</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">WaveTrans</span>(<span class="params">series, dt, **kwards_cwt</span>):</span><br><span class="line">    <span class="keyword">import</span> pycwt <span class="keyword">as</span> cwt</span><br><span class="line">    <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">    series = np.asarray(series)</span><br><span class="line">    std = series.std()</span><br><span class="line">    var = series.var()</span><br><span class="line">    N = <span class="built_in">len</span>(series)</span><br><span class="line">    series_norm = series/std</span><br><span class="line"></span><br><span class="line">    mother = cwt.Morlet(<span class="number">6</span>)</span><br><span class="line">    alpha, _, _ = cwt.ar1(series)  <span class="comment"># Lag-1 autocorrelation for red noise</span></span><br><span class="line"></span><br><span class="line">    wave, scales, freqs, coi, fft, fftfreqs = \</span><br><span class="line">        cwt.cwt(series_norm, dt=dt, wavelet=mother, **kwards_cwt)</span><br><span class="line">    power = np.<span class="built_in">abs</span>(wave)**<span class="number">2</span> <span class="comment">#/ scales[:, None]</span></span><br><span class="line">    periods = <span class="number">1</span>/freqs</span><br><span class="line"></span><br><span class="line">    signif, fft_theor = cwt.significance(<span class="number">1.0</span>, dt=dt, </span><br><span class="line">                                         scales=scales,</span><br><span class="line">                                         sigma_test=<span class="number">0</span>, </span><br><span class="line">                                         alpha=alpha, </span><br><span class="line">                                         significance_level=<span class="number">0.95</span>,  </span><br><span class="line">                                         wavelet=mother)</span><br><span class="line">    sig95 = np.ones([<span class="number">1</span>, N]) * signif[:, <span class="literal">None</span>]</span><br><span class="line">    sig95 = np.<span class="built_in">abs</span>(wave)**<span class="number">2</span> / sig95 <span class="comment"># The power is significant where the ratio power / sig95 &gt; 1.</span></span><br><span class="line"></span><br><span class="line">    glbl_power = power.mean(axis=<span class="number">1</span>) * var</span><br><span class="line">    dof = N - scales  <span class="comment"># Correction for padding at edges</span></span><br><span class="line">    glbl_sig95, glbl_fft_theor = \</span><br><span class="line">        cwt.significance(var, dt=dt, scales=scales, </span><br><span class="line">                         sigma_test=<span class="number">1</span>, alpha=alpha,</span><br><span class="line">                         significance_level=<span class="number">0.95</span>, </span><br><span class="line">                         dof=dof, wavelet=mother)</span><br><span class="line">    </span><br><span class="line">    iwave = np.asarray(cwt.icwt(wave, scales, dt, wavelet=mother), <span class="built_in">float</span>) * std</span><br><span class="line"></span><br><span class="line">    res_wt = <span class="built_in">dict</span>(iwave=iwave, power=power, </span><br><span class="line">                  scales=scales, periods=periods, </span><br><span class="line">                  coi=coi, sig95=sig95, </span><br><span class="line">                  glbl_power=glbl_power, glbl_sig95=glbl_sig95)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res_wt</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h3 id="可视化">可视化</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">Wave_Analysis_Plot</span>(<span class="params">dat, t, dt</span>):</span><br><span class="line">    <span class="keyword">import</span> proplot <span class="keyword">as</span> pplt</span><br><span class="line"></span><br><span class="line">    res_wt = WaveTrans(dat, dt)</span><br><span class="line">    iwave = res_wt[<span class="string">'iwave'</span>]</span><br><span class="line">    periods = res_wt[<span class="string">'periods'</span>]</span><br><span class="line">    power = res_wt[<span class="string">'power'</span>]</span><br><span class="line">    sig95 = res_wt[<span class="string">'sig95'</span>]</span><br><span class="line">    coi = res_wt[<span class="string">'coi'</span>]</span><br><span class="line">    glbl_power = res_wt[<span class="string">'glbl_power'</span>]</span><br><span class="line">    glbl_sig95 = res_wt[<span class="string">'glbl_sig95'</span>]</span><br><span class="line"></span><br><span class="line">    fig, axes = pplt.subplots([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>], </span><br><span class="line">                               [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]], figsize=(<span class="number">12</span>, <span class="number">10</span>))</span><br><span class="line">    axes[<span class="number">0</span>].plot(t, iwave, c=<span class="string">'grey'</span>, lw=<span class="number">1.5</span>)</span><br><span class="line">    axes[<span class="number">0</span>].plot(t, dat, c=<span class="string">'k'</span>, lw=<span class="number">2.5</span>)</span><br><span class="line">    axes[<span class="number">1</span>].contourf(t, periods, power)</span><br><span class="line">    axes[<span class="number">1</span>].contour(t, periods, sig95, colors=<span class="string">'k'</span>, vmin=<span class="number">1</span>, vmax=<span class="number">1</span>)</span><br><span class="line">    axes[<span class="number">1</span>].plot(t, coi, c=<span class="string">'k'</span>, lw=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    axes[<span class="number">2</span>].plot(glbl_power, periods, c=<span class="string">'k'</span>, lw=<span class="number">2</span>)</span><br><span class="line">    axes[<span class="number">2</span>].plot(glbl_sig95, periods, c=<span class="string">'grey'</span>, ls=<span class="string">'--'</span>, lw=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    axes[<span class="number">0</span>].<span class="built_in">format</span>(ylabel=<span class="string">'Data'</span>)</span><br><span class="line">    axes[<span class="number">2</span>].<span class="built_in">format</span>(xlabel=<span class="string">'Power'</span>)</span><br><span class="line">    axes[<span class="number">0</span>:<span class="number">2</span>].<span class="built_in">format</span>(xlabel=<span class="string">'Time'</span>)</span><br><span class="line">    axes[<span class="number">1</span>:<span class="number">3</span>].<span class="built_in">format</span>(ylabel=<span class="string">'Periods'</span>, yscale=<span class="string">'log'</span>, </span><br><span class="line">                    yticks=<span class="number">2</span>**np.arange(<span class="number">1</span>, <span class="built_in">int</span>(np.log2(coi.<span class="built_in">max</span>()))), </span><br><span class="line">                    ylim=(coi.<span class="built_in">max</span>()*<span class="number">1.1</span>, periods[<span class="number">0</span>]))                 </span><br><span class="line">    pplt.show()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res_wt</span><br></pre></td></tr></table></figure>
-<h3 id="例子">例子</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dt = <span class="number">1</span></span><br><span class="line">year = np.arange(<span class="number">1900</span>, <span class="number">2000</span>, dt)</span><br><span class="line">dat = np.concatenate(</span><br><span class="line">    [np.sin(np.arange(<span class="built_in">int</span>(year.size/<span class="number">3</span>))*np.pi/<span class="number">2</span>), </span><br><span class="line">     np.sin(np.arange(<span class="built_in">int</span>(year.size/<span class="number">3</span>), <span class="built_in">int</span>(year.size/<span class="number">3</span>*<span class="number">2</span>))*np.pi/<span class="number">4</span>),</span><br><span class="line">     np.sin(np.arange(<span class="built_in">int</span>(year.size/<span class="number">3</span>*<span class="number">2</span>), <span class="built_in">int</span>(year.size))*np.pi/<span class="number">2</span>)])</span><br><span class="line"></span><br><span class="line">res_wt = Wave_Analysis_Plot(dat, year, dt)</span><br></pre></td></tr></table></figure>
-<p><img src="/python_atmos/01_%E5%B0%8F%E6%B3%A2%E5%88%86%E6%9E%90/小波分析.png" alt="FIG"></p>
-<h3 id="references">References</h3>
-<p><a href="https://pycwt.readthedocs.io/en/latest/">https://pycwt.readthedocs.io/en/latest/</a><br>
-<a href="https://github.com/chris-torrence/wavelets">https://github.com/chris-torrence/wavelets</a><br>
-<a href="https://pywavelets.readthedocs.io/en/latest/">https://pywavelets.readthedocs.io/en/latest/</a></p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -273,7 +274,7 @@
   <entry>
     <title>Ubuntu - 系统重装</title>
     <url>/Linux/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/</url>
-    <content><![CDATA[<p>本篇博客将介绍 Ubuntu 系统的备份与重装</p>
+    <content><![CDATA[<p>本篇随笔将介绍 Ubuntu 系统的备份与重装</p>
 <span id="more"></span>
 <h4 id="准备工作">准备工作</h4>
 <ul>
@@ -410,7 +411,7 @@
   <entry>
     <title>WRF - 运行</title>
     <url>/WRF/02-Running_WRF/</url>
-    <content><![CDATA[<p>本篇博客将介绍 WPS 数据预处理和 WRF 的运行</p>
+    <content><![CDATA[<p>本篇随笔将介绍 WPS 数据预处理和 WRF 的运行</p>
 <span id="more"></span>
 <h3 id="wps-预处理">WPS 预处理</h3>
 <h4 id="geogrid"><code>geogrid</code></h4>
@@ -484,7 +485,7 @@
   <entry>
     <title>NCL - 安装和配置</title>
     <url>/NCL/01-Installing_NCL/</url>
-    <content><![CDATA[<p>本篇博客将介绍 NCL 的安装和环境配置</p>
+    <content><![CDATA[<p>本篇随笔将介绍 NCL 的安装和环境配置</p>
 <span id="more"></span>
 <h3 id="下载-ncl-安装包">下载 NCL 安装包</h3>
 <p>访问 NCL 官网：<br>
@@ -534,7 +535,7 @@
   <entry>
     <title>WRF - 安装</title>
     <url>/WRF/01-Instaling_WRF/</url>
-    <content><![CDATA[<p>本篇博客将介绍 WRF 和 WPS 的环境配置、编译和安装</p>
+    <content><![CDATA[<p>本篇随笔将介绍 WRF 和 WPS 的环境配置、编译和安装</p>
 <span id="more"></span>
 <h3 id="什么是-wrf-">什么是 WRF ？</h3>
 <p>WRF (Weather Research and Forecasting Model) 是中尺度天气预报系统</p>
@@ -857,7 +858,7 @@
   <entry>
     <title>CDO - 处理 CMIP6 实战</title>
     <url>/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 处理 CMIP6 常用的操作，包括插值、合并时间、选取时间、计算集合平均等</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 处理 CMIP6 常用的操作，包括插值、合并时间、选取时间、计算集合平均等</p>
 <span id="more"></span>
 <p>假设需要将 <strong>CMIP6</strong> 模式的历史降水数据（如下图所示），插值到 <span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="9.553ex" height="1.557ex" role="img" focusable="false" viewbox="0 -666 4222.4 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"/><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(500,0)"/><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"/></g><g data-mml-node="mo" transform="translate(1722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"/></g><g data-mml-node="mn" transform="translate(2722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"/><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(1000,0)"/></g></g></g></svg></mjx-container></span> 的经纬度网格中，并合并时间维度，选取 1959 年至 2014 年 MJJAS 的数据，最后计算模式的集合平均</p>
 <p><img src="/cdo/cdo_%E5%A4%84%E7%90%86CMIP6/微信图片_20220804223244.png" alt="数据目录"></p>
@@ -1471,7 +1472,7 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
   <entry>
     <title>Pandas + Datetime - 时间序列</title>
     <url>/data_analysis/09-pandas-time_series/</url>
-    <content><![CDATA[<p>这篇博客主要介绍利用 Pandas 和 Datetime 处理时间序列。包括日期和时间数据类型的介绍、时间数据与字符串之间的转换、时间序列的索引、时间序列的平移、时期数据的创建和计算以及时间序列的重采样和频率转换<br>
+    <content><![CDATA[<p>这篇随笔主要介绍利用 Pandas 和 Datetime 处理时间序列。包括日期和时间数据类型的介绍、时间数据与字符串之间的转换、时间序列的索引、时间序列的平移、时期数据的创建和计算以及时间序列的重采样和频率转换<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> dateutil.parser <span class="keyword">import</span> parse</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="日期和时间数据的类型">日期和时间数据的类型</h2>
@@ -2645,7 +2646,7 @@ NaN
   <entry>
     <title>Matplotlib + Seaborn - 绘图基础</title>
     <url>/data_analysis/08-pandas_and_seaborn/</url>
-    <content><![CDATA[<p>这篇博客主要介绍利用 Matplotlib 和 Seaborn 绘制基本图像，包括折线图、条形图、直方图、密度图、散点图、散步矩阵图等；最后还简单介绍了 Seaborn 分面网格的功能<br>
+    <content><![CDATA[<p>这篇随笔主要介绍利用 Matplotlib 和 Seaborn 绘制基本图像，包括折线图、条形图、直方图、密度图、散点图、散步矩阵图等；最后还简单介绍了 Seaborn 分面网格的功能<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
@@ -3205,7 +3206,7 @@ Dinner
   <entry>
     <title>Matplotlib - 绘图基础</title>
     <url>/data_analysis/07-matplotlib/</url>
-    <content><![CDATA[<p>这篇博客主要介绍利用 Matplotlib 绘制图像，包括 figure 和 subplot 的创建，刻度、标签和图例的设置、标题和轴标签的设置以及添加文本、添加图形等功能<br>
+    <content><![CDATA[<p>这篇随笔主要介绍利用 Matplotlib 绘制图像，包括 figure 和 subplot 的创建，刻度、标签和图例的设置、标题和轴标签的设置以及添加文本、添加图形等功能<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
@@ -3351,7 +3352,7 @@ Dinner
   <entry>
     <title>Pandas - 数据重塑 Pt.3</title>
     <url>/data_analysis/06-pandas-data_wrangling_03/</url>
-    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+    <content><![CDATA[<p>这篇随笔主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
 Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
@@ -4994,7 +4995,7 @@ NaN
   <entry>
     <title>Pandas - 数据重塑 Pt.2</title>
     <url>/data_analysis/06-pandas-data_wrangling_02/</url>
-    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+    <content><![CDATA[<p>这篇随笔主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
 Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
@@ -6859,7 +6860,7 @@ NaN
   <entry>
     <title>Pandas - 数据重塑 Pt.1</title>
     <url>/data_analysis/06-pandas-data_wrangling_01/</url>
-    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+    <content><![CDATA[<p>这篇随笔主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
 Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
@@ -8384,7 +8385,7 @@ b
   <entry>
     <title>Pandas - 数据重塑 Pt.4</title>
     <url>/data_analysis/06-pandas-data_wrangling_04/</url>
-    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
+    <content><![CDATA[<p>这篇随笔主要介绍如何利用 Pandas 进行层次化索引、合并数据和重塑数据<br>
 Pt.1 部分主要介绍利用 Pandas 进行层次化索引<br>
 Pt.2 部分详细介绍利用 Pandas 合并数据<br>
 Pt.3 部分主要介绍利用 Pandas 合并数据和重塑数据<br>
@@ -10383,7 +10384,7 @@ baz
   <entry>
     <title>Pandas - 数据清洗 Pt.3</title>
     <url>/data_analysis/05-pandas-data_cleaning_03/</url>
-    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
+    <content><![CDATA[<p>这篇随笔主要介绍如何利用 Pandas 对数据进行清洗<br>
 Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
 Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
 Pt.3 部分主要介绍利用 Pandas 与 正则表达式的结合<br>
@@ -11226,7 +11227,7 @@ data
   <entry>
     <title>Pandas - 数据清洗 Pt.2</title>
     <url>/data_analysis/05-pandas-data_cleaning_02/</url>
-    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
+    <content><![CDATA[<p>这篇随笔主要介绍如何利用 Pandas 对数据进行清洗<br>
 Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
 Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
 Pt.3 部分主要介绍利用 Pandas 与 正则表达式的结合<br>
@@ -12483,7 +12484,7 @@ NEW
   <entry>
     <title>Pandas - 数据清洗 Pt.1</title>
     <url>/data_analysis/05-pandas-data_cleaning_01/</url>
-    <content><![CDATA[<p>这篇博客主要介绍如何利用 Pandas 对数据进行清洗<br>
+    <content><![CDATA[<p>这篇随笔主要介绍如何利用 Pandas 对数据进行清洗<br>
 Pt.1 部分主要介绍利用 Pandas 处理缺失数据<br>
 Pt.2 部分详细介绍利用 Pandas 处理重复数据、替换数据和划分数据<br>
 Pt.3 部分主要介绍利用 Pandas 与 正则表达式的结合<br>
@@ -14145,7 +14146,7 @@ NaN
   <entry>
     <title>Pandas - 数据读写</title>
     <url>/data_analysis/04-pandas-data_loading/</url>
-    <content><![CDATA[<p>这篇博客主要介绍利用 Pandas 对 Excel 文件进行读写的操作<br>
+    <content><![CDATA[<p>这篇随笔主要介绍利用 Pandas 对 Excel 文件进行读写的操作<br>
 <span id="more"></span></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="读文件">读文件</h2>
@@ -16110,7 +16111,7 @@ foo
   <entry>
     <title>Pandas - 语法基础 Pt.4</title>
     <url>/data_analysis/03-pandas_04/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+    <content><![CDATA[<p>这篇随笔主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
 Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
@@ -17311,7 +17312,7 @@ MSFT
   <entry>
     <title>Pandas - 语法基础 Pt.3</title>
     <url>/data_analysis/03-pandas_03/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+    <content><![CDATA[<p>这篇随笔主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
 Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
@@ -19273,7 +19274,7 @@ c
   <entry>
     <title>Pandas - 语法基础 Pt.2</title>
     <url>/data_analysis/03-pandas_02/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+    <content><![CDATA[<p>这篇随笔主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
 Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
@@ -20902,7 +20903,7 @@ New York
   <entry>
     <title>Pandas - 语法基础 Pt.1</title>
     <url>/data_analysis/03-pandas_01/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
+    <content><![CDATA[<p>这篇随笔主要介绍 Pandas 的两种数据类型：Series 和 DataFrame 相关的内容<br>
 Pt.1 部分主要介绍对 Pandas 两种数据类型的基本操作，包括创建、索引和修改<br>
 Pt.2 部分详细介绍了 Pandas 的索引操作<br>
 Pt.3 部分主要介绍了 Pandas 的计算和函数<br>
@@ -22273,7 +22274,7 @@ NaN
   <entry>
     <title>NumPy - 语法基础 Pt.2</title>
     <url>/data_analysis/02-numpy_02/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 NumPy 的数据类型和函数使用，包括 NumPy 数组的创建、索引和运算，常用的一元函数和二元函数，统计计算，线性代数计算，数组比较，随机数组的生成以及 NumPy 数组的读取与写出</p>
+    <content><![CDATA[<p>这篇随笔主要介绍 NumPy 的数据类型和函数使用，包括 NumPy 数组的创建、索引和运算，常用的一元函数和二元函数，统计计算，线性代数计算，数组比较，随机数组的生成以及 NumPy 数组的读取与写出</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="数组扩展">数组扩展</h2>
 <h3 id="npmeshgridarr1-arr2--基于两个一维数组arr1和arr2返回两个二维数组"><strong><em>np.meshgrid(arr1, arr2)</em></strong> : 基于两个一维数组arr1和arr2，返回两个二维数组</h3>
@@ -22715,7 +22716,7 @@ S : 奇异值; U : 左奇异向量; V : 右奇异向量</p>
   <entry>
     <title>NumPy - 语法基础 Pt.1</title>
     <url>/data_analysis/02-numpy_01/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 NumPy 的数据类型和函数使用，包括 NumPy 数组的创建、索引和运算，常用的一元函数和二元函数，统计计算，线性代数计算，数组比较，随机数组的生成以及 NumPy 数组的读取与写出</p>
+    <content><![CDATA[<p>这篇随笔主要介绍 NumPy 的数据类型和函数使用，包括 NumPy 数组的创建、索引和运算，常用的一元函数和二元函数，统计计算，线性代数计算，数组比较，随机数组的生成以及 NumPy 数组的读取与写出</p>
 <span id="more"></span>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <h2 id="why-numpy-">Why Numpy ?</h2>
@@ -23322,7 +23323,7 @@ Wall time: 339 ms</code></pre>
   <entry>
     <title>Python - 基础</title>
     <url>/data_analysis/01-python/</url>
-    <content><![CDATA[<p>这篇博客主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的读写</p>
+    <content><![CDATA[<p>这篇随笔主要介绍 Python 的基本语法，包括列表推导式、函数的定义和调用、生成器的使用、异常处理和文件的读写</p>
 <span id="more"></span>
 <h2 id="列表推导式">列表推导式</h2>
 <p><strong><em>result = [ expr for val in collection if condition ]</em></strong></p>
@@ -23439,7 +23440,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
   <entry>
     <title>CDO - 其他操作</title>
     <url>/cdo/cdo_11_Miscellaneous/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 的其他功能，如：滤波、平滑、统计等功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 的其他功能，如：滤波、平滑、统计等功能</p>
 <span id="more"></span>
 <h2 id="其他操作-miscellaneous-operators">其他操作 Miscellaneous Operators</h2>
 <h3 id="时间序列滤波">时间序列滤波</h3>
@@ -23692,7 +23693,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
   <entry>
     <title>CDO - 转换相关的操作</title>
     <url>/cdo/cdo_10_Transformation/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 进行坐标系变换、傅里叶变换和风场与涡度散度之间的转换等功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 进行坐标系变换、傅里叶变换和风场与涡度散度之间的转换等功能</p>
 <span id="more"></span>
 <h2 id="transformation-转换">Transformation 转换</h2>
 <h3 id="spectral-transformation">Spectral transformation</h3>
@@ -23869,7 +23870,7 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
   <entry>
     <title>CDO - 插值操作</title>
     <url>/cdo/cdo_09_Interpolation/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 进行水平网格插值、垂直层插值和时间插值的功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 进行水平网格插值、垂直层插值和时间插值的功能</p>
 <span id="more"></span>
 <h2 id="interpolation-插值">Interpolation 插值</h2>
 <h3 id="水平网格差值">水平网格差值</h3>
@@ -24228,7 +24229,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   <entry>
     <title>CDO - 相关系数和回归系数的计算</title>
     <url>/cdo/cdo_08_Correlation_%20and_Regression/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 进行相关系数、协方差和回归系数计算的相关功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 进行相关系数、协方差和回归系数计算的相关功能</p>
 <span id="more"></span>
 <h2 id="相关系数和协方差-correlation-and-covariance">相关系数和协方差 Correlation and Covariance</h2>
 <p><strong><font color="red">&lt;operator&gt; infile1 infile2 outfile</font></strong></p>
@@ -24345,7 +24346,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   <entry>
     <title>CDO - 统计计算的操作</title>
     <url>/cdo/cdo_07_Statistical/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 进行空间统计及时间统计的相关操作，包括计算 min, max, range, sum, mean, avg, std, var 等统计量</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 进行空间统计及时间统计的相关操作，包括计算 min, max, range, sum, mean, avg, std, var 等统计量</p>
 <span id="more"></span>
 <h2 id="统计计算-statistical-values">统计计算 Statistical Values</h2>
 <p><strong>mean</strong> 和 <strong>average</strong> 的区别：计算 <strong>mean</strong> 时，只考虑非缺失值计入计算的样本；计算 <strong>average</strong> 时，缺失值当做 0 处理进行计算；</p>
@@ -25102,7 +25103,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   <entry>
     <title>CDO - 算术运算的操作</title>
     <url>/cdo/cdo_06_Arithmetic/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 在不同维度上进行算术运算的相关功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 在不同维度上进行算术运算的相关功能</p>
 <span id="more"></span>
 <h2 id="arithmetic-计算">Arithmetic 计算</h2>
 <h3 id="evaluate-expressions-表达式求值">Evaluate expressions 表达式求值</h3>
@@ -25972,7 +25973,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   <entry>
     <title>CDO - 修改操作</title>
     <url>/cdo/cdo_05_Modification/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 对输入数据集进行修改的操作</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 对输入数据集进行修改的操作</p>
 <span id="more"></span>
 <h2 id="修改操作-modification-operators">修改操作 Modification Operators</h2>
 <h3 id="set-设置">Set 设置</h3>
@@ -26347,7 +26348,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   <entry>
     <title>CDO - 比较操作</title>
     <url>/cdo/cdo_04_Comparison/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 将一个数据集与另一个数据集或常数进行比较的功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 将一个数据集与另一个数据集或常数进行比较的功能</p>
 <span id="more"></span>
 <h2 id="比较操作-comparison-operators">比较操作 Comparison Operators</h2>
 <h3 id="comparison-of-two-fields-两个字段的比较">Comparison of two fields 两个字段的比较</h3>
@@ -26395,7 +26396,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   <entry>
     <title>CDO - 选择（切片）操作</title>
     <url>/cdo/cdo_03_Selection/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 根据给定参数或条件进行选择和删除字段的功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 根据给定参数或条件进行选择和删除字段的功能</p>
 <span id="more"></span>
 <h2 id="切片操作-selection-operators">切片操作 Selection Operators</h2>
 <h3 id="select-切片">Select 切片</h3>
@@ -26846,7 +26847,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   <entry>
     <title>CDO - 文件的操作</title>
     <url>/cdo/cdo_02_File/</url>
-    <content><![CDATA[<p>本篇博客将介绍 CDO 文件的复制、拼接和拆分等功能</p>
+    <content><![CDATA[<p>本篇随笔将介绍 CDO 文件的复制、拼接和拆分等功能</p>
 <span id="more"></span>
 <h2 id="文件操作-file-operators">文件操作 File Operators</h2>
 <h3 id="apply">Apply</h3>
@@ -27245,7 +27246,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
     <title>CDO - 信息查询操作</title>
     <url>/cdo/cdo_01_Information/</url>
     <content><![CDATA[<p>CDO (Climate Data Operator) 是用于标准处理气候和模式数据的操作集合，包括简单的统计和算术、数据选择以及空间插值等操作，从而将 GRIB 和 NetCDF4 数据集相同的处理功能集放在一个包中</p>
-<p>本篇博客将介绍 CDO 信息查询的功能</p>
+<p>本篇随笔将介绍 CDO 信息查询的功能</p>
 <span id="more"></span>
 <h2 id="语法">语法</h2>
 <p>进行 CDO 操作的基本语法结构：</p>
