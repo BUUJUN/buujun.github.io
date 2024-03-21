@@ -1,6 +1,7 @@
 
-    https://buujun.fun/welcome/content/
+    https://buujun.fun/data_analysis/tips/
     https://buujun.fun/Linux/tips/
+    https://buujun.fun/welcome/content/
     https://buujun.fun/WRF/02-Running_WRF/
     https://buujun.fun/WRF/01-Instaling_WRF/
     https://buujun.fun/notebooks/%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D/
