@@ -95,6 +95,42 @@
       </tags>
   </entry>
   <entry>
+    <title>Python - 广义极值理论（GEV）</title>
+    <url>/python_atmos/02_GEV/</url>
+    <content><![CDATA[<h3 id="什么是-gev-">什么是 GEV ？</h3>
+<h3 id="如何通过-python-实现-gev-">如何通过 Python 实现 GEV ？</h3>
+<h4 id="stationary-gev-model">Stationary GEV model</h4>
+<p><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.genextreme.html"><code>scipy.stats.genextreme</code></a></p>
+<h4 id="non-stationary-gev-model">Non-stationary GEV model</h4>
+<p><a href="https://github.com/yrobink/SDFC-python">SDFC (Statistical Distribution Fit with Covariates)</a></p>
+<p><a href="https://cran.r-project.org/web/packages/climextRemes/index.html">climextRemes (Tools for Analyzing Climate Extremes)</a></p>
+<p><a href="https://amir.eng.uci.edu/neva.php">NEVA (Non-stationary Extreme Value Analysis)</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>R</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python - 碎碎念</title>
+    <url>/data_analysis/tips/</url>
+    <content><![CDATA[<h2 id="xarray">Xarray</h2>
+<h3 id="xrresample-的等效替换">xr.resample 的等效替换</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">date = pd.date_range(<span class="string">'2000-01-01'</span>, <span class="string">'2001-12-31'</span>, freq=<span class="string">'D'</span>)</span><br><span class="line">lon = np.arange(<span class="number">0</span>, <span class="number">360</span>, <span class="number">2.5</span>)</span><br><span class="line">lat = np.arange(-<span class="number">90</span>, <span class="number">92.5</span>, <span class="number">2.5</span>)</span><br><span class="line">data = xr.DataArray(data=np.random.rand(date.size, lon.size, lat.size), </span><br><span class="line">                    dims=[<span class="string">'time'</span>, <span class="string">'lon'</span>, <span class="string">'lat'</span>], </span><br><span class="line">                    coords=<span class="built_in">dict</span>(time=date, lon=lon, lat=lat))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 求 data 各月的最大值</span></span><br><span class="line"><span class="comment">## 法一 resample</span></span><br><span class="line">mmax = data.resample(time=<span class="string">'M'</span>).<span class="built_in">max</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 法二 groupby</span></span><br><span class="line">groupbins = xr.DataArray(data=data.indexes[<span class="string">'time'</span>].to_period(<span class="string">'M'</span>).to_timestamp(), </span><br><span class="line">                         dims=[<span class="string">'time'</span>], coords=<span class="built_in">dict</span>(time=data.time))</span><br><span class="line">mmax = data.groupby(groupbins).<span class="built_in">max</span>()</span><br></pre></td></tr></table></figure>
+<p><code>.groupby</code> 搭配 <code>.apply()</code> 使用相比 <code>.resample</code> 更自由~</p>
+<h2 id="未完待续">未完待续…</h2>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python - 小波变换</title>
     <url>/python_atmos/01_%E5%B0%8F%E6%B3%A2%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<p>本篇随笔介绍利用 Python 实现小波变换和逆变换，并进行相关分析</p>
@@ -112,10 +148,10 @@
 <a href="https://pywavelets.readthedocs.io/en/latest/">https://pywavelets.readthedocs.io/en/latest/</a></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -160,22 +196,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python - 碎碎念</title>
-    <url>/data_analysis/tips/</url>
-    <content><![CDATA[<h2 id="xarray">Xarray</h2>
-<h3 id="xrresample-的等效替换">xr.resample 的等效替换</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">date = pd.date_range(<span class="string">'2000-01-01'</span>, <span class="string">'2001-12-31'</span>, freq=<span class="string">'D'</span>)</span><br><span class="line">lon = np.arange(<span class="number">0</span>, <span class="number">360</span>, <span class="number">2.5</span>)</span><br><span class="line">lat = np.arange(-<span class="number">90</span>, <span class="number">92.5</span>, <span class="number">2.5</span>)</span><br><span class="line">data = xr.DataArray(data=np.random.rand(date.size, lon.size, lat.size), </span><br><span class="line">                    dims=[<span class="string">'time'</span>, <span class="string">'lon'</span>, <span class="string">'lat'</span>], </span><br><span class="line">                    coords=<span class="built_in">dict</span>(time=date, lon=lon, lat=lat))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 求 data 各月的最大值</span></span><br><span class="line"><span class="comment">## 法一 resample</span></span><br><span class="line">mmax = data.resample(time=<span class="string">'M'</span>).<span class="built_in">max</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 法二 groupby</span></span><br><span class="line">groupbins = xr.DataArray(data=data.indexes[<span class="string">'time'</span>].to_period(<span class="string">'M'</span>).to_timestamp(), </span><br><span class="line">                         dims=[<span class="string">'time'</span>], coords=<span class="built_in">dict</span>(time=data.time))</span><br><span class="line">mmax = data.groupby(groupbins).<span class="built_in">max</span>()</span><br></pre></td></tr></table></figure>
-<p>好处：<code>groupby</code> 搭配 <code>.apply()</code> 使用更自由~</p>
-<h2 id="未完待续">未完待续…</h2>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CESM2 - 下载与移植</title>
     <url>/cesm/cesm_01_%E7%A7%BB%E6%A4%8D/</url>
     <content><![CDATA[<h3 id="cesm-介绍">CESM 介绍</h3>
@@ -184,7 +204,7 @@
 <ul>
 <li>UNIX 风格的操作系统，如：CNL, AIX 或 Linux<br>
 </li>
-<li>python &gt;=2.7</li>
+<li>Python &gt;=2.7</li>
 <li>perl 5</li>
 <li>subversion (&gt;=1.8 and &lt;=1.1)</li>
 <li>git &gt;=1.8</li>
@@ -245,8 +265,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>linux</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -307,8 +327,8 @@
         <category>matplotlib</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>matplotlib</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1178,11 +1198,11 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
         <category>xarray</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>xarray</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1502,11 +1522,11 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
         <category>xarray</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>xarray</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2678,9 +2698,9 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
         <tag>datetime</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -3236,11 +3256,11 @@ Dinner
         <category>matplotlib</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>seaborn</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -3384,9 +3404,9 @@ Dinner
         <category>matplotlib</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -5028,8 +5048,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -6893,8 +6913,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -8418,8 +8438,8 @@ b
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -10417,8 +10437,8 @@ baz
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -11260,8 +11280,8 @@ data
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -12517,8 +12537,8 @@ NEW
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -14179,8 +14199,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -16144,8 +16164,8 @@ foo
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -17345,8 +17365,8 @@ MSFT
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -19307,8 +19327,8 @@ c
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -20936,8 +20956,8 @@ New York
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -22307,8 +22327,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>pandas</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -22749,8 +22769,8 @@ S : 奇异值; U : 左奇异向量; V : 右奇异向量</p>
         <category>numpy</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>numpy</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -23356,8 +23376,8 @@ Wall time: 339 ms</code></pre>
         <category>numpy</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>numpy</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -23471,10 +23491,10 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
 致橡树</code></pre>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
