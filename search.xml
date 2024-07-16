@@ -7,8 +7,8 @@
 <p>I am a master student in the <a href="https://atmos.sysu.edu.cn/">School of Atmospheric Sciences, Sun Yat-sen University</a>. I graduated from <a href="https://www.cuit.edu.cn/">Chengdu University of Information and Technology</a> with a bachelor's degree. My research involves climate change of extreme precipitation under global warming, machine learning, statistical model and complex network.</p>
 <p>In my spare time, I like badminton, cycling, hiking, rock music and technology. This website will mainly share my favorite music, photos and bits and pieces of technical experience.</p>
 <h2 id="research-interests">Research Interests</h2>
-<p><strong>Extreme Preciptation</strong>: Gloabl Warming, Tropical Sea Temperature, EASM, WPSH, Teleconnect Relation.</p>
-<p><strong>Machine Learning</strong>: Diffusion Model, Probabilistic Machine Learning, CNN, LSTM.</p>
+<p><strong>Extreme Preciptation</strong>: Gloabl Warming, Internal Atmospheric Variability, Future Changes.</p>
+<p><strong>Machine Learning</strong>: Residual Network, Attention Mechanism, Diffusion Model, et al.</p>
 <span id="more"></span>
 <h2 id="some-records">Some Records</h2>
 <p><strong>2023-10-02 板障山</strong><br>
@@ -265,8 +265,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>Python</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -327,8 +327,8 @@
         <category>matplotlib</category>
       </categories>
       <tags>
-        <tag>matplotlib</tag>
         <tag>Python</tag>
+        <tag>matplotlib</tag>
       </tags>
   </entry>
   <entry>
@@ -1198,11 +1198,11 @@ full = True代表回归方法不仅要返回拟合系数（一元回归即斜率
         <category>xarray</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>xarray</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1522,11 +1522,11 @@ dim1 给定了在 dim1 方向上的筛选数据的步长， dim2 给定了在 di
         <category>xarray</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>xarray</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2698,9 +2698,9 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>pandas</tag>
         <tag>datetime</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -3256,11 +3256,11 @@ Dinner
         <category>matplotlib</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
         <tag>pandas</tag>
         <tag>seaborn</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -3404,9 +3404,9 @@ Dinner
         <category>matplotlib</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>matplotlib</tag>
         <tag>numpy</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -5048,8 +5048,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -6913,8 +6913,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -8438,8 +8438,8 @@ b
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -10437,8 +10437,8 @@ baz
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -11280,8 +11280,8 @@ data
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -12537,8 +12537,8 @@ NEW
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -14199,8 +14199,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -16164,8 +16164,8 @@ foo
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -17365,8 +17365,8 @@ MSFT
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -19327,8 +19327,8 @@ c
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -20956,8 +20956,8 @@ New York
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -22327,8 +22327,8 @@ NaN
         <category>pandas</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
         <tag>Python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -22769,8 +22769,8 @@ S : 奇异值; U : 左奇异向量; V : 右奇异向量</p>
         <category>numpy</category>
       </categories>
       <tags>
-        <tag>numpy</tag>
         <tag>Python</tag>
+        <tag>numpy</tag>
       </tags>
   </entry>
   <entry>
@@ -23376,8 +23376,8 @@ Wall time: 339 ms</code></pre>
         <category>numpy</category>
       </categories>
       <tags>
-        <tag>numpy</tag>
         <tag>Python</tag>
+        <tag>numpy</tag>
       </tags>
   </entry>
   <entry>
@@ -24212,11 +24212,6 @@ b'\xd6\xc2\xcf\xf0\xca\xf7\xa3\xba\r\n'</code></pre>
 <td><strong>intlevel3d<font color="green">,tgtcoordinate</font></strong></td>
 <td>根据给定的三维垂直坐标系 <code>infile2</code> 对三位变量场 <code>infile1</code> 进行线性垂直插值； <br> 参数 <strong><font color="green">tgtcoordinate</font></strong> 是一个具有三维垂直高度层坐标的文件</td>
 </tr>
-<tr class="even">
-<td><strong>线性垂直插值</strong></td>
-<td><strong>intlevelx3d<font color="green">,tgtcoordinate</font></strong></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <ul>
@@ -24288,7 +24283,7 @@ infile1 为 1985 年的 12 个时间步， infile2 为 1990 年的 12 个时间�
   </entry>
   <entry>
     <title>CDO - 相关系数和回归系数的计算</title>
-    <url>/cdo/cdo_08_Correlation_%20and_Regression/</url>
+    <url>/cdo/cdo_08_Correlation_and_Regression/</url>
     <content><![CDATA[<p>本篇随笔将介绍 CDO 进行相关系数、协方差和回归系数计算的相关功能</p>
 <span id="more"></span>
 <h2 id="相关系数和协方差-correlation-and-covariance">相关系数和协方差 Correlation and Covariance</h2>
